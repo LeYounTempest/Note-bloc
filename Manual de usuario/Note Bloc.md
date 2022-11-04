@@ -19,6 +19,7 @@
 ----
 * Asi tambien en el apartado de ayuda podemos ver bastante informacion que nos puede ayudar en caso de querer saber como funciona el programa:
 !["ilustracion"](Foto7.png)
+* Informacion subida a canvas.
 !["ilustracion"](Foto8.png)
 * asi tambien como el manual de usuario que veras proximamente en este repositorio en github :D.
 !["ilustracion"](Fotofinal.png)
