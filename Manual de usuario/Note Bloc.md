@@ -17,8 +17,7 @@
 ----
 ## El apartado de Editar aun no esta completo.
 ----
-* Asi tambien en el apartado de ayuda podemos ver bastante informacion que nos puede ayudar en caso de querer saber como funciona el programa:
-___
+* Asi tambien en el apartado de ayuda nos puede ayudar en caso de querer saber como funciona el programa:
 !["ilustracion"](Foto7.png)
 !["ilustracion"](Foto8.png)
 * asi tambien como el manual de usuario que veras proximamente en este repositorio en github :D.
