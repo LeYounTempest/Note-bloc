@@ -15,16 +15,7 @@
 * ahora lo podemos guardar con cualquier nombre o tipo de texto.
 !["ilustracion"](foto6.png)
 ----
-## El apartado de Editar aun no esta completo.
-----
-* Asi tambien en el apartado de ayuda podemos ver bastante informacion que nos puede ayudar en caso de querer saber como funciona el programa:
-!["ilustracion"](Foto7.png)
-* Informacion subida a canvas.
-!["ilustracion"](Foto8.png)
-* asi tambien como el manual de usuario que veras proximamente en este repositorio en github :D.
-!["ilustracion"](Fotofinal.png)
-
-
+## Asi de esta forma pueden saber como funciona el programa ya que todas las opciones estan colocadas para ser faciles de entender.
 ----
 #### El siguiente codigo es lo que se ocupo en la aplicacion:
 ```py
