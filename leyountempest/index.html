@@ -172,6 +172,8 @@ section.alt { background: var(--bg-alt); }
 .slot.mascota img { object-fit: contain; padding: var(--sp-3); min-width: 0; min-height: 0; }
 .slot.mascota .ph { display: none; }
 .slot img.extra { display: none; }
+.tile .slot.mascota { display: block; }
+.tile .slot.mascota img { width: 100%; height: 100%; }
 .slot.mascota { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 1fr); }
 .slot.mascota img.extra { display: block; }
 
@@ -436,10 +438,10 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
       <div class="sec-head reveal"><span class="sec-num">IV</span><h2>Modelos 3D de Monster Siege</h2></div>
       <p class="dim reveal" style="margin-bottom:var(--sp-4)">Personajes, monstruos y piezas del juego. Cada ficha muestra un modelo terminado.</p>
       <div class="grid3">
-        <!-- Reemplaza cada ficha: assets/modelo-1.jpg, modelo-2.jpg, modelo-3.jpg y cambia título y texto -->
+        <!-- Ficha 1: modelo de Alice. Fichas 2 y 3: assets/modelo-2.jpg y modelo-3.jpg (cambia título y texto) -->
         <article class="tile reveal">
-          <div class="slot"><img src="assets/modelo-1.jpg" alt="Modelo 3D 1 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 1</div></div></div>
-          <h3>Monstruo 1</h3><p>Nombre del modelo y para qué se usa.</p>
+          <div class="slot mascota"><img src="assets/alice-modelo.webp" alt="Modelo 3D de Alice: dragona chibi de cabello oscuro, cuernos con joyas y vestido negro con volantes" width="266" height="425" loading="lazy"></div>
+          <h3>Alice</h3><p>Modelo 3D de Alice, mi IA local.</p>
         </article>
         <article class="tile reveal" style="--d:.08s">
           <div class="slot"><img src="assets/modelo-2.jpg" alt="Modelo 3D 2 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 2</div></div></div>
