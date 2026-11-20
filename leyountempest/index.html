@@ -193,6 +193,13 @@ section.alt { background: var(--bg-alt); }
 .goal { flex: 1 1 280px; }
 .bar { height: 10px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 10px 0 6px; }
 .bar i { display: block; height: 100%; width: 2%; background: linear-gradient(90deg, var(--accent-deep), var(--accent)); }
+/* donadores de Ko-fi */
+.donors-wrap { margin-top: var(--sp-5); }
+.donors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.donors li { display: inline-flex; align-items: center; gap: var(--sp-2); padding: var(--sp-1) var(--sp-3); border-radius: 999px; font-size: 17px; background: color-mix(in srgb, var(--accent-deep) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent); }
+.donors li::before { content: "♥"; color: var(--accent); font-size: 14px; }
+.donors li.vacio { background: none; box-shadow: none; padding-inline: 0; font-style: italic; color: var(--ink-dim); }
+.donors li.vacio::before { content: none; }
 footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-size: 16px; }
 
 /* ---------- aparición al hacer scroll (único momento animado además de los pétalos) ---------- */
@@ -493,6 +500,14 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
           <span class="dim" style="font-size:16px">Actualizo esta barra cuando llegan aportes.</span>
         </div>
         <a class="btn solid" href="https://ko-fi.com/leyountempest" rel="noopener">Apoyar en Ko-fi</a>
+      </div>
+      <!-- Donadores de Ko-fi: para agregar a alguien, copia un <li> y cambia el nombre (con su permiso).
+           Cuando haya al menos un nombre, borra el <li class="vacio">. -->
+      <div class="donors-wrap reveal">
+        <h3 class="eyebrow">Gracias a quienes me apoyan</h3>
+        <ul class="donors" aria-label="Personas que me han apoyado en Ko-fi">
+          <li class="vacio">Aquí aparecerán los nombres de quienes me apoyen en Ko-fi.</li>
+        </ul>
       </div>
       <p class="dim" style="margin-top:var(--sp-5)">Contacto para proyectos: por mensaje en Ko-fi. El correo estará aquí próximamente.</p>
     </div>
