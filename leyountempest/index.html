@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeYounTempest</title>
+<meta name="description" content="Modelos 3D, páginas web y juegos. Portafolio de LeYounTempest con Aurelia (mi OC), Alice (IA local), Monster Siege y un RTS en desarrollo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<!-- Marca que hay JS: solo entonces se ocultan los bloques .reveal. Sin JS todo queda visible. -->
+<script>document.documentElement.className += ' js';</script>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<style>
+/* Dirección: salón de té de la dragona. Negro con morado profundo, acento rosa corinto, serif estilo Times.
+   Layout: portada con Aurelia fundida con el fondo, luego secciones numeradas con fondo alterno. */
+:root {
+  --bg: #0b0610;
+  --bg-alt: #110a18;        /* fondo alterno sutil para separar bloques */
+  --bg-2: #160d1d;          /* paneles */
+  --line: #3a2147;
+  --ink: #f3e8ef;
+  --ink-dim: #bba4b7;
+  --accent: #e0527e;
+  --accent-deep: #9c1f46;
+  --violet: #9b6bd6;
+  --serif: "Tinos", "Times New Roman", Times, serif;
+
+  /* escala de espacios: 4 / 8 / 16 / 24 / 40 / 64 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 40px;
+  --sp-6: 64px;
+  --section-y: var(--sp-5);
+
+  color-scheme: dark;
+}
+@media (min-width: 760px) { :root { --section-y: var(--sp-6); } }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+
+/* ---------- barra superior ---------- */
+.top { position: relative; z-index: 10; background: var(--bg); }
+.top .wrap { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1); padding-block: var(--sp-2) var(--sp-3); }
+.brand { font-weight: 700; font-size: 20px; letter-spacing: .01em; text-decoration: none; }
+.brand i { color: var(--accent); }
+.top nav { display: flex; gap: var(--sp-1) var(--sp-3); flex-wrap: wrap; font-size: 16px; color: var(--ink-dim); }
+.top nav a { text-decoration: none; }
+.top nav a:hover { color: var(--ink); }
+
+/* ---------- tipografía ---------- */
+.kicker { font-size: 14px; color: var(--accent); letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 var(--sp-3); }
+h1 { font-weight: 700; font-size: clamp(46px, 9vw, 92px); line-height: .98; margin: 0 0 var(--sp-4); letter-spacing: -.015em; text-wrap: balance; }
+h1 em { color: var(--accent); font-style: italic; }
+h2 { font-weight: 700; font-size: clamp(32px, 5.5vw, 52px); margin: 0; line-height: 1.04; letter-spacing: -.01em; text-wrap: balance; }
+h3 { font-weight: 700; margin: 0; line-height: 1.2; }
+p { margin: 0 0 var(--sp-3); max-width: 62ch; }
+.lead { max-width: 46ch; font-size: clamp(19px, 2.2vw, 22px); color: var(--ink-dim); margin: 0 0 var(--sp-4); }
+.lead strong { color: var(--ink); }
+.dim { color: var(--ink-dim); }
+.eyebrow { display: flex; align-items: center; gap: var(--sp-3); margin: 0 0 var(--sp-4); font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.eyebrow::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+
+/* ---------- botones ---------- */
+.cta { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.btn { display: inline-block; padding: 12px var(--sp-4); border-radius: 4px; font-weight: 700; font-size: 17px; text-decoration: none; border: 2px solid var(--accent-deep); font-family: var(--serif); }
+.btn.solid { background: var(--accent-deep); color: #fff; }
+.btn.solid:hover { background: #b3254f; border-color: #b3254f; }
+.btn.ghost { color: var(--ink); border-color: var(--violet); }
+.btn.ghost:hover { background: color-mix(in srgb, var(--violet) 20%, transparent); }
+
+/* ---------- portada: Aurelia fundida con el fondo ---------- */
+.hero { position: relative; overflow: hidden; background: radial-gradient(900px 520px at 78% 38%, #2a1236 0%, transparent 70%), var(--bg); }
+#petals { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; z-index: 2; }
+.hero-art { position: relative; z-index: 1; margin: 0; }
+.hero-art picture { display: block; }
+.hero-art img {
+  display: block; width: 100%; height: 100%; object-fit: cover; border: 0;
+  /* móvil: el borde inferior se funde con el fondo */
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 52%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0, #000 52%, transparent 100%);
+}
+.hero .wrap { position: relative; z-index: 3; margin-top: calc(var(--sp-6) * -1); padding-bottom: var(--sp-5); }
+.hero-text { text-shadow: 0 2px 18px rgba(11, 6, 16, .85); }
+
+/* móvil primero: recorte cuadrado (rostro, cuernos y cola) arriba, texto debajo */
+.hero-art { aspect-ratio: 1 / 1; max-height: 560px; }
+
+/* escritorio: recorte panorámico a la derecha, con fundido a la izquierda y abajo */
+@media (min-width: 861px) {
+  .top { position: sticky; top: 0; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); }
+  .top .wrap { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--sp-3); padding-block: var(--sp-2); }
+  h1 em { display: block; }
+  .hero { min-height: clamp(520px, 44vw, 700px); display: flex; align-items: center; }
+  .hero-art { position: absolute; top: 0; right: 0; bottom: 0; width: 68%; aspect-ratio: auto; max-height: none; }
+  .hero-art img {
+    object-position: 38% 30%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 20%), linear-gradient(180deg, #000 0, #000 74%, transparent 100%);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(90deg, transparent 0, #000 20%), linear-gradient(180deg, #000 0, #000 74%, transparent 100%);
+            mask-composite: intersect;
+  }
+    .hero .wrap { margin-top: 0; padding-block: var(--sp-6); }
+  .hero-text { max-width: 440px; }
+}
+
+/* ---------- secciones con ritmo ---------- */
+section.block { padding-block: var(--section-y); }
+section.alt { background: var(--bg-alt); }
+.sec-head { display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-5); }
+.sec-num { color: var(--accent); font-weight: 700; font-style: italic; font-size: 20px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); align-items: start; }
+.card { background: color-mix(in srgb, var(--bg-2) 85%, transparent); border-radius: 12px; padding: var(--sp-4); }
+.pill-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-2); }
+.pill { font-size: 15px; padding: var(--sp-1) 12px; border-radius: 999px; color: var(--ink-dim); background: color-mix(in srgb, var(--violet) 12%, transparent); }
+
+/* ---------- Aurelia: composición editorial ---------- */
+.diseno { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-5); align-items: center; }
+.cuerpo { margin: 0; justify-self: center; width: min(100%, 420px); }
+.cuerpo img { display: block; width: 100%; height: auto; }
+.oc-texto { display: flex; flex-direction: column; gap: var(--sp-4); align-items: flex-start; }
+.retrato { display: block; width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--accent-deep), 0 0 0 10px rgba(155, 107, 214, .14), 0 24px 48px rgba(0, 0, 0, .5); }
+.oc-texto p { margin: 0; }
+.facts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3) var(--sp-4); width: 100%; }
+.facts li { padding: 0 0 var(--sp-2); font-size: 17px; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
+.facts b { display: block; color: var(--accent); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+
+.subbloque { margin-top: var(--sp-6); }
+.detalles { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
+.detalle { display: grid; grid-template-columns: 112px 1fr; gap: var(--sp-3); align-items: center; margin: 0; }
+.detalle img { display: block; width: 112px; height: 112px; object-fit: contain; }
+.detalle figcaption { font-size: 17px; color: var(--ink-dim); line-height: 1.4; }
+.detalle figcaption b { display: block; color: var(--ink); font-size: 20px; margin-bottom: var(--sp-1); }
+
+.expr { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-3); justify-content: space-between; }
+.expr li { width: calc((100% - 2 * var(--sp-3)) / 3); text-align: center; margin: 0; }
+.expr img { display: block; width: 100%; max-width: 128px; margin-inline: auto; height: auto; border-radius: 10px; box-shadow: 0 10px 24px rgba(0, 0, 0, .45); }
+.expr span { display: block; margin-top: var(--sp-2); font-size: 15px; color: var(--ink-dim); }
+
+.ref { margin: var(--sp-5) 0 0; font-size: 15px; color: var(--ink-dim); }
+.ref a { text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ink-dim) 40%, transparent); text-underline-offset: 3px; }
+.ref a:hover { color: var(--ink); text-decoration-color: var(--accent); }
+
+/* ---------- forma verdadera ---------- */
+.verdadera { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-5); align-items: center; }
+.verdadera figure { margin: 0; }
+.verdadera img { display: block; width: 100%; max-width: 665px; height: auto; margin-inline: auto; }
+
+/* ---------- espacios de imagen (Alice y modelos) ---------- */
+.slot { aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; background: #08040c; border: 1px dashed var(--line); position: relative; }
+.slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot .ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: var(--sp-3); color: var(--ink-dim); font-size: 16px; font-style: italic; }
+.slot .ph svg { display: block; margin: 0 auto var(--sp-2); opacity: .8; }
+
+/* galería 3D */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.tile h3 { font-size: 21px; margin: var(--sp-3) 0 var(--sp-1); }
+.tile p { font-size: 17px; color: var(--ink-dim); margin: 0; }
+
+/* bitácora */
+.log { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+.log li { position: relative; padding: 0 0 var(--sp-4) var(--sp-4); }
+.log li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+.log li.next::before { background: var(--bg); border: 2px solid var(--accent); }
+.log time { font-size: 15px; color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.log h3 { font-size: 23px; margin: var(--sp-1) 0 var(--sp-2); }
+
+/* servicios */
+.svc { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.svc .card { padding: var(--sp-4) var(--sp-4) var(--sp-5); }
+.svc .card h3 { font-size: 24px; margin: 0 0 var(--sp-2); }
+.svc ul { margin: var(--sp-3) 0 0; padding-left: 20px; color: var(--ink-dim); font-size: 17px; }
+.svc li { margin-bottom: var(--sp-1); }
+
+/* apoyo */
+.support { display: flex; gap: var(--sp-4); align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.goal { flex: 1 1 280px; }
+.bar { height: 10px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 10px 0 6px; }
+.bar i { display: block; height: 100%; width: 2%; background: linear-gradient(90deg, var(--accent-deep), var(--accent)); }
+footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-size: 16px; }
+
+/* ---------- aparición al hacer scroll (único momento animado además de los pétalos) ---------- */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0s); }
+.js .reveal.in { opacity: 1; transform: none; }
+/* red de seguridad: si el script principal no llega a correr, todo aparece a los 5 s */
+.js:not(.ready) .reveal { animation: revealSeguro .01s linear 5s forwards; }
+@keyframes revealSeguro { to { opacity: 1; transform: none; } }
+
+/* ---------- tablet y móvil ---------- */
+@media (min-width: 760px) {
+  .detalles { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .detalle { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: var(--sp-3); }
+  .detalle img { width: min(100%, 260px); height: auto; aspect-ratio: 1; }
+  .retrato { width: 240px; height: 240px; }
+  .expr { flex-wrap: nowrap; }
+  .expr li { width: 128px; flex: 0 1 128px; }
+}
+@media (max-width: 860px) {
+  .diseno, .verdadera { grid-template-columns: 1fr; }
+  .cuerpo { width: min(100%, 340px); }
+  .retrato { margin-inline: auto; }
+  .oc-texto { align-items: stretch; }
+  .verdadera figure { order: -1; }
+}
+@media (max-width: 760px) {
+  .two, .grid3, .svc { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; }
+  .top nav { gap: var(--sp-1) 12px; font-size: 15px; }
+  .kicker { letter-spacing: .12em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .js:not(.ready) .reveal { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">LeYoun<i>Tempest</i></a>
+    <nav aria-label="Secciones">
+      <a href="#aurelia">Aurelia</a>
+      <a href="#alice">Alice</a>
+      <a href="#modelos">Modelos 3D</a>
+      <a href="#rts">RTS</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#apoyo">Apoyo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <canvas id="petals" aria-hidden="true"></canvas>
+    <!-- Dirección de arte: dos recortes distintos de aurelia-cafe.jpg (ver herramientas/recortes.py).
+         Móvil: cuadrado con cuernos, rostro y cola. Escritorio: panorámico 16:9. -->
+    <figure class="hero-art">
+      <picture>
+        <source media="(min-width: 861px)" type="image/webp"
+                srcset="assets/aurelia/aurelia-portada-escritorio-800.webp 800w, assets/aurelia/aurelia-portada-escritorio.webp 1536w" sizes="68vw">
+        <source media="(min-width: 861px)" type="image/jpeg"
+                srcset="assets/aurelia/aurelia-portada-escritorio-800.jpg 800w, assets/aurelia/aurelia-portada-escritorio.jpg 1536w" sizes="68vw">
+        <source type="image/webp"
+                srcset="assets/aurelia/aurelia-portada-movil-800.webp 800w, assets/aurelia/aurelia-portada-movil.webp 1024w" sizes="100vw">
+        <img src="assets/aurelia/aurelia-portada-movil.jpg"
+             srcset="assets/aurelia/aurelia-portada-movil-800.jpg 800w, assets/aurelia/aurelia-portada-movil.jpg 1024w" sizes="100vw"
+             alt="Aurelia, una dragona de cuernos negros, cola de escamas moradas y ojos violeta, con los brazos cruzados dentro de una pastelería con glicinas"
+             width="1024" height="1024" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="kicker">Guatemala · Modelos 3D · Web · Juegos</p>
+        <h1>LeYoun<em>Tempest</em></h1>
+        <p class="lead">Hago <strong>modelos 3D</strong>, <strong>páginas web</strong> y <strong>juegos</strong>. Aquí están Aurelia, mi OC, mi IA local Alice, los modelos de Monster Siege y el avance de mi RTS.</p>
+        <div class="cta">
+          <a class="btn solid" href="#servicios">Ver servicios</a>
+          <a class="btn ghost" href="#aurelia">Conocer a Aurelia</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- I · Aurelia: cuerpo completo grande, retrato circular, detalles y expresiones -->
+  <section class="block" id="aurelia">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">I</span><h2>Aurelia, mi OC</h2></div>
+
+      <div class="diseno">
+        <figure class="cuerpo reveal">
+          <picture>
+            <source type="image/webp" srcset="assets/aurelia/aurelia-cuerpo.webp 590w" sizes="(min-width: 861px) 420px, 340px">
+            <img src="assets/aurelia/aurelia-cuerpo.jpg" width="590" height="1148" loading="lazy" decoding="async"
+                 alt="Aurelia de cuerpo completo, de frente: dragona de cuernos negros con vestido largo negro de mangas transparentes y cola de escamas arcoíris">
+          </picture>
+        </figure>
+        <div class="oc-texto reveal" style="--d:.1s">
+          <picture>
+            <source type="image/webp" srcset="assets/aurelia/aurelia-rostro-800.webp 800w, assets/aurelia/aurelia-rostro.webp 1080w" sizes="(min-width: 760px) 240px, 200px">
+            <img class="retrato" src="assets/aurelia/aurelia-rostro-800.jpg"
+                 srcset="assets/aurelia/aurelia-rostro-800.jpg 800w, assets/aurelia/aurelia-rostro.jpg 1080w" sizes="(min-width: 760px) 240px, 200px"
+                 width="1080" height="1080" loading="lazy" decoding="async"
+                 alt="Retrato de Aurelia: rostro de perfil con cuernos negros, lazo corinto con borla dorada y ojos violeta">
+          </picture>
+          <p>Aurelia es una dragona ancestral que vive entre humanos con forma humana de 2.00 m. Es amable con todos, seria e imponente, con pocas emociones en el rostro. Su cola de escamas arcoíris refleja la luz y sus uñas siguen siendo garras de dragón.</p>
+          <ul class="facts">
+            <li><b>Especie</b>Dragona</li>
+            <li><b>Altura</b>2.00 m en forma humana</li>
+            <li><b>Personalidad</b>Amable, seria, curiosa y protectora</li>
+            <li><b>Forma verdadera</b>Dragón ancestral de cuatro alas</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Cuernos negros</span>
+            <span class="pill">Ojos violeta</span>
+            <span class="pill">Escamas arcoíris</span>
+            <span class="pill">Vestido negro y corinto</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="subbloque reveal">
+        <h3 class="eyebrow">Detalles</h3>
+        <ul class="detalles">
+          <li>
+            <figure class="detalle">
+              <picture>
+                <source type="image/webp" srcset="assets/aurelia/aurelia-cola.webp 292w" sizes="(min-width: 760px) 260px, 112px">
+                <img src="assets/aurelia/aurelia-cola.jpg" width="292" height="292" loading="lazy" decoding="async"
+                     alt="Detalle de la cola de Aurelia: escamas iridiscentes que pasan del morado al verde y al dorado, con espinas a lo largo del borde">
+              </picture>
+              <figcaption><b>Cola</b>Escamas arcoíris que reflejan la luz.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="detalle">
+              <picture>
+                <source type="image/webp" srcset="assets/aurelia/aurelia-garras.webp 292w" sizes="(min-width: 760px) 260px, 112px">
+                <img src="assets/aurelia/aurelia-garras.jpg" width="292" height="292" loading="lazy" decoding="async"
+                     alt="Detalle de la mano de Aurelia con uñas largas y curvas como garras de dragón, de reflejo azul y violeta, y una muñequera negra con cadenas doradas">
+              </picture>
+              <figcaption><b>Garras</b>Sus uñas siguen siendo garras de dragón.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="detalle">
+              <picture>
+                <source type="image/webp" srcset="assets/aurelia/aurelia-vestido.webp 396w" sizes="(min-width: 760px) 260px, 112px">
+                <img src="assets/aurelia/aurelia-vestido.jpg" width="396" height="396" loading="lazy" decoding="async"
+                     alt="Detalle del vestido de Aurelia: cuello alto de malla negra con una joya violeta, corsé con adornos dorados y mangas transparentes con volantes">
+              </picture>
+              <figcaption><b>Vestido y joya</b>Vestido negro con detalles color corinto y adornos dorados.</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+
+      <div class="subbloque reveal">
+        <h3 class="eyebrow">Expresiones</h3>
+        <ul class="expr">
+          <li><img src="assets/aurelia/aurelia-expr-1.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia con expresión neutral, mirada serena"><span>Neutral</span></li>
+          <li><img src="assets/aurelia/aurelia-expr-2.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia con expresión amable, mirada suave y media sonrisa"><span>Amable</span></li>
+          <li><img src="assets/aurelia/aurelia-expr-3.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia sorprendida, con la boca entreabierta"><span>Sorpresa</span></li>
+          <li><img src="assets/aurelia/aurelia-expr-4.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia molesta, con la mirada de lado y el ceño fruncido"><span>Molesta</span></li>
+          <li><img src="assets/aurelia/aurelia-expr-5.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia con una sonrisa leve y un ojo cerrado en guiño"><span>Sonrisa leve</span></li>
+          <li><img src="assets/aurelia/aurelia-expr-6.jpg" width="119" height="119" loading="lazy" decoding="async" alt="Aurelia riendo con los ojos cerrados y la boca abierta"><span>Risa</span></li>
+        </ul>
+        <p class="ref">Ver hoja de referencia completa:
+          <a href="assets/aurelia-concepto.jpg" target="_blank" rel="noopener">concepto</a> ·
+          <a href="assets/aurelia-ficha-1.jpg" target="_blank" rel="noopener">ficha 1</a> ·
+          <a href="assets/aurelia-ficha-2.jpg" target="_blank" rel="noopener">ficha 2</a>
+          <span class="dim">(se abren en otra pestaña)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- II · Forma verdadera -->
+  <section class="block alt" id="forma-verdadera">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">II</span><h2>Forma verdadera</h2></div>
+      <div class="verdadera">
+        <div class="reveal">
+          <p>Un dragón ancestral de cuatro alas con escamas arcoíris.</p>
+          <p class="dim">Prefiere no adoptar esta forma para no intimidar ni dañar a nadie.</p>
+        </div>
+        <figure class="reveal" style="--d:.1s">
+          <picture>
+            <source type="image/webp" srcset="assets/aurelia/aurelia-dragon.webp 665w" sizes="(min-width: 861px) 560px, 100vw">
+            <img src="assets/aurelia/aurelia-dragon.jpg" width="665" height="594" loading="lazy" decoding="async"
+                 alt="La forma verdadera de Aurelia: un dragón ancestral de escamas negras iridiscentes con cuatro alas membranosas extendidas">
+          </picture>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="alice">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">III</span><h2>Alice, mi IA local</h2></div>
+      <div class="two reveal">
+        <div>
+          <p>Alice es una IA que corre en mi propia computadora, sin enviar mis proyectos a servicios externos. La uso como asistente para programar, ordenar ideas y avanzar más rápido en mis juegos y en mis trabajos para clientes.</p>
+          <p class="dim">Lo que hace por mí: apoyo en código, redacción de textos y organización de tareas.</p>
+          <div class="pill-row">
+            <span class="pill">Corre en local</span>
+            <span class="pill">Privada</span>
+            <span class="pill">Apoyo en código</span>
+          </div>
+        </div>
+        <!-- Para poner tu captura o video de Alice: guarda la imagen como assets/alice.jpg -->
+        <div class="slot">
+          <img src="assets/alice.jpg" alt="Alice, la IA local de LeYounTempest, en funcionamiento" width="1600" height="1000" loading="lazy" onerror="this.remove()">
+          <div class="ph"><div>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg>
+            Aquí va la captura de Alice
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="modelos">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">IV</span><h2>Modelos 3D de Monster Siege</h2></div>
+      <p class="dim reveal" style="margin-bottom:var(--sp-4)">Personajes, monstruos y piezas del juego. Cada ficha muestra un modelo terminado.</p>
+      <div class="grid3">
+        <!-- Reemplaza cada ficha: assets/modelo-1.jpg, modelo-2.jpg, modelo-3.jpg y cambia título y texto -->
+        <article class="tile reveal">
+          <div class="slot"><img src="assets/modelo-1.jpg" alt="Modelo 3D 1 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 1</div></div></div>
+          <h3>Monstruo 1</h3><p>Nombre del modelo y para qué se usa.</p>
+        </article>
+        <article class="tile reveal" style="--d:.08s">
+          <div class="slot"><img src="assets/modelo-2.jpg" alt="Modelo 3D 2 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 2</div></div></div>
+          <h3>Monstruo 2</h3><p>Nombre del modelo y para qué se usa.</p>
+        </article>
+        <article class="tile reveal" style="--d:.16s">
+          <div class="slot"><img src="assets/modelo-3.jpg" alt="Modelo 3D 3 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 3</div></div></div>
+          <h3>Escenario o pieza</h3><p>Nombre del modelo y para qué se usa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="rts">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">V</span><h2>Bitácora del RTS</h2></div>
+      <p class="dim reveal" style="margin-bottom:var(--sp-4)">Avances de mi juego de estrategia en tiempo real, en el orden en que pasan.</p>
+      <!-- Para sumar un avance, copia un <li> y ponlo arriba con la fecha nueva -->
+      <ol class="log reveal" reversed>
+        <li class="next">
+          <time datetime="2026-11-27">Próximo</time>
+          <h3>Primer avance jugable</h3>
+          <p class="dim">Aquí va la primera captura o video del RTS.</p>
+        </li>
+        <li>
+          <time datetime="2026-11-20">20 nov 2026</time>
+          <h3>Portafolio en línea</h3>
+          <p class="dim">Esta página abre la bitácora. Desde aquí publico cada avance del juego.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block alt" id="servicios">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">VI</span><h2>Servicios</h2></div>
+      <p class="dim reveal" style="margin-bottom:var(--sp-4)">Trabajo por proyecto. El precio depende del alcance; cotizo sin compromiso.</p>
+      <div class="svc">
+        <div class="card reveal">
+          <h3>Página web</h3>
+          <p class="dim">Para negocios y empresas que quieren verse bien y que los encuentren.</p>
+          <ul><li>Diseño a la medida</li><li>Botón de WhatsApp</li><li>Ubicación en Google Maps</li></ul>
+        </div>
+        <div class="card reveal" style="--d:.08s">
+          <h3>Modelos 3D</h3>
+          <p class="dim">Personajes, objetos y escenarios listos para juegos o presentaciones.</p>
+          <ul><li>Modelado y texturas</li><li>Optimizados para juegos</li><li>Entrega en formatos estándar</li></ul>
+        </div>
+        <div class="card reveal" style="--d:.16s">
+          <h3>Juegos y sistemas</h3>
+          <p class="dim">Mecánicas y herramientas para tu juego, con código ordenado.</p>
+          <ul><li>Prototipos jugables</li><li>Sistemas modulares</li><li>Apoyo con IA local</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="apoyo">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="sec-num">VII</span><h2>Apóyame</h2></div>
+      <div class="support reveal">
+        <div class="goal">
+          <p>Si te gusta lo que hago, puedes apoyarme en Ko-fi. Cada aporte va directo a mi medicina.</p>
+          <strong>Meta actual: una caja de mi medicina (unos $160)</strong>
+          <div class="bar" role="img" aria-label="Avance de la meta, 2 por ciento"><i></i></div>
+          <span class="dim" style="font-size:16px">Actualizo esta barra cuando llegan aportes.</span>
+        </div>
+        <a class="btn solid" href="https://ko-fi.com/leyountempest" rel="noopener">Apoyar en Ko-fi</a>
+      </div>
+      <p class="dim" style="margin-top:var(--sp-5)">Contacto para proyectos: por mensaje en Ko-fi. El correo estará aquí próximamente.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 LeYounTempest · Guatemala · Aurelia es un personaje original</div>
+</footer>
+
+<script>
+/* Pétalos de glicina cayendo sobre la portada. Se apaga con prefers-reduced-motion. */
+(function () {
+  var c = document.getElementById('petals');
+  if (!c || !c.getContext) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = c.getContext('2d');
+  var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var colors = ['rgba(155,107,214,.55)', 'rgba(190,140,235,.5)', 'rgba(224,82,126,.4)'];
+  var petals = [];
+  function size() {
+    var r = c.getBoundingClientRect();
+    w = r.width; h = r.height;
+    c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function make(initial) {
+    return {
+      x: Math.random() * w,
+      y: initial ? Math.random() * h : -20,
+      r: 4 + Math.random() * 5,
+      vy: 0.3 + Math.random() * 0.5,
+      sway: Math.random() * Math.PI * 2,
+      rot: Math.random() * Math.PI,
+      col: colors[Math.floor(Math.random() * colors.length)]
+    };
+  }
+  size();
+  window.addEventListener('resize', size);
+  for (var i = 0; i < 22; i++) petals.push(make(true));
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    petals.forEach(function (p, i) {
+      p.y += p.vy; p.sway += 0.015; p.rot += 0.01;
+      p.x += Math.sin(p.sway) * 0.5;
+      if (p.y > h + 20) petals[i] = make(false);
+      ctx.save();
+      ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.col;
+      ctx.beginPath(); ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    });
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* Aparición suave al hacer scroll. Con prefers-reduced-motion, o sin IntersectionObserver,
+   todo se muestra de inmediato. Sin JS, el CSS no oculta nada (la clase .js no se añade). */
+(function () {
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  var root = document.documentElement;
+  function todo() { els.forEach(function (e) { e.classList.add('in'); }); root.classList.add('ready'); }
+  var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducido || !('IntersectionObserver' in window)) { todo(); return; }
+  try {
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (x) {
+        if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function (e) { io.observe(e); });
+    root.classList.add('ready');
+  } catch (err) { todo(); }
+})();
+</script>
+</body>
+</html>
