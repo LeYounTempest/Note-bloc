@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFilter
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(RAIZ, "assets")
 SALIDA = os.path.join(ASSETS, "aurelia")
-FONDO = (31, 17, 41)  # #1f1129: color medio de la lámina donde se colocan los recortes
+FONDO = (11, 6, 16)  # #0b0610
 CALIDAD = 82
 DEBUG = "--debug" in sys.argv
 rng = np.random.default_rng(7)
@@ -162,92 +162,31 @@ def fundir(im, fade, halo=None, umbral=46):
     return rgba
 
 
-_sesion = None
-
-
-def mascara_ia(im):
-    """Máscara de la figura con rembg (modelo isnet-anime). None si rembg no está instalado."""
-    global _sesion
-    try:
-        from rembg import remove, new_session
-    except ImportError:
-        return None
-    if _sesion is None:
-        _sesion = new_session("isnet-anime")
-    return remove(im, session=_sesion, only_mask=True)
-
-
-def recortar(im, umbral=40, suelo_desde=None):
-    """Recorta con IA (rembg) si está disponible; si no, con el método por umbral (recortar_umbral)."""
-    m = mascara_ia(im)
-    if m is None:
-        return recortar_umbral(im, umbral, suelo_desde)
-    a = np.asarray(im).astype(np.float32)
-    alfa = np.asarray(m.point(lambda v: 255 if v > 128 else 0)).astype(np.uint8)
-    # La IA conserva el papel encerrado (curva de la cola, tras el ala) y las sombras del suelo.
-    # Se resta todo lo que tenga el color del papel; en la franja del suelo, con tolerancia mayor.
-    suave = np.asarray(im.filter(ImageFilter.GaussianBlur(1.0))).astype(np.float32)
-    papel = np.median(np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)]), axis=0)
-    dist = np.abs(suave - papel).max(2)
-    quitar = dist < 30
-    # Se erosiona antes de filtrar para cortar los puentes finos hacia las manchas de piel (que se parecen al papel).
-    q = Image.fromarray(quitar.astype(np.uint8) * 255).filter(ImageFilter.MinFilter(13))
-    q = quitar_motas(q, minimo=1500).filter(ImageFilter.MaxFilter(13))
-    quitar = np.asarray(q) > 0
-    if suelo_desde is not None:  # franja del suelo: sombras claras del papel, sin filtro de tamaño
-        banda = dist < 85
-        banda[:suelo_desde] = False
-        quitar |= banda
-    alfa[quitar] = 0
-    f = Image.fromarray(alfa).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
-    f = f.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.8))
-    f = quitar_motas(f, minimo=500)
-    rgba = im.convert("RGBA")
-    rgba.putalpha(f)
+def marco_morado(im, borde=12, fundido=10, morado=(155, 107, 214)):
+    """Deja el fondo de papel de la hoja y lo enmarca: reborde morado que se funde a oscuro hacia fuera.
+    Devuelve RGBA: transparente en el borde exterior, banda morada y papel al interior."""
+    w, h = im.size
+    a = np.asarray(im.convert("RGB")).astype(np.float32)
+    y, x = np.mgrid[0:h, 0:w]
+    d = np.minimum(np.minimum(x, w - 1 - x), np.minimum(y, h - 1 - y)).astype(np.float32)
+    # esquinas redondeadas: la distancia al borde se acorta en las esquinas
+    r = float(borde + fundido + 14)
+    cx = np.clip(r - np.minimum(x, w - 1 - x), 0, None)
+    cy = np.clip(r - np.minimum(y, h - 1 - y), 0, None)
+    d = np.where((cx > 0) & (cy > 0), r - np.hypot(cx, cy), d)
+    # banda morada: del morado pleno (en d = fundido) al papel (en d = fundido + borde)
+    t = np.clip(1 - (d - fundido) / borde, 0, 1)[..., None]
+    t = t * t * (3 - 2 * t)
+    mor = np.array(morado, np.float32)
+    # el morado se oscurece hacia el exterior para fundirse con el fondo de la página
+    oscuro = np.clip(d / max(fundido, 1), 0, 1)[..., None]
+    color = a * (1 - t) + mor * t
+    color = color * (0.35 + 0.65 * oscuro)
+    alfa = np.clip(d / max(fundido, 1), 0, 1)
+    alfa = alfa * alfa * (3 - 2 * alfa)
+    rgba = Image.fromarray(np.clip(color, 0, 255).astype(np.uint8)).convert("RGBA")
+    rgba.putalpha(Image.fromarray((alfa * 255).astype(np.uint8)))
     return rgba
-
-
-def recortar_umbral(im, umbral=40, suelo_desde=None):
-    """Quita el fondo de papel: todo lo conectado al borde que se parece al papel pasa a transparente.
-    Devuelve RGBA. Cierra huecos finos (tul, encaje), rellena islas internas y suaviza 1 px el contorno."""
-    a = np.asarray(im).astype(np.float32)
-    suave = np.asarray(im.filter(ImageFilter.GaussianBlur(1.2))).astype(np.float32)
-    papel = np.median(np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)]), axis=0)
-    tinta = np.abs(suave - papel).max(2) > umbral
-    if suelo_desde is not None:  # sombras grises del suelo: claras y sin color, solo en la franja inferior
-        gris = np.abs(suave - papel).max(2) < 80   # tonos de papel/sombra del suelo
-        gris[:suelo_desde] = False
-        tinta &= ~gris
-    tinta = tinta.astype(np.uint8) * 255
-    m = Image.fromarray(tinta).filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.MinFilter(5))
-    ImageDraw.floodfill(m, (0, 0), 128, thresh=0)           # fondo conectado al borde
-    fig = (np.asarray(m) != 128).astype(np.uint8) * 255     # figura + islas interiores
-    f = Image.fromarray(fig).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))  # quita motas
-    f = f.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.9))                # contorno limpio
-    f = quitar_motas(f, minimo=500)
-    rgba = im.convert("RGBA")
-    rgba.putalpha(f)
-    return rgba
-
-
-def quitar_motas(mascara, minimo):
-    """Elimina componentes sueltos con menos de `minimo` píxeles (restos de bocetos y manchas).
-    Conserva solo los componentes grandes."""
-    m = mascara.point(lambda v: 255 if v > 90 else 0)
-    base = np.asarray(mascara).copy()
-    while True:
-        arr = np.asarray(m)
-        pts = np.argwhere(arr == 255)
-        if len(pts) == 0:
-            break
-        y, x = pts[0]
-        tmp = m.copy()
-        ImageDraw.floodfill(tmp, (int(x), int(y)), 128, thresh=0)
-        comp = np.asarray(tmp) == 128
-        if comp.sum() < minimo:
-            base[comp] = 0
-        m = Image.fromarray(np.where(comp, 0, arr).astype(np.uint8))
-    return Image.fromarray(base)
 
 
 def sobre_fondo(rgba):
@@ -312,7 +251,7 @@ zonas_cuerpo = [
 c = limpiar(concepto, lam_c, sig_c, zonas_cuerpo)
 # margen de papel extra: la cola llega al borde izquierdo de la hoja
 cuerpo = lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c)
-exportar("aurelia-cuerpo", recortar(cuerpo, suelo_desde=1010))
+exportar("aurelia-cuerpo", marco_morado(lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c, margen=16), borde=14, fundido=12))
 
 # ---- detalle del vestido y la joya del cuello (torso de la hoja de concepto)
 zonas_vestido = [
@@ -323,7 +262,7 @@ zonas_vestido = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_vestido)
 vestido = lienzo(c, (100, 190, 468, 548), lam_c, sig_c, aspecto=1.0, margen=14)
-exportar("aurelia-vestido", vestido.crop((14, 14, vestido.width - 14, vestido.height - 14)))
+exportar("aurelia-vestido", marco_morado(vestido.crop((0, 0, vestido.width, vestido.height)), borde=10, fundido=8))
 
 # ---- cola de escamas arcoíris (boceto de detalle)
 zonas_cola = [
@@ -335,7 +274,7 @@ zonas_cola = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_cola)
 cola = lienzo(c, (548, 700, 778, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-cola", recortar(cola))
+exportar("aurelia-cola", marco_morado(cola, borde=10, fundido=8))
 
 # ---- garras (boceto de detalle de la mano)
 zonas_garras = [
@@ -348,7 +287,7 @@ zonas_garras = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_garras)
 garras = lienzo(c, (788, 700, 975, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-garras", recortar(garras))
+exportar("aurelia-garras", marco_morado(garras, borde=10, fundido=8))
 
 # ---- forma verdadera: dragón de cuatro alas
 zonas_dragon = [
@@ -372,7 +311,7 @@ zonas_dragon = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_dragon)
 dragon = lienzo(c, (162, 958, 775, 1500), lam_c, sig_c, margen=26)
-exportar("aurelia-dragon", recortar(dragon, suelo_desde=430))
+exportar("aurelia-dragon", marco_morado(dragon, borde=14, fundido=12))
 
 # ---- rostro y cuernos: del retrato de alta resolución (la hoja da solo ~260×390 px)
 # El anillo dorado y la estrella inferior quedan fuera del círculo inscrito; en la página se muestra con border-radius:50%.
