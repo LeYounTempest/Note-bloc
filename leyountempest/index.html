@@ -129,9 +129,16 @@ section.alt { background: var(--bg-alt); }
 .pill-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-2); }
 .pill { font-size: 15px; padding: var(--sp-1) 12px; border-radius: 999px; color: var(--ink-dim); background: color-mix(in srgb, var(--violet) 12%, transparent); }
 
+/* ---------- láminas: fondo con degradado donde se apoyan los recortes sin fondo ---------- */
+.lamina, .cuerpo, .verdadera figure, .detalle picture {
+  background: radial-gradient(120% 90% at 50% 30%, #3a2150 0%, #241333 55%, #170c22 100%);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(155, 107, 214, .16);
+}
+
 /* ---------- Aurelia: composición editorial ---------- */
 .diseno { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--sp-5); align-items: center; }
-.cuerpo { margin: 0; justify-self: center; width: min(100%, 420px); }
+.cuerpo { margin: 0; justify-self: center; width: min(100%, 420px); padding: var(--sp-4) var(--sp-4) var(--sp-3); }
 .cuerpo img { display: block; width: 100%; height: auto; }
 .oc-texto { display: flex; flex-direction: column; gap: var(--sp-4); align-items: flex-start; }
 .retrato { display: block; width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--accent-deep), 0 0 0 10px rgba(155, 107, 214, .14), 0 24px 48px rgba(0, 0, 0, .5); }
@@ -143,7 +150,8 @@ section.alt { background: var(--bg-alt); }
 .subbloque { margin-top: var(--sp-6); }
 .detalles { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
 .detalle { display: grid; grid-template-columns: 112px 1fr; gap: var(--sp-3); align-items: center; margin: 0; }
-.detalle img { display: block; width: 112px; height: 112px; object-fit: contain; }
+.detalle picture { display: block; padding: var(--sp-2); width: 112px; height: 112px; }
+.detalle img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 10px; }
 .detalle figcaption { font-size: 17px; color: var(--ink-dim); line-height: 1.4; }
 .detalle figcaption b { display: block; color: var(--ink); font-size: 20px; margin-bottom: var(--sp-1); }
 
@@ -159,6 +167,7 @@ section.alt { background: var(--bg-alt); }
 /* ---------- forma verdadera ---------- */
 .verdadera { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sp-5); align-items: center; }
 .verdadera figure { margin: 0; }
+.verdadera figure { padding: var(--sp-4); }
 .verdadera img { display: block; width: 100%; max-width: 665px; height: auto; margin-inline: auto; }
 
 /* ---------- espacios de imagen (Alice y modelos) ---------- */
@@ -205,7 +214,7 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
 @media (min-width: 760px) {
   .detalles { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
   .detalle { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: var(--sp-3); }
-  .detalle img { width: min(100%, 260px); height: auto; aspect-ratio: 1; }
+  .detalle picture { width: min(100%, 260px); height: auto; aspect-ratio: 1; padding: var(--sp-3); }
   .retrato { width: 240px; height: 240px; }
   .expr { flex-wrap: nowrap; }
   .expr li { width: 128px; flex: 0 1 128px; }
@@ -342,7 +351,7 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
             <figure class="detalle">
               <picture>
                 <source type="image/webp" srcset="assets/aurelia/aurelia-vestido.webp 396w" sizes="(min-width: 760px) 260px, 112px">
-                <img src="assets/aurelia/aurelia-vestido.jpg" width="396" height="396" loading="lazy" decoding="async"
+                <img src="assets/aurelia/aurelia-vestido.jpg" width="368" height="368" loading="lazy" decoding="async"
                      alt="Detalle del vestido de Aurelia: cuello alto de malla negra con una joya violeta, corsé con adornos dorados y mangas transparentes con volantes">
               </picture>
               <figcaption><b>Vestido y joya</b>Vestido negro con detalles color corinto y adornos dorados.</figcaption>

@@ -19,7 +19,7 @@ from PIL import Image, ImageDraw, ImageFilter
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(RAIZ, "assets")
 SALIDA = os.path.join(ASSETS, "aurelia")
-FONDO = (11, 6, 16)  # #0b0610
+FONDO = (31, 17, 41)  # #1f1129: color medio de la lámina donde se colocan los recortes
 CALIDAD = 82
 DEBUG = "--debug" in sys.argv
 rng = np.random.default_rng(7)
@@ -162,6 +162,48 @@ def fundir(im, fade, halo=None, umbral=46):
     return rgba
 
 
+def recortar(im, umbral=40, suelo_desde=None):
+    """Quita el fondo de papel: todo lo conectado al borde que se parece al papel pasa a transparente.
+    Devuelve RGBA. Cierra huecos finos (tul, encaje), rellena islas internas y suaviza 1 px el contorno."""
+    a = np.asarray(im).astype(np.float32)
+    suave = np.asarray(im.filter(ImageFilter.GaussianBlur(1.2))).astype(np.float32)
+    papel = np.median(np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)]), axis=0)
+    tinta = np.abs(suave - papel).max(2) > umbral
+    if suelo_desde is not None:  # sombras grises del suelo: claras y sin color, solo en la franja inferior
+        gris = np.abs(suave - papel).max(2) < 80   # tonos de papel/sombra del suelo
+        gris[:suelo_desde] = False
+        tinta &= ~gris
+    tinta = tinta.astype(np.uint8) * 255
+    m = Image.fromarray(tinta).filter(ImageFilter.MaxFilter(5)).filter(ImageFilter.MinFilter(5))
+    ImageDraw.floodfill(m, (0, 0), 128, thresh=0)           # fondo conectado al borde
+    fig = (np.asarray(m) != 128).astype(np.uint8) * 255     # figura + islas interiores
+    f = Image.fromarray(fig).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))  # quita motas
+    f = f.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.9))                # contorno limpio
+    f = quitar_motas(f, minimo=500)
+    rgba = im.convert("RGBA")
+    rgba.putalpha(f)
+    return rgba
+
+
+def quitar_motas(mascara, minimo):
+    """Elimina componentes sueltos con menos de `minimo` píxeles (restos de bocetos y manchas)."""
+    m = mascara.point(lambda v: 255 if v > 90 else 0)
+    base = np.asarray(mascara).copy()
+    while True:
+        arr = np.asarray(m)
+        pts = np.argwhere(arr == 255)
+        if len(pts) == 0:
+            break
+        y, x = pts[0]
+        tmp = m.copy()
+        ImageDraw.floodfill(tmp, (int(x), int(y)), 128, thresh=0)
+        comp = np.asarray(tmp) == 128
+        if comp.sum() < minimo:
+            base[comp] = 0
+        m = Image.fromarray(np.where(comp, 0, arr).astype(np.uint8))
+    return Image.fromarray(base)
+
+
 def sobre_fondo(rgba):
     fondo = Image.new("RGB", rgba.size, FONDO)
     fondo.paste(rgba, mask=rgba.split()[3])
@@ -224,7 +266,7 @@ zonas_cuerpo = [
 c = limpiar(concepto, lam_c, sig_c, zonas_cuerpo)
 # margen de papel extra: la cola llega al borde izquierdo de la hoja
 cuerpo = lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c)
-exportar("aurelia-cuerpo", fundir(cuerpo, 14, halo=(22, 18)))
+exportar("aurelia-cuerpo", recortar(cuerpo, suelo_desde=1010))
 
 # ---- detalle del vestido y la joya del cuello (torso de la hoja de concepto)
 zonas_vestido = [
@@ -235,7 +277,7 @@ zonas_vestido = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_vestido)
 vestido = lienzo(c, (100, 190, 468, 548), lam_c, sig_c, aspecto=1.0, margen=14)
-exportar("aurelia-vestido", fundir(vestido, 30, halo=(18, 16)))
+exportar("aurelia-vestido", vestido.crop((14, 14, vestido.width - 14, vestido.height - 14)))
 
 # ---- cola de escamas arcoíris (boceto de detalle)
 zonas_cola = [
@@ -247,7 +289,7 @@ zonas_cola = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_cola)
 cola = lienzo(c, (548, 700, 778, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-cola", fundir(cola, 12, halo=(14, 14)))
+exportar("aurelia-cola", recortar(cola))
 
 # ---- garras (boceto de detalle de la mano)
 zonas_garras = [
@@ -260,7 +302,7 @@ zonas_garras = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_garras)
 garras = lienzo(c, (788, 700, 975, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-garras", fundir(garras, 12, halo=(14, 14)))
+exportar("aurelia-garras", recortar(garras))
 
 # ---- forma verdadera: dragón de cuatro alas
 zonas_dragon = [
@@ -284,7 +326,7 @@ zonas_dragon = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_dragon)
 dragon = lienzo(c, (162, 958, 775, 1500), lam_c, sig_c, margen=26)
-exportar("aurelia-dragon", fundir(dragon, 14, halo=(22, 18)))
+exportar("aurelia-dragon", recortar(dragon, suelo_desde=430))
 
 # ---- rostro y cuernos: del retrato de alta resolución (la hoja da solo ~260×390 px)
 # El anillo dorado y la estrella inferior quedan fuera del círculo inscrito; en la página se muestra con border-radius:50%.
