@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Genera los recortes de Aurelia a partir de las hojas de referencia.
 
-Uso (desde la carpeta leyountempest/):
+Uso (desde la carpeta leyountempest/; con rembg instalado, p. ej. pip install rembg onnxruntime, recorta con IA):
     python3 herramientas/recortes.py            # escribe en assets/aurelia/
     python3 herramientas/recortes.py --debug    # además deja vistas previas sobre fondo oscuro en /tmp
 
@@ -162,7 +162,52 @@ def fundir(im, fade, halo=None, umbral=46):
     return rgba
 
 
+_sesion = None
+
+
+def mascara_ia(im):
+    """Máscara de la figura con rembg (modelo isnet-anime). None si rembg no está instalado."""
+    global _sesion
+    try:
+        from rembg import remove, new_session
+    except ImportError:
+        return None
+    if _sesion is None:
+        _sesion = new_session("isnet-anime")
+    return remove(im, session=_sesion, only_mask=True)
+
+
 def recortar(im, umbral=40, suelo_desde=None):
+    """Recorta con IA (rembg) si está disponible; si no, con el método por umbral (recortar_umbral)."""
+    m = mascara_ia(im)
+    if m is None:
+        return recortar_umbral(im, umbral, suelo_desde)
+    a = np.asarray(im).astype(np.float32)
+    alfa = np.asarray(m.point(lambda v: 255 if v > 128 else 0)).astype(np.uint8)
+    # La IA conserva el papel encerrado (curva de la cola, tras el ala) y las sombras del suelo.
+    # Se resta todo lo que tenga el color del papel; en la franja del suelo, con tolerancia mayor.
+    suave = np.asarray(im.filter(ImageFilter.GaussianBlur(1.0))).astype(np.float32)
+    papel = np.median(np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3)]), axis=0)
+    dist = np.abs(suave - papel).max(2)
+    quitar = dist < 30
+    # Se erosiona antes de filtrar para cortar los puentes finos hacia las manchas de piel (que se parecen al papel).
+    q = Image.fromarray(quitar.astype(np.uint8) * 255).filter(ImageFilter.MinFilter(13))
+    q = quitar_motas(q, minimo=1500).filter(ImageFilter.MaxFilter(13))
+    quitar = np.asarray(q) > 0
+    if suelo_desde is not None:  # franja del suelo: sombras claras del papel, sin filtro de tamaño
+        banda = dist < 85
+        banda[:suelo_desde] = False
+        quitar |= banda
+    alfa[quitar] = 0
+    f = Image.fromarray(alfa).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.MaxFilter(3))
+    f = f.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.8))
+    f = quitar_motas(f, minimo=500)
+    rgba = im.convert("RGBA")
+    rgba.putalpha(f)
+    return rgba
+
+
+def recortar_umbral(im, umbral=40, suelo_desde=None):
     """Quita el fondo de papel: todo lo conectado al borde que se parece al papel pasa a transparente.
     Devuelve RGBA. Cierra huecos finos (tul, encaje), rellena islas internas y suaviza 1 px el contorno."""
     a = np.asarray(im).astype(np.float32)
@@ -186,7 +231,8 @@ def recortar(im, umbral=40, suelo_desde=None):
 
 
 def quitar_motas(mascara, minimo):
-    """Elimina componentes sueltos con menos de `minimo` píxeles (restos de bocetos y manchas)."""
+    """Elimina componentes sueltos con menos de `minimo` píxeles (restos de bocetos y manchas).
+    Conserva solo los componentes grandes."""
     m = mascara.point(lambda v: 255 if v > 90 else 0)
     base = np.asarray(mascara).copy()
     while True:
