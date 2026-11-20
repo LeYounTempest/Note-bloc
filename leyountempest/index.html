@@ -169,8 +169,11 @@ section.alt { background: var(--bg-alt); }
 .slot .ph svg { display: block; margin: 0 auto var(--sp-2); opacity: .8; }
 /* mientras no exista assets/alice.jpg se muestra la mascota de Alice (PNG transparente del repo de Alice) */
 .slot.mascota { border: 0; background: radial-gradient(90% 80% at 50% 35%, #3a2150 0%, #241333 60%, #170c22 100%); box-shadow: inset 0 0 0 1px rgba(155, 107, 214, .22); }
-.slot.mascota img { object-fit: contain; padding: var(--sp-3); }
+.slot.mascota img { object-fit: contain; padding: var(--sp-3); min-width: 0; min-height: 0; }
 .slot.mascota .ph { display: none; }
+.slot img.extra { display: none; }
+.slot.mascota { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: minmax(0, 1fr); }
+.slot.mascota img.extra { display: block; }
 
 /* galería 3D */
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
@@ -418,6 +421,7 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
         <!-- Para poner tu captura o video de Alice: guarda la imagen como assets/alice.jpg (sustituye a la mascota) -->
         <div class="slot">
           <img src="assets/alice.jpg" alt="Alice, la IA local de LeYounTempest, en funcionamiento" width="1600" height="1000" loading="lazy" onerror="this.onerror=function(){this.remove()};this.parentNode.classList.add('mascota');this.src='assets/alice-mascota.webp';this.alt='Alice, la mascota de mi IA local: una dragona chibi de cuernos morados con una manga pastelera y un pastel';this.width=779;this.height=800">
+          <img class="extra" src="assets/alice-modelo.webp" width="266" height="425" loading="lazy" alt="Alice como modelo 3D: dragona chibi de cabello oscuro, cuernos con joyas y vestido negro con volantes">
           <div class="ph"><div>
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg>
             Aquí va la captura de Alice
