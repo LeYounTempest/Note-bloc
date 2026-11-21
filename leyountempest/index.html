@@ -182,6 +182,20 @@ section.alt { background: var(--bg-alt); }
 .shot-chat { grid-column: 1 / -1; }
 .shot-mascota img { background: #fff; padding: var(--sp-2); box-shadow: 0 0 0 1px rgba(155, 107, 214, .22), 0 16px 36px rgba(0, 0, 0, .45); }
 
+/* modelos 3D */
+.models { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-4) var(--sp-3); }
+.mcard h3 { font-size: 19px; margin: var(--sp-2) 0 0; }
+.mcard p { font-size: 15px; color: var(--ink-dim); margin: 0; }
+.mimg { aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px rgba(155, 107, 214, .22), 0 12px 28px rgba(0, 0, 0, .4); }
+.mimg img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.mimg.mascota { background: radial-gradient(90% 80% at 50% 35%, #3a2150 0%, #241333 60%, #170c22 100%); }
+.mimg.mascota img { object-fit: contain; padding: var(--sp-3); }
+.enemigos { margin: var(--sp-5) 0 0; }
+.enemigos img { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px rgba(155, 107, 214, .22); }
+.enemigos figcaption { margin-top: var(--sp-2); font-size: 15px; color: var(--ink-dim); }
+.shot-wide { grid-column: 1 / -1; }
+@media (min-width: 760px) { .models { grid-template-columns: repeat(5, 1fr); } }
+
 /* galería 3D */
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
 .tile h3 { font-size: 21px; margin: var(--sp-3) 0 var(--sp-1); }
@@ -449,22 +463,76 @@ footer { padding-block: var(--sp-4) var(--sp-5); color: var(--ink-dim); font-siz
 
   <section class="block alt" id="modelos">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="sec-num">IV</span><h2>Modelos 3D de Monster Siege</h2></div>
-      <p class="dim reveal" style="margin-bottom:var(--sp-4)">Personajes, monstruos y piezas del juego. Cada ficha muestra un modelo terminado.</p>
-      <div class="grid3">
-        <!-- Ficha 1: modelo de Alice. Fichas 2 y 3: assets/modelo-2.jpg y modelo-3.jpg (cambia título y texto) -->
-        <article class="tile reveal">
-          <div class="slot mascota"><img src="assets/alice-modelo.webp" alt="Modelo 3D de Alice: dragona chibi de cabello oscuro, cuernos con joyas y vestido negro con volantes" width="266" height="425" loading="lazy"></div>
-          <h3>Alice</h3><p>Modelo 3D de Alice, mi IA local.</p>
+      <div class="sec-head reveal"><span class="sec-num">IV</span><h2>Modelos 3D</h2></div>
+      <p class="dim reveal" style="margin-bottom:var(--sp-4)">Generales y jefes de Monster Siege, sus enemigos, y el modelo de Alice.</p>
+      <!-- Para sumar un modelo, copia un <article class="mcard"> y cambia imagen, nombre y rol -->
+      <div class="models">
+        <article class="mcard reveal">
+          <div class="mimg mascota"><img src="assets/alice-modelo.webp" alt="Modelo 3D de Alice: dragona chibi de cabello oscuro, cuernos con joyas y vestido negro con volantes" width="266" height="425" loading="lazy" decoding="async"></div>
+          <h3>Alice</h3><p>Mi IA local</p>
         </article>
-        <article class="tile reveal" style="--d:.08s">
-          <div class="slot"><img src="assets/modelo-2.jpg" alt="Modelo 3D 2 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 2</div></div></div>
-          <h3>Monstruo 2</h3><p>Nombre del modelo y para qué se usa.</p>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/general-aveline.webp 340w"><img src="assets/juego/general-aveline.jpg" width="340" height="340" loading="lazy" decoding="async" alt="General Aveline: personaje de cabello rojo largo, capa corinto y armadura dorada"></picture></div>
+          <h3>Aveline</h3><p>General</p>
         </article>
-        <article class="tile reveal" style="--d:.16s">
-          <div class="slot"><img src="assets/modelo-3.jpg" alt="Modelo 3D 3 de Monster Siege" width="1600" height="1000" loading="lazy" onerror="this.remove()"><div class="ph"><div><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>Modelo 3</div></div></div>
-          <h3>Escenario o pieza</h3><p>Nombre del modelo y para qué se usa.</p>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/general-seris.webp 340w"><img src="assets/juego/general-seris.jpg" width="340" height="340" loading="lazy" decoding="async" alt="General Seris: personaje de cabello plateado con moño morado y armadura dorada"></picture></div>
+          <h3>Seris</h3><p>General</p>
         </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/general-kaede.webp 340w"><img src="assets/juego/general-kaede.jpg" width="340" height="340" loading="lazy" decoding="async" alt="General Kaede: personaje de cabello rubio con moño morado y capa violeta"></picture></div>
+          <h3>Kaede</h3><p>General</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/general-mirella.webp 340w"><img src="assets/juego/general-mirella.jpg" width="340" height="340" loading="lazy" decoding="async" alt="General Mirella: personaje de cabello rubio ondulado con capa verde oscura y botas altas"></picture></div>
+          <h3>Mirella</h3><p>General</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/jefe-faraon-de-ambar.webp 340w"><img src="assets/juego/jefe-faraon-de-ambar.jpg" width="340" height="340" loading="lazy" decoding="async" alt="Jefe Faraón de Ámbar: momia con tocado de faraón dorado y un anj dorado en la mano"></picture></div>
+          <h3>Faraón de Ámbar</h3><p>Jefe</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/jefe-reina-tempestad.webp 340w"><img src="assets/juego/jefe-reina-tempestad.jpg" width="340" height="340" loading="lazy" decoding="async" alt="Jefe Reina Tempestad: águila azul oscuro con corona dorada y las alas abiertas"></picture></div>
+          <h3>Reina Tempestad</h3><p>Jefe</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/jefe-gigante-de-escarcha.webp 340w"><img src="assets/juego/jefe-gigante-de-escarcha.jpg" width="340" height="340" loading="lazy" decoding="async" alt="Jefe Gigante de Escarcha: gigante de hielo con barba blanca, corona de cristal y un mazo de hielo"></picture></div>
+          <h3>Gigante de Escarcha</h3><p>Jefe</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/jefe-senor-de-la-ceniza.webp 340w"><img src="assets/juego/jefe-senor-de-la-ceniza.jpg" width="340" height="340" loading="lazy" decoding="async" alt="Jefe Señor de la Ceniza: criatura de roca negra con grietas de lava y cuernos de fuego"></picture></div>
+          <h3>Señor de la Ceniza</h3><p>Jefe</p>
+        </article>
+        <article class="mcard reveal">
+          <div class="mimg"><picture><source type="image/webp" srcset="assets/juego/jefe-troll-del-bosque.webp 340w"><img src="assets/juego/jefe-troll-del-bosque.jpg" width="340" height="340" loading="lazy" decoding="async" alt="Jefe Troll del Bosque: troll verde con taparrabos y un garrote de madera"></picture></div>
+          <h3>Troll del Bosque</h3><p>Jefe</p>
+        </article>
+      </div>
+      <figure class="enemigos reveal">
+        <picture><source type="image/webp" srcset="assets/juego/enemigos-en-grupo.webp 750w"><img src="assets/juego/enemigos-en-grupo.jpg" width="750" height="230" loading="lazy" decoding="async" alt="Los enemigos de Monster Siege en fila: grifo, momia, golem de hielo, orco, rana de fuego, tortuga, lobo oscuro y diablillo rojo"></picture>
+        <figcaption>Enemigos de Monster Siege</figcaption>
+      </figure>
+
+      <div class="subbloque reveal">
+        <h3 class="eyebrow">En el juego</h3>
+        <div class="alice-galeria">
+          <figure class="shot">
+            <picture><source type="image/webp" srcset="assets/juego/pueblo-fortin.webp 1096w"><img src="assets/juego/pueblo-fortin.jpg" width="1096" height="533" loading="lazy" decoding="async" alt="Pueblo del fortín: el lobby con el menú, la tienda, el pase de temporada y el botón de jugar"></picture>
+            <figcaption>Pueblo del fortín</figcaption>
+          </figure>
+          <figure class="shot">
+            <picture><source type="image/webp" srcset="assets/juego/batalla-combo.webp 1096w"><img src="assets/juego/batalla-combo.jpg" width="1096" height="533" loading="lazy" decoding="async" alt="Una batalla de oleadas con combo x53, torres de defensa y la torre central brillando"></picture>
+            <figcaption>Batalla con combo</figcaption>
+          </figure>
+          <figure class="shot">
+            <picture><source type="image/webp" srcset="assets/juego/jefe-gigante-camino.webp 1096w"><img src="assets/juego/jefe-gigante-camino.jpg" width="1096" height="533" loading="lazy" decoding="async" alt="El jefe Gigante de Escarcha avanzando por un camino nevado entre pinos"></picture>
+            <figcaption>El Gigante de Escarcha en el camino</figcaption>
+          </figure>
+          <figure class="shot">
+            <picture><source type="image/webp" srcset="assets/juego/jefe-gigante-cerca.webp 1096w"><img src="assets/juego/jefe-gigante-cerca.jpg" width="1096" height="533" loading="lazy" decoding="async" alt="Primer plano del jefe Gigante de Escarcha con su barra de vida de 110000"></picture>
+            <figcaption>El Gigante de Escarcha de cerca</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
