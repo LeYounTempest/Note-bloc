@@ -16,6 +16,9 @@ import sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from escalar import ampliar  # Real-ESRGAN x4 (si no está instalado, devuelve la imagen igual)
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(RAIZ, "assets")
 SALIDA = os.path.join(ASSETS, "aurelia")
@@ -170,7 +173,7 @@ def marco_morado(im, borde=12, fundido=10, morado=(155, 107, 214)):
     y, x = np.mgrid[0:h, 0:w]
     d = np.minimum(np.minimum(x, w - 1 - x), np.minimum(y, h - 1 - y)).astype(np.float32)
     # esquinas redondeadas: la distancia al borde se acorta en las esquinas
-    r = float(borde + fundido + 14)
+    r = float(borde + fundido) * 1.4
     cx = np.clip(r - np.minimum(x, w - 1 - x), 0, None)
     cy = np.clip(r - np.minimum(y, h - 1 - y), 0, None)
     d = np.where((cx > 0) & (cy > 0), r - np.hypot(cx, cy), d)
@@ -225,6 +228,12 @@ def exportar(nombre, im, anchos=(800, 1600)):
         prev.save(f"/tmp/prev_{nombre}.png")
 
 
+def marco_x(im, borde, fundido):
+    """Reescala x4 con IA y luego aplica el reborde morado (con sus medidas escaladas)."""
+    a, k = ampliar(im)
+    return marco_morado(a, borde * k, fundido * k)
+
+
 # =========================================================================== RECORTES
 concepto = abrir("aurelia-concepto.jpg")
 ficha2 = abrir("aurelia-ficha-2.jpg")
@@ -251,7 +260,7 @@ zonas_cuerpo = [
 c = limpiar(concepto, lam_c, sig_c, zonas_cuerpo)
 # margen de papel extra: la cola llega al borde izquierdo de la hoja
 cuerpo = lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c)
-exportar("aurelia-cuerpo", marco_morado(lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c, margen=16), borde=14, fundido=12))
+exportar("aurelia-cuerpo", marco_x(lienzo(c, (-44, -36, 546, 1112), lam_c, sig_c, margen=16), 14, 12))
 
 # ---- detalle del vestido y la joya del cuello (torso de la hoja de concepto)
 zonas_vestido = [
@@ -262,7 +271,7 @@ zonas_vestido = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_vestido)
 vestido = lienzo(c, (100, 190, 468, 548), lam_c, sig_c, aspecto=1.0, margen=14)
-exportar("aurelia-vestido", marco_morado(vestido.crop((0, 0, vestido.width, vestido.height)), borde=10, fundido=8))
+exportar("aurelia-vestido", marco_x(vestido, 10, 8))
 
 # ---- cola de escamas arcoíris (boceto de detalle)
 zonas_cola = [
@@ -274,7 +283,7 @@ zonas_cola = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_cola)
 cola = lienzo(c, (548, 700, 778, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-cola", marco_morado(cola, borde=10, fundido=8))
+exportar("aurelia-cola", marco_x(cola, 10, 8))
 
 # ---- garras (boceto de detalle de la mano)
 zonas_garras = [
@@ -287,7 +296,7 @@ zonas_garras = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_garras)
 garras = lienzo(c, (788, 700, 975, 972), lam_c, sig_c, aspecto=1.0, margen=10)
-exportar("aurelia-garras", marco_morado(garras, borde=10, fundido=8))
+exportar("aurelia-garras", marco_x(garras, 10, 8))
 
 # ---- forma verdadera: dragón de cuatro alas
 zonas_dragon = [
@@ -311,13 +320,13 @@ zonas_dragon = [
 ]
 c = limpiar(concepto, lam_c, sig_c, zonas_dragon)
 dragon = lienzo(c, (162, 958, 775, 1500), lam_c, sig_c, margen=26)
-exportar("aurelia-dragon", marco_morado(dragon, borde=14, fundido=12))
+exportar("aurelia-dragon", marco_x(dragon, 14, 12))
 
 # ---- rostro y cuernos: del retrato de alta resolución (la hoja da solo ~260×390 px)
 # El anillo dorado y la estrella inferior quedan fuera del círculo inscrito; en la página se muestra con border-radius:50%.
 cx, cy, r = 627, 560, 540
 rostro = retrato.crop((cx - r, cy - r, cx + r, cy + r))
-exportar("aurelia-rostro", rostro)
+exportar("aurelia-rostro", rostro)  # ya es grande (1080 px): no se reescala
 
 # ---- expresiones (ficha 2: caras de ~120 px, más grandes que las de la ficha 1)
 # (x0, y0, x1, y1) dentro del marco de cada casilla, sin la barra con la etiqueta
@@ -333,7 +342,7 @@ for nombre, caja in caras.items():
     x0, y0, x1, y1 = caja
     lado = min(x1 - x0, y1 - y0)
     cara = ficha2.crop((x0, y0, x0 + lado, y0 + lado))
-    exportar(f"aurelia-{nombre}", cara)
+    exportar(f"aurelia-{nombre}", ampliar(cara)[0])
 
 # ---- portada: dos recortes de dirección de arte de aurelia-cafe.jpg (1536×1024)
 # Escritorio: panorámico 16:9, sin el bajo de pasteles; conserva cuernos, rostro, torso y cola.

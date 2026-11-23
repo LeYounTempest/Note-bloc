@@ -11,6 +11,9 @@ import os
 import sys
 from PIL import Image
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from escalar import ampliar  # Real-ESRGAN x4 (si no está instalado, no cambia nada)
+
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SALIDA = os.path.join(RAIZ, "assets", "juego")
 os.makedirs(SALIDA, exist_ok=True)
@@ -18,7 +21,11 @@ origen = sys.argv[1]
 informe = []
 
 
-def guardar(im, nombre):
+def guardar(im, nombre, ampliar_ia=False):
+    if ampliar_ia:
+        im = ampliar(im)[0]
+    if im.width > 1600:
+        im = im.resize((1600, round(im.height * 1600 / im.width)), Image.LANCZOS)
     for ext, kw in (("webp", dict(quality=82, method=6)), ("jpg", dict(quality=82, optimize=True, progressive=True))):
         ruta = os.path.join(SALIDA, f"{nombre}.{ext}")
         im.save(ruta, "WEBP" if ext == "webp" else "JPEG", **kw)
@@ -38,11 +45,11 @@ LADO, CX, CY = 340, 406, 268
 for src, dst in personajes.items():
     im = Image.open(os.path.join(origen, "modelos", src + ".jpg")).convert("RGB")
     l, t = CX - LADO // 2, CY - LADO // 2
-    guardar(im.crop((l, t, l + LADO, t + LADO)), dst)
+    guardar(im.crop((l, t, l + LADO, t + LADO)), dst, ampliar_ia=True)
 
 # enemigos en grupo: franja horizontal con toda la fila de monstruos
 im = Image.open(os.path.join(origen, "modelos", "enemigos_en_grupo.jpg")).convert("RGB")
-guardar(im.crop((40, 170, 790, 400)), "enemigos-en-grupo")
+guardar(im.crop((40, 170, 790, 400)), "enemigos-en-grupo", ampliar_ia=True)
 
 # capturas del juego
 for src, dst in {"pueblo_fortin": "pueblo-fortin", "batalla_combo_x53": "batalla-combo",
