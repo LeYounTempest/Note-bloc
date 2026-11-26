@@ -1,0 +1,93 @@
+[
+ {
+  "start": 3.48,
+  "end": 6.51,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Cobre emergió desde el mar."
+ },
+ {
+  "start": 6.51,
+  "end": 9.86,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Un dragón adulto abrió sus alas..."
+ },
+ {
+  "start": 9.86,
+  "end": 14.36,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "y tuvimos que dejar de luchar."
+ },
+ {
+  "start": 14.97,
+  "end": 15.69,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Fuego!"
+ },
+ {
+  "start": 15.69,
+  "end": 16.56,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Escudos!"
+ },
+ {
+  "start": 16.56,
+  "end": 17.92,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Hielo contra escamas!"
+ },
+ {
+  "start": 17.92,
+  "end": 19.28,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El kenku resistía."
+ },
+ {
+  "start": 19.28,
+  "end": 20.95,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El bardo volvió a atacar."
+ },
+ {
+  "start": 20.95,
+  "end": 21.83,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Y el elfo..."
+ },
+ {
+  "start": 21.83,
+  "end": 23.43,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "se hizo invisible."
+ },
+ {
+  "start": 23.43,
+  "end": 24.62,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Qué conveniente."
+ },
+ {
+  "start": 24.62,
+  "end": 26.38,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "El dracónido cayó herido."
+ },
+ {
+  "start": 26.38,
+  "end": 26.4,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "Uno de nosotros corrió."
+ }
+]

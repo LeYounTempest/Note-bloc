@@ -1,0 +1,245 @@
+[
+ {
+  "id": "c01_casco_y_la_mano",
+  "title": "El casco y la mano",
+  "src_start": 0.0,
+  "src_end": 45.0,
+  "duration": 45.0,
+  "event": "Intro: siete kobolds, cae el casco, aparece Mr. Iguana",
+  "mood": "épico/melancólico",
+  "priority": 2,
+  "singers": [
+   "Female Kobold, Angelic",
+   "Male Kobold 1",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.067,
+  "peak": 0.49,
+  "lines": 7
+ },
+ {
+  "id": "c02_saqueo_y_coro",
+  "title": "Hijos de la costa",
+  "src_start": 61.8,
+  "src_end": 95.6,
+  "duration": 33.8,
+  "event": "Saqueo cotidiano y coro del grupo (presentación)",
+  "mood": "alegre/épico",
+  "priority": 3,
+  "singers": [
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Powerful",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.099,
+  "peak": 0.52,
+  "lines": 15
+ },
+ {
+  "id": "c03_relampago_1_2_3",
+  "title": "Uno, dos, tres",
+  "src_start": 95.6,
+  "src_end": 114.5,
+  "duration": 18.9,
+  "event": "Elfo con vino, tres kobolds van por el bardo, relámpago de Dei",
+  "mood": "tensión → golpe",
+  "priority": 1,
+  "singers": [
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.087,
+  "peak": 0.52,
+  "lines": 10
+ },
+ {
+  "id": "c04_ventisca",
+  "title": "Ventisca",
+  "src_start": 114.5,
+  "src_end": 132.3,
+  "duration": 17.8,
+  "event": "Mr. Iguana lanza Ventisca; el dracónido sale volando",
+  "mood": "acción",
+  "priority": 2,
+  "singers": [
+   "Dark Chorus",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.107,
+  "peak": 0.49,
+  "lines": 6
+ },
+ {
+  "id": "c05_tres_lugares",
+  "title": "Tres lugares junto al fuego",
+  "src_start": 132.3,
+  "src_end": 154.5,
+  "duration": 22.2,
+  "event": "Duelo por los tres muertos (Zurdito, Pancho, Lola)",
+  "mood": "emotivo/oscuro",
+  "priority": 2,
+  "singers": [
+   "Dark Chorus",
+   "Female Kobold"
+  ],
+  "energy_rms": 0.104,
+  "peak": 0.53,
+  "lines": 6
+ },
+ {
+  "id": "c06_dragon_de_cobre",
+  "title": "El dragón de cobre",
+  "src_start": 154.5,
+  "src_end": 180.9,
+  "duration": 26.4,
+  "event": "Emerge el dragón adulto; fuego, escudos, hielo; elfo invisible",
+  "mood": "acción",
+  "priority": 2,
+  "singers": [
+   "Battle Continues",
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.092,
+  "peak": 0.62,
+  "lines": 13
+ },
+ {
+  "id": "c07_chispa_y_el_susurro",
+  "title": "Chispa y el susurro",
+  "src_start": 180.9,
+  "src_end": 213.4,
+  "duration": 32.5,
+  "event": "Chispa levanta a Dei, susurro invisible, Chispa cae",
+  "mood": "dramático",
+  "priority": 1,
+  "singers": [
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.108,
+  "peak": 0.64,
+  "lines": 11
+ },
+ {
+  "id": "c08_explosion",
+  "title": "El cuerpo es un arma",
+  "src_start": 213.4,
+  "src_end": 251.0,
+  "duration": 37.6,
+  "event": "El bardo arroja a Chispa contra el dragón; explosión; Iguana se quiebra",
+  "mood": "clímax emocional",
+  "priority": 1,
+  "singers": [
+   "Female Kobold",
+   "Impact",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.122,
+  "peak": 0.6,
+  "lines": 14
+ },
+ {
+  "id": "c09_el_oceano_se_detiene",
+  "title": "El océano dejó de avanzar",
+  "src_start": 251.0,
+  "src_end": 279.9,
+  "duration": 28.9,
+  "event": "Iguana congela costa y mar; el dragón intenta huir",
+  "mood": "épico creciente",
+  "priority": 2,
+  "singers": [
+   "Female Kobold",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.142,
+  "peak": 0.69,
+  "lines": 8
+ },
+ {
+  "id": "c10_rayo_de_hielo",
+  "title": "Rayo de Hielo",
+  "src_start": 279.9,
+  "src_end": 317.3,
+  "duration": 37.4,
+  "event": "¡Demasiado tarde! Rayo de Hielo, el dragón se hace pedazos",
+  "mood": "clímax",
+  "priority": 1,
+  "singers": [
+   "Climax",
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.166,
+  "peak": 0.67,
+  "lines": 15
+ },
+ {
+  "id": "c11_cuatro_lugares_vacios",
+  "title": "Cuatro lugares vacíos",
+  "src_start": 332.1,
+  "src_end": 360.3,
+  "duration": 28.2,
+  "event": "Tras la batalla: el jefe cuenta 1-2-3, quedan tres",
+  "mood": "emotivo",
+  "priority": 1,
+  "singers": [
+   "Female Kobold",
+   "Final Verse",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.167,
+  "peak": 0.69,
+  "lines": 10
+ },
+ {
+  "id": "c12_somos_hijos_de_la_costa",
+  "title": "Nosotros vamos a continuar",
+  "src_start": 360.3,
+  "src_end": 383.4,
+  "duration": 23.1,
+  "event": "Coro final de duelo y resistencia",
+  "mood": "épico/emotivo",
+  "priority": 2,
+  "singers": [
+   "Male Kobold 1",
+   "Three Kobolds"
+  ],
+  "energy_rms": 0.19,
+  "peak": 0.7,
+  "lines": 8
+ },
+ {
+  "id": "c13_siempre_seremos_ocho",
+  "title": "Siempre seremos ocho",
+  "src_start": 383.4,
+  "src_end": 408.4,
+  "duration": 25.0,
+  "event": "Outro: mañana otro barco; fuimos siete, con el jefe somos ocho",
+  "mood": "cálido/cierre",
+  "priority": 1,
+  "singers": [
+   "Female Kobold",
+   "Male Kobold 2",
+   "Three Kobolds",
+   "Whisper"
+  ],
+  "energy_rms": 0.114,
+  "peak": 0.61,
+  "lines": 8
+ }
+]

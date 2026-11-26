@@ -1,0 +1,51 @@
+[
+ {
+  "start": 0.0,
+  "end": 4.5,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "Donde las olas rompen barcos olvidados,"
+ },
+ {
+  "start": 9.34,
+  "end": 13.84,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "siete pequeñas sombras recorríamos el mar."
+ },
+ {
+  "start": 16.75,
+  "end": 21.25,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "Hasta que un viejo casco cayó sobre nosotros"
+ },
+ {
+  "start": 22.26,
+  "end": 26.76,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "y pensamos que allí íbamos a acabar."
+ },
+ {
+  "start": 29.92,
+  "end": 32.47,
+  "section": "Intro",
+  "singer": "Male Kobold 1",
+  "text": "Entonces él llegó."
+ },
+ {
+  "start": 32.47,
+  "end": 35.11,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "Una mano levantó..."
+ },
+ {
+  "start": 35.11,
+  "end": 39.61,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "y todo comenzó a flotar."
+ }
+]

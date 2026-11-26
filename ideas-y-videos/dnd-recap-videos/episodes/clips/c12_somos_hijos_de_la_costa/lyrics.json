@@ -1,0 +1,58 @@
+[
+ {
+  "start": 0.02,
+  "end": 2.01,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Somos hijos de la costa."
+ },
+ {
+  "start": 2.01,
+  "end": 5.05,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Cuatro no regresarán."
+ },
+ {
+  "start": 5.05,
+  "end": 6.4,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "No tenemos reino."
+ },
+ {
+  "start": 6.4,
+  "end": 8.08,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Nunca tuvimos oro."
+ },
+ {
+  "start": 8.08,
+  "end": 10.71,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Solo este viejo hogar."
+ },
+ {
+  "start": 10.71,
+  "end": 14.38,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Pero mientras nuestro jefe siga en pie..."
+ },
+ {
+  "start": 14.38,
+  "end": 18.88,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "¡nosotros vamos a continuar!"
+ },
+ {
+  "start": 23.08,
+  "end": 23.1,
+  "section": "Outro",
+  "singer": "Male Kobold 1",
+  "text": "Mañana llegará otro barco."
+ }
+]

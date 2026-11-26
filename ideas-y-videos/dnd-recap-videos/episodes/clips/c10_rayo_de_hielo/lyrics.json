@@ -1,0 +1,107 @@
+[
+ {
+  "start": -0.01,
+  "end": 1.83,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡DEMASIADO TARDE!"
+ },
+ {
+  "start": 1.83,
+  "end": 3.35,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE CALLE EL CIELO!"
+ },
+ {
+  "start": 3.35,
+  "end": 4.46,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE SE CONGELE EL MAR!"
+ },
+ {
+  "start": 4.46,
+  "end": 6.22,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡POR NUESTROS CUATRO HERMANOS"
+ },
+ {
+  "start": 6.22,
+  "end": 8.13,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "QUE NO VOLVERÁN!"
+ },
+ {
+  "start": 8.13,
+  "end": 12.63,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡RAYO DE HIELO!"
+ },
+ {
+  "start": 13.24,
+  "end": 16.27,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El rayo atravesó sus escamas."
+ },
+ {
+  "start": 16.27,
+  "end": 19.22,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Su cuerpo empezó a cristalizar."
+ },
+ {
+  "start": 19.22,
+  "end": 21.86,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El dragón quedó congelado..."
+ },
+ {
+  "start": 21.86,
+  "end": 25.29,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "sin poder siquiera gritar."
+ },
+ {
+  "start": 25.29,
+  "end": 26.32,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Una grieta."
+ },
+ {
+  "start": 26.32,
+  "end": 27.76,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Luego otra."
+ },
+ {
+  "start": 27.76,
+  "end": 29.67,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y otra más..."
+ },
+ {
+  "start": 29.67,
+  "end": 32.07,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Y SE HIZO PEDAZOS"
+ },
+ {
+  "start": 32.07,
+  "end": 36.57,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "SOBRE EL MAAAAAR!"
+ }
+]

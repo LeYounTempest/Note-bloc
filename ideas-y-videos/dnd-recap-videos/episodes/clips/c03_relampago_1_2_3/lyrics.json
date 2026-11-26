@@ -1,0 +1,72 @@
+[
+ {
+  "start": 1.66,
+  "end": 3.26,
+  "section": "Verse 2",
+  "singer": "Male Kobold 1",
+  "text": "cerca del barco, por allá!”"
+ },
+ {
+  "start": 3.26,
+  "end": 4.85,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Un elfo apareció con vino,"
+ },
+ {
+  "start": 4.85,
+  "end": 6.29,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "como queriendo conversar."
+ },
+ {
+  "start": 6.29,
+  "end": 7.88,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "Tres hermanos fueron hacia el bardo,"
+ },
+ {
+  "start": 7.88,
+  "end": 9.56,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "solo lo querían amarrar."
+ },
+ {
+  "start": 9.56,
+  "end": 12.91,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Pero vimos un relámpago..."
+ },
+ {
+  "start": 12.91,
+  "end": 13.71,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡UNO!"
+ },
+ {
+  "start": 13.71,
+  "end": 14.43,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡DOS!"
+ },
+ {
+  "start": 14.43,
+  "end": 15.22,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡TRES!"
+ },
+ {
+  "start": 15.22,
+  "end": 18.9,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "Tres cuerpos cayeron frente al mar."
+ }
+]

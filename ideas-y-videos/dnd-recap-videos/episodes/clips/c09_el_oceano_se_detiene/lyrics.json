@@ -1,0 +1,58 @@
+[
+ {
+  "start": 0.01,
+  "end": 4.51,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Mr. Iguana levantó una mano."
+ },
+ {
+  "start": 5.04,
+  "end": 8.07,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El océano dejó de avanzar."
+ },
+ {
+  "start": 8.07,
+  "end": 10.54,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "La escarcha cubrió la costa."
+ },
+ {
+  "start": 10.54,
+  "end": 13.57,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El aire comenzó a cristalizar."
+ },
+ {
+  "start": 13.57,
+  "end": 15.97,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Las llamas murieron."
+ },
+ {
+  "start": 15.97,
+  "end": 19.4,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El cobre dejó de brillar."
+ },
+ {
+  "start": 19.4,
+  "end": 23.15,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Y por primera vez aquel dragón..."
+ },
+ {
+  "start": 23.15,
+  "end": 27.65,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "intentó escapar."
+ }
+]

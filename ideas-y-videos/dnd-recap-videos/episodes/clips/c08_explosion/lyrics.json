@@ -1,0 +1,100 @@
+[
+ {
+  "start": 0.99,
+  "end": 3.62,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Pero todavía faltaba algo peor."
+ },
+ {
+  "start": 3.62,
+  "end": 5.62,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "El bardo tomó su cuerpo."
+ },
+ {
+  "start": 5.62,
+  "end": 9.37,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Al kobold que acababa de salvarlo..."
+ },
+ {
+  "start": 9.37,
+  "end": 12.32,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "contra el dragón lo arrojó."
+ },
+ {
+  "start": 12.32,
+  "end": 15.11,
+  "section": "Bridge",
+  "singer": "Impact",
+  "text": "Y nuestro hermano explotó."
+ },
+ {
+  "start": 15.11,
+  "end": 16.15,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Él te salvó..."
+ },
+ {
+  "start": 16.15,
+  "end": 17.26,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Él te ayudó..."
+ },
+ {
+  "start": 17.26,
+  "end": 18.7,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Después de todo..."
+ },
+ {
+  "start": 18.7,
+  "end": 21.09,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "te ayudó..."
+ },
+ {
+  "start": 21.09,
+  "end": 22.93,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y convertiste su cuerpo"
+ },
+ {
+  "start": 22.93,
+  "end": 27.43,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "en un arma."
+ },
+ {
+  "start": 27.48,
+  "end": 31.07,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Miramos a nuestro jefe."
+ },
+ {
+  "start": 31.07,
+  "end": 32.98,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Algo dentro de él..."
+ },
+ {
+  "start": 32.98,
+  "end": 37.48,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "se rompió."
+ }
+]
