@@ -603,5 +603,164 @@
     2
    ]
   }
+ },
+ "dragon": {
+  "size": [
+   200,
+   128
+  ],
+  "feet": [
+   100,
+   128
+  ],
+  "parts": [
+   {
+    "n": "wing_far",
+    "parent": "body",
+    "pivot": [
+     104,
+     60
+    ]
+   },
+   {
+    "n": "leg_far_F",
+    "parent": "root",
+    "pivot": [
+     90,
+     88
+    ]
+   },
+   {
+    "n": "leg_far_H",
+    "parent": "root",
+    "pivot": [
+     128,
+     90
+    ]
+   },
+   {
+    "n": "tail1",
+    "parent": "body",
+    "pivot": [
+     130,
+     74
+    ]
+   },
+   {
+    "n": "tail2",
+    "parent": "tail1",
+    "pivot": [
+     158,
+     86
+    ]
+   },
+   {
+    "n": "tail3",
+    "parent": "tail2",
+    "pivot": [
+     180,
+     94
+    ]
+   },
+   {
+    "n": "body",
+    "parent": "root",
+    "pivot": [
+     100,
+     90
+    ]
+   },
+   {
+    "n": "neck",
+    "parent": "body",
+    "pivot": [
+     80,
+     70
+    ]
+   },
+   {
+    "n": "jaw",
+    "parent": "head",
+    "pivot": [
+     42,
+     53
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "neck",
+    "pivot": [
+     48,
+     44
+    ]
+   },
+   {
+    "n": "leg_near_H",
+    "parent": "root",
+    "pivot": [
+     118,
+     90
+    ]
+   },
+   {
+    "n": "leg_near_F",
+    "parent": "root",
+    "pivot": [
+     80,
+     88
+    ]
+   },
+   {
+    "n": "wing_near",
+    "parent": "body",
+    "pivot": [
+     88,
+     60
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "angry",
+   "roar",
+   "hurt",
+   "dead"
+  ],
+  "face_parent": "head",
+  "props": {},
+  "prop_parent": {},
+  "anchors": {
+   "mouth": [
+    "head",
+    5,
+    52
+   ],
+   "eye": [
+    "head",
+    25,
+    37
+   ],
+   "chest": [
+    "body",
+    70,
+    78
+   ],
+   "wing_tip": [
+    "wing_near",
+    192,
+    22
+   ],
+   "tail_tip": [
+    "tail3",
+    196,
+    88
+   ],
+   "head_top": [
+    "head",
+    40,
+    28
+   ]
+  }
  }
 }

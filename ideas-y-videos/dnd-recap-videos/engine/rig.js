@@ -219,6 +219,10 @@
       const k = clamp(t / 0.35), hold = t > 0.35, ts = snap(t, 24), p = { expr: hold ? 'cast' : 'angry', hide: ['lute'], fx: { arcs: hold ? 1 : k * 0.5, bolt: hold ? 1 : 0 } };
       set(p, 'arm_L', 0, 0, 100 * easeOut(k) + sin(ts * 9) * (hold ? 5 : 0)); set(p, 'arm_R', 0, 0, -100 * easeOut(k) - sin(ts * 9 + 1) * (hold ? 5 : 0));
       set(p, 'head', 0, 0, hold ? -8 : 0); set(p, 'root', hold ? (Math.floor(t * 30) % 2 ? 1 : -1) : 0, 0); set(p, 'tail', 0, 0, 12 + sin(ts * 12) * 6); return p; },
+    tumble(t) {   // arrastrado por el viento: brazos y cola al aire
+      const ts = snap(t, 15), p = { expr: 'hurt', hide: ['lute'] };
+      set(p, 'arm_L', 0, 0, 110 + sin(ts * 9) * 25); set(p, 'arm_R', 0, 0, -110 - sin(ts * 9 + 1) * 25); set(p, 'leg_L', 0, 0, 25 + sin(ts * 7) * 15); set(p, 'leg_R', 0, 0, -25 - sin(ts * 7) * 15);
+      set(p, 'head', 0, 0, sin(ts * 6) * 10); set(p, 'tail', 0, 0, sin(ts * 10) * 30); return p; },
     hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); return p; },
     die(t) { return diePose(t, { hurt: 'hurt', dead: 'dead', h: 64 }); },
   };
@@ -302,5 +306,6 @@
       bolt(g, cx + Math.cos(a) * r0, cy + Math.sin(a) * r0, cx + Math.cos(a) * r1, cy + Math.sin(a) * r1, t + i * 0.013, { seg: 4, amp: 5 * z, z: Math.max(1, z / 2), id: i, fork: false }); }
   }
 
-  G.Rig = { init, draw, sample, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
+  const has = (name, anim) => !!(LIB[name] && LIB[name][anim]);
+  G.Rig = { init, draw, sample, has, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
 })(window);

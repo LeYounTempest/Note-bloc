@@ -4,6 +4,7 @@ Cada parte es un PNG del tamaño completo de la celda (36x32 kobold, 28x30 iguan
 así los pivotes están en coordenadas de la grilla y no hay recortes/offsets que mantener.
 Uso: python3 tools/make_rig.py [assets/rig]"""
 import sys, os, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from PIL import Image
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/rig"
@@ -537,9 +538,13 @@ def hans():
         "anchors": {"hand_R": ["arm_R", 31, 38], "hand_L": ["arm_L", 8, 38], "head_top": ["head", 20, 2]}}
     return layers, rig
 
+def dragon_rig():
+    from make_dragon import dragon, ImgLayer
+    L, r = dragon(); return {k: ImgLayer(v) for k, v in L.items()}, r
+
 if __name__ == "__main__":
     rig = {}
-    for name, fn in (("kobold", kobold), ("iguana", iguana), ("kenku", kenku_small), ("dei", dei), ("hans", hans)):
+    for name, fn in (("kobold", kobold), ("iguana", iguana), ("kenku", kenku_small), ("dei", dei), ("hans", hans), ("dragon", dragon_rig)):
         layers, r = fn(); save_all(f"{OUT}/{name}", layers); rig[name] = r
         print(name, len(layers), "capas")
     json.dump(rig, open(f"{OUT}/rig.json", "w"), indent=1)
