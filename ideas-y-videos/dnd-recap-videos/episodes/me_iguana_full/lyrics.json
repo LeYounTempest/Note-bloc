@@ -1,0 +1,933 @@
+[
+ {
+  "start": 0.0,
+  "end": 9.335,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "Donde las olas rompen barcos olvidados,"
+ },
+ {
+  "start": 9.335,
+  "end": 16.755,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "siete pequeñas sombras recorríamos el mar."
+ },
+ {
+  "start": 16.755,
+  "end": 22.261,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "Hasta que un viejo casco cayó sobre nosotros"
+ },
+ {
+  "start": 22.261,
+  "end": 29.92,
+  "section": "Intro",
+  "singer": "Female Kobold, Angelic",
+  "text": "y pensamos que allí íbamos a acabar."
+ },
+ {
+  "start": 29.92,
+  "end": 32.473,
+  "section": "Intro",
+  "singer": "Male Kobold 1",
+  "text": "Entonces él llegó."
+ },
+ {
+  "start": 32.473,
+  "end": 35.106,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "Una mano levantó..."
+ },
+ {
+  "start": 35.106,
+  "end": 45.106,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "y todo comenzó a flotar."
+ },
+ {
+  "start": 61.755,
+  "end": 63.351,
+  "section": "Intro",
+  "singer": "Female Kobold",
+  "text": "Hierro viejo, cofres rotos,"
+ },
+ {
+  "start": 63.351,
+  "end": 64.548,
+  "section": "Intro",
+  "singer": "Female Kobold",
+  "text": "¡todo sirve, tráelo aquí!"
+ },
+ {
+  "start": 64.548,
+  "end": 66.622,
+  "section": "Intro",
+  "singer": "Male Kobold 1",
+  "text": "¡Esa espada la encontré yo!"
+ },
+ {
+  "start": 66.622,
+  "end": 67.979,
+  "section": "Intro",
+  "singer": "Male Kobold 2",
+  "text": "¡Mentira, yo la vi!"
+ },
+ {
+  "start": 67.979,
+  "end": 69.415,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "Siete kobolds y su mago,"
+ },
+ {
+  "start": 69.415,
+  "end": 71.011,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "una familia frente al mar."
+ },
+ {
+  "start": 71.011,
+  "end": 73.644,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "No teníamos reino ni bandera..."
+ },
+ {
+  "start": 73.644,
+  "end": 79.468,
+  "section": "Intro",
+  "singer": "Three Kobolds",
+  "text": "¡solo barcos que saquear!"
+ },
+ {
+  "start": 79.468,
+  "end": 80.186,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "¡Hey! ¡Hey!"
+ },
+ {
+  "start": 80.186,
+  "end": 81.702,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "¡Hijos de la costa!"
+ },
+ {
+  "start": 81.702,
+  "end": 83.138,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "Que vuelva a rugir el mar."
+ },
+ {
+  "start": 83.138,
+  "end": 84.814,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "Éramos siete junto a Iguana,"
+ },
+ {
+  "start": 84.814,
+  "end": 86.809,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "ocho voces en el hogar."
+ },
+ {
+  "start": 86.809,
+  "end": 88.803,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "Mientras nuestro jefe estuviera..."
+ },
+ {
+  "start": 88.803,
+  "end": 95.585,
+  "section": "Chorus",
+  "singer": "Powerful",
+  "text": "¡nada nos podía faltar!"
+ },
+ {
+  "start": 95.585,
+  "end": 97.261,
+  "section": "Verse 2",
+  "singer": "Male Kobold 1",
+  "text": "“¡Jefe! ¡Hay ladrones"
+ },
+ {
+  "start": 97.261,
+  "end": 98.856,
+  "section": "Verse 2",
+  "singer": "Male Kobold 1",
+  "text": "cerca del barco, por allá!”"
+ },
+ {
+  "start": 98.856,
+  "end": 100.452,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Un elfo apareció con vino,"
+ },
+ {
+  "start": 100.452,
+  "end": 101.888,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "como queriendo conversar."
+ },
+ {
+  "start": 101.888,
+  "end": 103.484,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "Tres hermanos fueron hacia el bardo,"
+ },
+ {
+  "start": 103.484,
+  "end": 105.16,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "solo lo querían amarrar."
+ },
+ {
+  "start": 105.16,
+  "end": 108.511,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Pero vimos un relámpago..."
+ },
+ {
+  "start": 108.511,
+  "end": 109.309,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡UNO!"
+ },
+ {
+  "start": 109.309,
+  "end": 110.027,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡DOS!"
+ },
+ {
+  "start": 110.027,
+  "end": 110.824,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡TRES!"
+ },
+ {
+  "start": 110.824,
+  "end": 114.495,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "Tres cuerpos cayeron frente al mar."
+ },
+ {
+  "start": 114.495,
+  "end": 118.085,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "Mr. Iguana alzó sus manos."
+ },
+ {
+  "start": 118.085,
+  "end": 119.761,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡VENTISCA!"
+ },
+ {
+  "start": 119.761,
+  "end": 122.633,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "El viento comenzó a gritar."
+ },
+ {
+  "start": 122.633,
+  "end": 125.266,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "El dracónido salió volando,"
+ },
+ {
+  "start": 125.266,
+  "end": 132.287,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "separado de los demás."
+ },
+ {
+  "start": 132.287,
+  "end": 135.479,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Éramos siete en esta costa."
+ },
+ {
+  "start": 135.479,
+  "end": 138.431,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Ahora tres no volverán."
+ },
+ {
+  "start": 138.431,
+  "end": 140.505,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "No buscábamos una guerra."
+ },
+ {
+  "start": 140.505,
+  "end": 143.537,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Solo queríamos saquear."
+ },
+ {
+  "start": 143.537,
+  "end": 146.649,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Tres lugares junto al fuego..."
+ },
+ {
+  "start": 146.649,
+  "end": 154.468,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "nadie los volverá a ocupar."
+ },
+ {
+  "start": 154.468,
+  "end": 157.979,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Entonces el océano rugió."
+ },
+ {
+  "start": 157.979,
+  "end": 161.011,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Cobre emergió desde el mar."
+ },
+ {
+  "start": 161.011,
+  "end": 164.362,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Un dragón adulto abrió sus alas..."
+ },
+ {
+  "start": 164.362,
+  "end": 169.468,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "y tuvimos que dejar de luchar."
+ },
+ {
+  "start": 169.468,
+  "end": 170.186,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Fuego!"
+ },
+ {
+  "start": 170.186,
+  "end": 171.064,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Escudos!"
+ },
+ {
+  "start": 171.064,
+  "end": 172.42,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Hielo contra escamas!"
+ },
+ {
+  "start": 172.42,
+  "end": 173.777,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El kenku resistía."
+ },
+ {
+  "start": 173.777,
+  "end": 175.452,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El bardo volvió a atacar."
+ },
+ {
+  "start": 175.452,
+  "end": 176.33,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Y el elfo..."
+ },
+ {
+  "start": 176.33,
+  "end": 177.926,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "se hizo invisible."
+ },
+ {
+  "start": 177.926,
+  "end": 179.122,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Qué conveniente."
+ },
+ {
+  "start": 179.122,
+  "end": 180.878,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "El dracónido cayó herido."
+ },
+ {
+  "start": 180.878,
+  "end": 182.553,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "Uno de nosotros corrió."
+ },
+ {
+  "start": 182.553,
+  "end": 184.707,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Nuestro hermano lo levantó..."
+ },
+ {
+  "start": 184.707,
+  "end": 187.66,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "aunque a tres de los nuestros mató."
+ },
+ {
+  "start": 187.66,
+  "end": 190.771,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Aun así quiso salvarlo."
+ },
+ {
+  "start": 190.771,
+  "end": 196.995,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Porque era mejor que él."
+ },
+ {
+  "start": 196.995,
+  "end": 200.266,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Entonces escuchó un susurro"
+ },
+ {
+  "start": 200.266,
+  "end": 203.537,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "que ninguno pudo ver."
+ },
+ {
+  "start": 203.537,
+  "end": 206.33,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Sus ojos se abrieron."
+ },
+ {
+  "start": 206.33,
+  "end": 209.043,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Su corazón se detuvo."
+ },
+ {
+  "start": 209.043,
+  "end": 211.516,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y nuestro hermano..."
+ },
+ {
+  "start": 211.516,
+  "end": 213.351,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "cayó."
+ },
+ {
+  "start": 213.351,
+  "end": 214.388,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Cuatro..."
+ },
+ {
+  "start": 214.388,
+  "end": 217.021,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Pero todavía faltaba algo peor."
+ },
+ {
+  "start": 217.021,
+  "end": 219.016,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "El bardo tomó su cuerpo."
+ },
+ {
+  "start": 219.016,
+  "end": 222.766,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Al kobold que acababa de salvarlo..."
+ },
+ {
+  "start": 222.766,
+  "end": 225.718,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "contra el dragón lo arrojó."
+ },
+ {
+  "start": 225.718,
+  "end": 228.511,
+  "section": "Bridge",
+  "singer": "Impact",
+  "text": "Y nuestro hermano explotó."
+ },
+ {
+  "start": 228.511,
+  "end": 229.548,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Él te salvó..."
+ },
+ {
+  "start": 229.548,
+  "end": 230.665,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Él te ayudó..."
+ },
+ {
+  "start": 230.665,
+  "end": 232.101,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Después de todo..."
+ },
+ {
+  "start": 232.101,
+  "end": 234.495,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "te ayudó..."
+ },
+ {
+  "start": 234.495,
+  "end": 236.33,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y convertiste su cuerpo"
+ },
+ {
+  "start": 236.33,
+  "end": 240.878,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "en un arma."
+ },
+ {
+  "start": 240.878,
+  "end": 244.468,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Miramos a nuestro jefe."
+ },
+ {
+  "start": 244.468,
+  "end": 246.383,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Algo dentro de él..."
+ },
+ {
+  "start": 246.383,
+  "end": 251.011,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "se rompió."
+ },
+ {
+  "start": 251.011,
+  "end": 256.037,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Mr. Iguana levantó una mano."
+ },
+ {
+  "start": 256.037,
+  "end": 259.069,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El océano dejó de avanzar."
+ },
+ {
+  "start": 259.069,
+  "end": 261.543,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "La escarcha cubrió la costa."
+ },
+ {
+  "start": 261.543,
+  "end": 264.574,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El aire comenzó a cristalizar."
+ },
+ {
+  "start": 264.574,
+  "end": 266.968,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Las llamas murieron."
+ },
+ {
+  "start": 266.968,
+  "end": 270.399,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El cobre dejó de brillar."
+ },
+ {
+  "start": 270.399,
+  "end": 274.149,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Y por primera vez aquel dragón..."
+ },
+ {
+  "start": 274.149,
+  "end": 279.894,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "intentó escapar."
+ },
+ {
+  "start": 279.894,
+  "end": 281.729,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡DEMASIADO TARDE!"
+ },
+ {
+  "start": 281.729,
+  "end": 283.245,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE CALLE EL CIELO!"
+ },
+ {
+  "start": 283.245,
+  "end": 284.362,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE SE CONGELE EL MAR!"
+ },
+ {
+  "start": 284.362,
+  "end": 286.117,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡POR NUESTROS CUATRO HERMANOS"
+ },
+ {
+  "start": 286.117,
+  "end": 288.032,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "QUE NO VOLVERÁN!"
+ },
+ {
+  "start": 288.032,
+  "end": 293.138,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡RAYO DE HIELO!"
+ },
+ {
+  "start": 293.138,
+  "end": 296.17,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El rayo atravesó sus escamas."
+ },
+ {
+  "start": 296.17,
+  "end": 299.122,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Su cuerpo empezó a cristalizar."
+ },
+ {
+  "start": 299.122,
+  "end": 301.755,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El dragón quedó congelado..."
+ },
+ {
+  "start": 301.755,
+  "end": 305.186,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "sin poder siquiera gritar."
+ },
+ {
+  "start": 305.186,
+  "end": 306.223,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Una grieta."
+ },
+ {
+  "start": 306.223,
+  "end": 307.66,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Luego otra."
+ },
+ {
+  "start": 307.66,
+  "end": 309.574,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y otra más..."
+ },
+ {
+  "start": 309.574,
+  "end": 311.968,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Y SE HIZO PEDAZOS"
+ },
+ {
+  "start": 311.968,
+  "end": 321.968,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "SOBRE EL MAAAAAR!"
+ },
+ {
+  "start": 332.074,
+  "end": 333.112,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "Después..."
+ },
+ {
+  "start": 333.112,
+  "end": 335.824,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "solo quedaron las olas."
+ },
+ {
+  "start": 335.824,
+  "end": 338.457,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "Nuestro jefe nos comenzó a contar."
+ },
+ {
+  "start": 338.457,
+  "end": 339.255,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Uno."
+ },
+ {
+  "start": 339.255,
+  "end": 339.973,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Dos."
+ },
+ {
+  "start": 339.973,
+  "end": 340.532,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Tres."
+ },
+ {
+  "start": 340.532,
+  "end": 347.713,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Y nadie más."
+ },
+ {
+  "start": 347.713,
+  "end": 352.261,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Antes siete corríamos por la costa."
+ },
+ {
+  "start": 352.261,
+  "end": 354.814,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Ahora tres mirábamos el mar."
+ },
+ {
+  "start": 354.814,
+  "end": 357.686,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Cuatro lugares vacíos junto al fuego."
+ },
+ {
+  "start": 357.686,
+  "end": 360.319,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Cuatro voces que vamos a recordar."
+ },
+ {
+  "start": 360.319,
+  "end": 362.314,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Somos hijos de la costa."
+ },
+ {
+  "start": 362.314,
+  "end": 365.346,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Cuatro no regresarán."
+ },
+ {
+  "start": 365.346,
+  "end": 366.702,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "No tenemos reino."
+ },
+ {
+  "start": 366.702,
+  "end": 368.378,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Nunca tuvimos oro."
+ },
+ {
+  "start": 368.378,
+  "end": 371.011,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Solo este viejo hogar."
+ },
+ {
+  "start": 371.011,
+  "end": 374.681,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Pero mientras nuestro jefe siga en pie..."
+ },
+ {
+  "start": 374.681,
+  "end": 383.378,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "¡nosotros vamos a continuar!"
+ },
+ {
+  "start": 383.378,
+  "end": 386.011,
+  "section": "Outro",
+  "singer": "Male Kobold 1",
+  "text": "Mañana llegará otro barco."
+ },
+ {
+  "start": 386.011,
+  "end": 388.484,
+  "section": "Outro",
+  "singer": "Male Kobold 2",
+  "text": "Y lo vamos a saquear."
+ },
+ {
+  "start": 388.484,
+  "end": 391.755,
+  "section": "Outro",
+  "singer": "Female Kobold",
+  "text": "Nuestros cuatro idiotas se enojarían"
+ },
+ {
+  "start": 391.755,
+  "end": 395.106,
+  "section": "Outro",
+  "singer": "Female Kobold",
+  "text": "si dejamos el oro atrás."
+ },
+ {
+  "start": 395.106,
+  "end": 396.463,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Fuimos siete."
+ },
+ {
+  "start": 396.463,
+  "end": 398.059,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Seguimos siete."
+ },
+ {
+  "start": 398.059,
+  "end": 400.133,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Con nuestro jefe..."
+ },
+ {
+  "start": 400.133,
+  "end": 406.915,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "siempre seremos ocho."
+ },
+ {
+  "start": 406.915,
+  "end": 408.351,
+  "section": "Outro",
+  "singer": "Whisper",
+  "text": "Mr. Iguana..."
+ }
+]
