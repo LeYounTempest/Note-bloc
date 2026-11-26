@@ -1,0 +1,710 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "audio.m4a",
+ "scenes": [
+  {
+   "type": "stage",
+   "template": "stage.html",
+   "duration": 24.6,
+   "sprites": {
+    "dei.arm_L": "../../assets/rig/dei/arm_L.png",
+    "dei.arm_R": "../../assets/rig/dei/arm_R.png",
+    "dei.face_angry": "../../assets/rig/dei/face_angry.png",
+    "dei.face_blink": "../../assets/rig/dei/face_blink.png",
+    "dei.face_cast": "../../assets/rig/dei/face_cast.png",
+    "dei.face_dead": "../../assets/rig/dei/face_dead.png",
+    "dei.face_hurt": "../../assets/rig/dei/face_hurt.png",
+    "dei.face_normal": "../../assets/rig/dei/face_normal.png",
+    "dei.face_sing": "../../assets/rig/dei/face_sing.png",
+    "dei.face_smirk": "../../assets/rig/dei/face_smirk.png",
+    "dei.head": "../../assets/rig/dei/head.png",
+    "dei.leg_L": "../../assets/rig/dei/leg_L.png",
+    "dei.leg_R": "../../assets/rig/dei/leg_R.png",
+    "dei.lute": "../../assets/rig/dei/lute.png",
+    "dei.tail": "../../assets/rig/dei/tail.png",
+    "dei.torso": "../../assets/rig/dei/torso.png",
+    "dragon.body": "../../assets/rig/dragon/body.png",
+    "dragon.face_angry": "../../assets/rig/dragon/face_angry.png",
+    "dragon.face_blink": "../../assets/rig/dragon/face_blink.png",
+    "dragon.face_dead": "../../assets/rig/dragon/face_dead.png",
+    "dragon.face_hurt": "../../assets/rig/dragon/face_hurt.png",
+    "dragon.face_normal": "../../assets/rig/dragon/face_normal.png",
+    "dragon.face_roar": "../../assets/rig/dragon/face_roar.png",
+    "dragon.head": "../../assets/rig/dragon/head.png",
+    "dragon.jaw": "../../assets/rig/dragon/jaw.png",
+    "dragon.leg_far_F": "../../assets/rig/dragon/leg_far_F.png",
+    "dragon.leg_far_H": "../../assets/rig/dragon/leg_far_H.png",
+    "dragon.leg_near_F": "../../assets/rig/dragon/leg_near_F.png",
+    "dragon.leg_near_H": "../../assets/rig/dragon/leg_near_H.png",
+    "dragon.neck": "../../assets/rig/dragon/neck.png",
+    "dragon.tail1": "../../assets/rig/dragon/tail1.png",
+    "dragon.tail2": "../../assets/rig/dragon/tail2.png",
+    "dragon.tail3": "../../assets/rig/dragon/tail3.png",
+    "dragon.wing_far": "../../assets/rig/dragon/wing_far.png",
+    "dragon.wing_near": "../../assets/rig/dragon/wing_near.png",
+    "hans.arm_L": "../../assets/rig/hans/arm_L.png",
+    "hans.arm_R": "../../assets/rig/hans/arm_R.png",
+    "hans.face_angry": "../../assets/rig/hans/face_angry.png",
+    "hans.face_blink": "../../assets/rig/hans/face_blink.png",
+    "hans.face_dead": "../../assets/rig/hans/face_dead.png",
+    "hans.face_hurt": "../../assets/rig/hans/face_hurt.png",
+    "hans.face_normal": "../../assets/rig/hans/face_normal.png",
+    "hans.face_scared": "../../assets/rig/hans/face_scared.png",
+    "hans.face_smile": "../../assets/rig/hans/face_smile.png",
+    "hans.head": "../../assets/rig/hans/head.png",
+    "hans.leg_L": "../../assets/rig/hans/leg_L.png",
+    "hans.leg_R": "../../assets/rig/hans/leg_R.png",
+    "hans.prop_L_0": "../../assets/rig/hans/prop_L_0.png",
+    "hans.prop_R_0": "../../assets/rig/hans/prop_R_0.png",
+    "hans.prop_R_1": "../../assets/rig/hans/prop_R_1.png",
+    "hans.torso": "../../assets/rig/hans/torso.png",
+    "iguana.arm_s": "../../assets/rig/iguana/arm_s.png",
+    "iguana.book": "../../assets/rig/iguana/book.png",
+    "iguana.cape": "../../assets/rig/iguana/cape.png",
+    "iguana.face_angry": "../../assets/rig/iguana/face_angry.png",
+    "iguana.face_blink": "../../assets/rig/iguana/face_blink.png",
+    "iguana.face_cast": "../../assets/rig/iguana/face_cast.png",
+    "iguana.face_hollow": "../../assets/rig/iguana/face_hollow.png",
+    "iguana.face_normal": "../../assets/rig/iguana/face_normal.png",
+    "iguana.face_sad": "../../assets/rig/iguana/face_sad.png",
+    "iguana.face_scared": "../../assets/rig/iguana/face_scared.png",
+    "iguana.hat": "../../assets/rig/iguana/hat.png",
+    "iguana.head": "../../assets/rig/iguana/head.png",
+    "iguana.leg_L": "../../assets/rig/iguana/leg_L.png",
+    "iguana.leg_R": "../../assets/rig/iguana/leg_R.png",
+    "iguana.staff": "../../assets/rig/iguana/staff.png",
+    "iguana.tail": "../../assets/rig/iguana/tail.png",
+    "iguana.torso": "../../assets/rig/iguana/torso.png",
+    "kenku.arm_L": "../../assets/rig/kenku/arm_L.png",
+    "kenku.arm_R": "../../assets/rig/kenku/arm_R.png",
+    "kenku.cape": "../../assets/rig/kenku/cape.png",
+    "kenku.face_angry": "../../assets/rig/kenku/face_angry.png",
+    "kenku.face_blink": "../../assets/rig/kenku/face_blink.png",
+    "kenku.face_dead": "../../assets/rig/kenku/face_dead.png",
+    "kenku.face_hurt": "../../assets/rig/kenku/face_hurt.png",
+    "kenku.face_normal": "../../assets/rig/kenku/face_normal.png",
+    "kenku.face_serene": "../../assets/rig/kenku/face_serene.png",
+    "kenku.face_speak": "../../assets/rig/kenku/face_speak.png",
+    "kenku.halo": "../../assets/rig/kenku/halo.png",
+    "kenku.head": "../../assets/rig/kenku/head.png",
+    "kenku.hood": "../../assets/rig/kenku/hood.png",
+    "kenku.leg_L": "../../assets/rig/kenku/leg_L.png",
+    "kenku.leg_R": "../../assets/rig/kenku/leg_R.png",
+    "kenku.prop_L_0": "../../assets/rig/kenku/prop_L_0.png",
+    "kenku.prop_R_0": "../../assets/rig/kenku/prop_R_0.png",
+    "kenku.ribbon_L": "../../assets/rig/kenku/ribbon_L.png",
+    "kenku.ribbon_R": "../../assets/rig/kenku/ribbon_R.png",
+    "kenku.tail": "../../assets/rig/kenku/tail.png",
+    "kenku.torso": "../../assets/rig/kenku/torso.png",
+    "kobold.arm_L": "../../assets/rig/kobold/arm_L.png",
+    "kobold.arm_R": "../../assets/rig/kobold/arm_R.png",
+    "kobold.face_angry": "../../assets/rig/kobold/face_angry.png",
+    "kobold.face_blink": "../../assets/rig/kobold/face_blink.png",
+    "kobold.face_dead": "../../assets/rig/kobold/face_dead.png",
+    "kobold.face_happy": "../../assets/rig/kobold/face_happy.png",
+    "kobold.face_hurt": "../../assets/rig/kobold/face_hurt.png",
+    "kobold.face_normal": "../../assets/rig/kobold/face_normal.png",
+    "kobold.face_scared": "../../assets/rig/kobold/face_scared.png",
+    "kobold.face_sing": "../../assets/rig/kobold/face_sing.png",
+    "kobold.face_sing_mid": "../../assets/rig/kobold/face_sing_mid.png",
+    "kobold.head": "../../assets/rig/kobold/head.png",
+    "kobold.leg_L": "../../assets/rig/kobold/leg_L.png",
+    "kobold.leg_R": "../../assets/rig/kobold/leg_R.png",
+    "kobold.prop_L_0": "../../assets/rig/kobold/prop_L_0.png",
+    "kobold.prop_L_1": "../../assets/rig/kobold/prop_L_1.png",
+    "kobold.prop_L_3": "../../assets/rig/kobold/prop_L_3.png",
+    "kobold.prop_L_5": "../../assets/rig/kobold/prop_L_5.png",
+    "kobold.prop_L_6": "../../assets/rig/kobold/prop_L_6.png",
+    "kobold.prop_R_0": "../../assets/rig/kobold/prop_R_0.png",
+    "kobold.prop_R_2": "../../assets/rig/kobold/prop_R_2.png",
+    "kobold.prop_R_3": "../../assets/rig/kobold/prop_R_3.png",
+    "kobold.prop_R_4": "../../assets/rig/kobold/prop_R_4.png",
+    "kobold.prop_R_5": "../../assets/rig/kobold/prop_R_5.png",
+    "kobold.prop_R_6": "../../assets/rig/kobold/prop_R_6.png",
+    "kobold.tail": "../../assets/rig/kobold/tail.png",
+    "kobold.torso": "../../assets/rig/kobold/torso.png"
+   },
+   "metaFile": "../../assets/rig/rig.json",
+   "chip": {
+    "text": "SESIÓN 1 · EP. 2",
+    "t": 0.2,
+    "dur": 3.0
+   },
+   "title": {
+    "text": "El dragón de cobre",
+    "t": 0.5,
+    "dur": 3.0
+   },
+   "bg": [
+    {
+     "t": 0,
+     "mode": "dusk"
+    }
+   ],
+   "lines": [
+    {
+     "t0": 0,
+     "t1": 3.46,
+     "text": "Entonces el océano rugió.",
+     "big": false
+    },
+    {
+     "t0": 3.48,
+     "t1": 6.49,
+     "text": "Cobre emergió desde el mar.",
+     "big": false
+    },
+    {
+     "t0": 6.51,
+     "t1": 9.84,
+     "text": "Un dragón adulto abrió sus alas...",
+     "big": false
+    },
+    {
+     "t0": 9.86,
+     "t1": 14.36,
+     "text": "y tuvimos que dejar de luchar.",
+     "big": false
+    },
+    {
+     "t0": 14.97,
+     "t1": 15.67,
+     "text": "¡Fuego!",
+     "big": false
+    },
+    {
+     "t0": 15.69,
+     "t1": 16.54,
+     "text": "¡Escudos!",
+     "big": false
+    },
+    {
+     "t0": 16.56,
+     "t1": 17.9,
+     "text": "¡Hielo contra escamas!",
+     "big": false
+    },
+    {
+     "t0": 17.92,
+     "t1": 19.26,
+     "text": "El kenku resistía.",
+     "big": false
+    },
+    {
+     "t0": 19.28,
+     "t1": 20.93,
+     "text": "El bardo volvió a atacar.",
+     "big": false
+    },
+    {
+     "t0": 20.95,
+     "t1": 21.81,
+     "text": "Y el elfo...",
+     "big": false
+    },
+    {
+     "t0": 21.83,
+     "t1": 23.41,
+     "text": "se hizo invisible.",
+     "big": false
+    },
+    {
+     "t0": 23.43,
+     "t1": 24.6,
+     "text": "Qué conveniente.",
+     "big": false
+    }
+   ],
+   "actors": [
+    {
+     "id": "k0",
+     "rig": "kobold",
+     "variant": 0,
+     "name": "Julia",
+     "seed": 0,
+     "keys": [
+      {
+       "t": 0,
+       "x": 24,
+       "y": 392,
+       "anim": "sing",
+       "opts": {
+        "seed": 1
+       }
+      },
+      {
+       "t": 14.6,
+       "x": 24,
+       "y": 392,
+       "anim": "scared"
+      },
+      {
+       "t": 15.0,
+       "x": 24,
+       "y": 392,
+       "anim": "sing",
+       "opts": {
+        "seed": 2
+       }
+      },
+      {
+       "t": 19.3,
+       "x": 24,
+       "y": 392,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k1",
+     "rig": "kobold",
+     "variant": 1,
+     "name": "Piedrín",
+     "seed": 1,
+     "keys": [
+      {
+       "t": 0,
+       "x": 46,
+       "y": 404,
+       "anim": "idle"
+      },
+      {
+       "t": 6.5,
+       "x": 46,
+       "y": 404,
+       "anim": "scared"
+      },
+      {
+       "t": 15.0,
+       "x": 46,
+       "y": 404,
+       "anim": "sing",
+       "opts": {
+        "seed": 3
+       }
+      },
+      {
+       "t": 19.3,
+       "x": 46,
+       "y": 404,
+       "anim": "scared"
+      },
+      {
+       "t": 23.4,
+       "x": 46,
+       "y": 404,
+       "anim": "sing",
+       "opts": {
+        "seed": 5
+       }
+      },
+      {
+       "t": 24.4,
+       "x": 46,
+       "y": 404,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k2",
+     "rig": "kobold",
+     "variant": 2,
+     "name": "Braulio",
+     "seed": 2,
+     "keys": [
+      {
+       "t": 0,
+       "x": 68,
+       "y": 394,
+       "anim": "idle"
+      },
+      {
+       "t": 6.5,
+       "x": 68,
+       "y": 394,
+       "anim": "scared"
+      },
+      {
+       "t": 15.0,
+       "x": 68,
+       "y": 394,
+       "anim": "sing",
+       "opts": {
+        "seed": 4
+       }
+      },
+      {
+       "t": 19.3,
+       "x": 68,
+       "y": 394,
+       "anim": "scared"
+      },
+      {
+       "t": 20.9,
+       "x": 68,
+       "y": 394,
+       "anim": "sing",
+       "opts": {
+        "seed": 6
+       }
+      },
+      {
+       "t": 21.9,
+       "x": 68,
+       "y": 394,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k3",
+     "rig": "kobold",
+     "variant": 3,
+     "name": "Chispa",
+     "seed": 3,
+     "keys": [
+      {
+       "t": 0,
+       "x": 90,
+       "y": 406,
+       "anim": "idle"
+      },
+      {
+       "t": 3.5,
+       "x": 90,
+       "y": 406,
+       "anim": "scared"
+      },
+      {
+       "t": 19.3,
+       "x": 90,
+       "y": 406,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "iguana",
+     "rig": "iguana",
+     "name": "Mr. Iguana",
+     "keys": [
+      {
+       "t": 0,
+       "x": 112,
+       "y": 384,
+       "anim": "idle"
+      },
+      {
+       "t": 3.5,
+       "x": 112,
+       "y": 384,
+       "anim": "idle"
+      },
+      {
+       "t": 15.9,
+       "x": 112,
+       "y": 384,
+       "anim": "cast",
+       "fxcol": [
+        130,
+        200,
+        255
+       ]
+      },
+      {
+       "t": 19.0,
+       "x": 112,
+       "y": 384,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "kenku",
+     "rig": "kenku",
+     "variant": 0,
+     "name": "Kenku",
+     "keys": [
+      {
+       "t": 0,
+       "x": 226,
+       "y": 366,
+       "anim": "idle"
+      },
+      {
+       "t": 15.7,
+       "x": 226,
+       "y": 366,
+       "anim": "guard"
+      },
+      {
+       "t": 21.0,
+       "x": 226,
+       "y": 366,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "hans",
+     "rig": "hans",
+     "variant": 0,
+     "name": "Hans",
+     "keys": [
+      {
+       "t": 0,
+       "x": 196,
+       "y": 380,
+       "anim": "idle"
+      },
+      {
+       "t": 3.5,
+       "x": 196,
+       "y": 380,
+       "anim": "scared"
+      },
+      {
+       "t": 9.9,
+       "x": 196,
+       "y": 380,
+       "anim": "idle"
+      },
+      {
+       "t": 21.8,
+       "x": 196,
+       "y": 380,
+       "anim": "vanish"
+      }
+     ]
+    },
+    {
+     "id": "dei",
+     "rig": "dei",
+     "name": "Dei",
+     "keys": [
+      {
+       "t": 17.2,
+       "x": 330,
+       "y": 350,
+       "anim": "walk"
+      },
+      {
+       "t": 19.0,
+       "x": 252,
+       "y": 350,
+       "anim": "cast"
+      },
+      {
+       "t": 21.5,
+       "x": 252,
+       "y": 350,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "dragon",
+     "rig": "dragon",
+     "name": "Dragón de cobre",
+     "keys": [
+      {
+       "t": 3.5,
+       "x": 170,
+       "y": 462,
+       "anim": "emerge",
+       "clipY": 306
+      },
+      {
+       "t": 6.2,
+       "x": 170,
+       "y": 322,
+       "anim": "emerge",
+       "clipY": 306
+      },
+      {
+       "t": 6.5,
+       "x": 170,
+       "y": 322,
+       "anim": "roar"
+      },
+      {
+       "t": 9.9,
+       "x": 170,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 15.0,
+       "x": 170,
+       "y": 322,
+       "anim": "breathe",
+       "opts": {
+        "dur": 1.6
+       },
+       "firedx": 0.12,
+       "firedy": 1.5,
+       "firelen": 230
+      },
+      {
+       "t": 16.8,
+       "x": 170,
+       "y": 322,
+       "anim": "hurt"
+      },
+      {
+       "t": 17.5,
+       "x": 170,
+       "y": 322,
+       "anim": "breathe",
+       "opts": {
+        "dur": 1.8
+       },
+       "firedx": 0.12,
+       "firedy": 1.5,
+       "firelen": 230
+      },
+      {
+       "t": 19.5,
+       "x": 170,
+       "y": 322,
+       "anim": "hurt"
+      },
+      {
+       "t": 20.4,
+       "x": 170,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 23.4,
+       "x": 170,
+       "y": 322,
+       "anim": "roar"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "fade",
+     "t": 0,
+     "dur": 0.7,
+     "from": "black"
+    },
+    {
+     "type": "shake",
+     "t": 0.2,
+     "dur": 3.2,
+     "amp": 1
+    },
+    {
+     "type": "shake",
+     "t": 3.5,
+     "dur": 1.8,
+     "amp": 3
+    },
+    {
+     "type": "shake",
+     "t": 6.5,
+     "dur": 0.9,
+     "amp": 2
+    },
+    {
+     "type": "splash",
+     "t": 3.5,
+     "dur": 1.8,
+     "x": 170,
+     "y": 308,
+     "spread": 120,
+     "h": 70
+    },
+    {
+     "type": "splash",
+     "t": 4.6,
+     "dur": 1.6,
+     "x": 130,
+     "y": 308,
+     "spread": 90,
+     "h": 50
+    },
+    {
+     "type": "label",
+     "t": 6.8,
+     "dur": 3.2,
+     "x": 96,
+     "y": 170,
+     "text": "Dragón de cobre"
+    },
+    {
+     "type": "dome",
+     "t": 15.7,
+     "dur": 5.0,
+     "x": 66,
+     "y": 420,
+     "r": 70
+    },
+    {
+     "type": "beam",
+     "t": 16.5,
+     "dur": 1.2,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "chest"
+     },
+     "id": 1
+    },
+    {
+     "type": "flash",
+     "t": 16.8,
+     "dur": 0.25,
+     "a": 0.5
+    },
+    {
+     "type": "shake",
+     "t": 16.8,
+     "dur": 0.4,
+     "amp": 2
+    },
+    {
+     "type": "bolt",
+     "t": 19.3,
+     "dur": 0.9,
+     "from": {
+      "actor": "dei",
+      "anchor": "hand_R"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "chest"
+     },
+     "id": 2
+    },
+    {
+     "type": "flash",
+     "t": 19.3,
+     "dur": 0.3,
+     "a": 0.8
+    },
+    {
+     "type": "shake",
+     "t": 19.5,
+     "dur": 0.6,
+     "amp": 3
+    },
+    {
+     "type": "fade",
+     "t": 22.8,
+     "dur": 1.8,
+     "to": "black"
+    }
+   ]
+  }
+ ]
+}

@@ -71,7 +71,7 @@
       if (tint > 0) {
         tmp.width = w; tmp.height = h; tg.imageSmoothingEnabled = false; tg.clearRect(0, 0, w, h);
         tg.globalCompositeOperation = 'source-over'; tg.drawImage(img, 0, 0);
-        tg.globalCompositeOperation = 'source-atop'; tg.fillStyle = `rgba(255,255,255,${tint})`; tg.fillRect(0, 0, w, h);
+        tg.globalCompositeOperation = 'source-atop'; tg.fillStyle = `rgba(${pose.tintc || '255,255,255'},${tint})`; tg.fillRect(0, 0, w, h);
         gg.drawImage(tmp, 0, 0);
       } else gg.drawImage(img, 0, 0);
     }
@@ -250,7 +250,35 @@
     die(t) { return diePose(t, { hurt: 'hurt', dead: 'dead', h: 58 }); },
   };
 
-  const LIB = { kobold: K, iguana: I, kenku: KN, dei: DEI, hans: HA };
+  const o_ice = '150,210,255';
+
+  const DR = {   // dragón de cobre (perfil mirando a la izquierda)
+    _wings(p, ph, amp, up = 0) { set(p, 'wing_near', 0, 0, up + sin(ph) * amp); set(p, 'wing_far', 0, 0, up + sin(ph - 0.7) * amp * 0.9); },
+    _tail(p, ph, k = 1) { set(p, 'tail1', 0, 0, sin(ph) * 6 * k); set(p, 'tail2', 0, 0, sin(ph - 0.9) * 9 * k); set(p, 'tail3', 0, 0, sin(ph - 1.8) * 14 * k); },
+    idle(t) { const ts = snap(t, 10), ph = ts * 0.9 * TAU, p = { expr: blinkAt(t) ? 'blink' : 'normal' };
+      set(p, 'body', 0, sin(ph) > 0.2 ? 1 : 0); set(p, 'neck', 0, 0, sin(ph - 0.6) * 3); set(p, 'head', 0, 0, sin(ph - 1.2) * 3);
+      DR._wings(p, ts * 0.6 * TAU, 7, -6); DR._tail(p, ts * 1.1 * TAU); return p; },
+    emerge(t) {   // rugido al salir del mar; t local
+      const k = easeOut(clamp(t / 1.2)), ts = snap(t, 12), p = { expr: 'roar' };
+      set(p, 'wing_near', 0, 0, -30 * k + sin(ts * 5) * 6); set(p, 'wing_far', 0, 0, -30 * k + sin(ts * 5 - 1) * 6);
+      set(p, 'head', 0, 0, -14 * k); set(p, 'neck', 0, 0, -6 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'root', (Math.floor(t * 28) % 2 ? 1 : -1) * k, 0);
+      DR._tail(p, ts * 2 * TAU, 1.4); return p; },
+    roar(t) { const k = clamp(t / 0.25) * clamp((1.6 - t) / 0.3), ts = snap(t, 12), p = { expr: 'roar' };
+      set(p, 'head', 0, 0, -13 * k); set(p, 'neck', 0, 0, -7 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'wing_near', 0, 0, -26 * k + sin(ts * 6) * 5 * k); set(p, 'wing_far', 0, 0, -26 * k + sin(ts * 6 - 1) * 5 * k);
+      set(p, 'root', (Math.floor(t * 28) % 2 ? 1 : -1) * k, 0); DR._tail(p, ts * 2 * TAU, 1.2); return p; },
+    breathe(t, o = {}) {   // aliento de fuego; t local: carga .45 s, fuego hasta o.dur (1.6)
+      const dur = o.dur || 1.6, w = clamp(t / 0.45), on = t >= 0.45 && t < dur, end = clamp((t - dur) / 0.3), ts = snap(t, 12), p = { expr: 'angry' };
+      set(p, 'head', 0, 0, 6 * w + (on ? 12 : 0) * (1 - end)); set(p, 'neck', 0, 0, 4 * w + (on ? 6 : 0) * (1 - end)); set(p, 'jaw', 0, 0, -10 * w - (on ? 22 : 0) * (1 - end));
+      set(p, 'body', 0, 0, on ? -2 : 0); set(p, 'wing_near', 0, 0, -18 * w * (1 - end) + sin(ts * 4) * 5); set(p, 'wing_far', 0, 0, -18 * w * (1 - end) + sin(ts * 4 - 1) * 5);
+      DR._tail(p, ts * 1.6 * TAU, 1.2); if (on) p.fx = { fire: clamp((t - 0.45) / 0.15) * (1 - end) }; return p; },
+    hurt(t) { const k = clamp(t / 0.7), d = 1 - k, p = { expr: 'hurt', tint: t < 0.12 ? 0.5 : 0, tintc: o_ice };
+      set(p, 'head', 0, 0, -16 * d); set(p, 'neck', 0, 0, -8 * d); set(p, 'jaw', 0, 0, -22 * d); set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d, 0);
+      set(p, 'wing_near', 0, 0, -22 * d); set(p, 'wing_far', 0, 0, -22 * d); DR._tail(p, snap(t, 12) * 3 * TAU, 1.5 * d + 0.3); return p; },
+    frozen(t) { const p = { expr: 'hurt', tint: 0.55, tintc: o_ice }; set(p, 'wing_near', 0, 0, -14); set(p, 'wing_far', 0, 0, -14); set(p, 'head', 0, 0, -8); set(p, 'jaw', 0, 0, -16);
+      p.fx = { sparkle: 1 }; return p; },
+  };
+
+  const LIB = { kobold: K, iguana: I, kenku: KN, dei: DEI, hans: HA, dragon: DR };
   function sample(name, anim, t, o) { const fn = LIB[name][anim]; return fn(t, o || {}); }
 
   /* ───────────── efectos ───────────── */
@@ -293,9 +321,10 @@
     pts.push([x1, y1]);
     g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
     const line = (a, b, col, w) => { const steps = Math.max(abs(b[0] - a[0]), abs(b[1] - a[1])) | 0; g.fillStyle = col; for (let s_ = 0; s_ <= steps; s_++) { const f = steps ? s_ / steps : 0; g.fillRect(round(a[0] + (b[0] - a[0]) * f - w / 2), round(a[1] + (b[1] - a[1]) * f - w / 2), w, w); } };
-    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], 'rgba(120,210,255,.55)', 3 * z);
-    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], '#9ee8ff', 2 * z);
-    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], '#ffffff', 1 * z);
+    const cl = o.cols || ['rgba(120,210,255,.55)', '#9ee8ff', '#ffffff'];
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], cl[0], (o.w || 3) * z);
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], cl[1], Math.max(1, (o.w || 3) - 1) * z);
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], cl[2], 1 * z);
     if (o.fork !== false) for (let k = 0; k < 2; k++) { const i = 2 + k * 3, a = pts[i], b = [a[0] + (hash(seed, 40 + k) - .5) * 24 * z, a[1] + (hash(seed, 50 + k) - .2) * 18 * z]; line(a, b, '#9ee8ff', 1 * z); }
     g.restore();
   }
@@ -307,5 +336,23 @@
   }
 
   const has = (name, anim) => !!(LIB[name] && LIB[name][anim]);
-  G.Rig = { init, draw, sample, has, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
+
+  // aliento de fuego: partículas deterministas desde (x,y) en dirección (dx,dy)
+  function fire(g, x, y, dx, dy, t, k = 1, o = {}) {
+    const L = (o.len || 130) * Math.min(1, k + 0.2), n = 90, z = o.z || 1; g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    const len = Math.hypot(dx, dy) || 1, ux = dx / len, uy = dy / len, nx = -uy, ny = ux;
+    for (let i = 0; i < n; i++) {
+      const age = (t * 1.9 + hash(i, 1)) % 1, d = age * L, sp = (hash(i, 2) - .5) * (4 + age * 34) * z, flick = Math.sin(t * 25 + i) * 1.5;
+      const px = x + ux * d + nx * (sp + flick), py = y + uy * d + ny * (sp + flick) - age * age * 14, sz = (1 + age * 4 * (o.size || 1)) * z;
+      const col = age < .18 ? '#fff4c0' : age < .4 ? '#ffd048' : age < .7 ? '#f07a28' : '#a02a1c';
+      g.globalAlpha = Math.min(1, k * 1.4) * (age > .85 ? (1 - age) / .15 : 1); g.fillStyle = col; g.fillRect(round(px), round(py), round(sz), round(sz));
+    }
+    g.globalAlpha = 1; g.restore();
+  }
+  function sparkle(g, cx, cy, w, h, t) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    for (let i = 0; i < 24; i++) { const ph = (t * 1.3 + hash(i, 1)) % 1; g.globalAlpha = Math.sin(ph * Math.PI); g.fillStyle = hash(i, 2) > .5 ? '#ffffff' : '#9fd8ff';
+      const x = round(cx + (hash(i, 3) - .5) * w), y = round(cy + (hash(i, 4) - .5) * h); g.fillRect(x, y, 1, 1); if (ph > .4 && ph < .6) { g.fillRect(x - 1, y, 3, 1); g.fillRect(x, y - 1, 1, 3) } }
+    g.globalAlpha = 1; g.restore(); }
+
+  G.Rig = { init, draw, sample, has, fire, sparkle, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
 })(window);

@@ -86,11 +86,15 @@ function drawActors(t){
     const pose=Rig.sample(a.rig,lib,st.lt,Object.assign({seed:a.seed||0},k.opts||{}));
     if(st.rot){ pose.root=pose.root||{}; pose.root.a=(pose.root.a||0)+st.rot }
     if(k.alpha!==undefined) pose.alpha=(pose.alpha==null?1:pose.alpha)*k.alpha;
+    if(k.clipY!=null){ g.save(); g.beginPath(); g.rect(0,0,270,k.clipY); g.clip() }
     const A=Rig.draw(g,a.rig,pose,st.x,st.y,{variant:a.variant,flip:st.flip}); ANCH[a.id]=A; a._st=st;
+    if(k.clipY!=null) g.restore();
     const fx=pose.fx;
     if(fx&&A.crystal) Rig.glow(g,A.crystal[0],A.crystal[1],fx,t,{col:k.fxcol});
     if(fx&&fx.aura&&A.halo) Rig.aura(g,A.halo[0],A.halo[1]+8,t,fx.aura,{r:15});
     if(fx&&fx.arcs&&A.eyes) Rig.arcs(g,A.eyes[0],A.eyes[1]+12,t,fx.arcs,{});
+    if(fx&&fx.fire&&A.mouth){ const d=st.flip?1:-1; Rig.fire(g,A.mouth[0],A.mouth[1]+3,d*(k.firedx||1),(k.firedy||.42),t,fx.fire,{len:k.firelen||150}) }
+    if(fx&&fx.sparkle&&A.chest) Rig.sparkle(g,A.chest[0],A.chest[1]-12,110,90,t)
   }
 }
 
@@ -106,6 +110,14 @@ function overlays(t){
   for(const e of S.events){
     if(e.type==='bolt'&&t>=e.t&&t<e.t+e.dur){ const p0=pointOf(e.from,t), p1=pointOf(e.to,t); Rig.bolt(g,p0[0],p0[1],p1[0],p1[1],t,{amp:e.amp||14,z:1,id:e.id||0});
       const q=ANCH[e.to.actor]; }
+    else if(e.type==='beam'&&t>=e.t&&t<e.t+e.dur){ const p0=pointOf(e.from,t), p1=pointOf(e.to,t);
+      Rig.bolt(g,p0[0],p0[1],p1[0],p1[1],t,{seg:6,amp:e.amp||5,w:e.w||4,id:e.id||0,fork:false,cols:e.cols||['rgba(150,210,255,.45)','#a8e2ff','#ffffff']}); }
+    else if(e.type==='splash'&&t>=e.t&&t<e.t+e.dur){ const u=(t-e.t)/e.dur; for(let i=0;i<44;i++){ const ph=clamp(u*1.4-hash(i,1)*.4); if(ph<=0||ph>=1) continue;
+      const vx=(hash(i,2)-.5)*e.spread, vy=-(18+hash(i,3)*e.h); g.fillStyle=hash(i,4)>.4?'#ffffff':'#bcd8ff'; g.fillRect(round(e.x+vx*ph),round(e.y+vy*ph+60*ph*ph),hash(i,5)>.7?2:1,hash(i,5)>.7?2:1) } }
+    else if(e.type==='dome'&&t>=e.t&&t<e.t+e.dur){ const o=envelope(t,e.t,e.dur,.25,.4), cx=e.x, cy=e.y, r=e.r, pul=.85+.15*sin(t*12);
+      for(let yy=-r;yy<=0;yy++){ const w=Math.sqrt(r*r-yy*yy); g.fillStyle=`rgba(210,225,255,${.08*o})`; g.fillRect(round(cx-w),round(cy+yy*.8),round(w*2),1);
+        g.fillStyle=`rgba(235,242,255,${.55*o*pul})`; g.fillRect(round(cx-w),round(cy+yy*.8),2,1); g.fillRect(round(cx+w-2),round(cy+yy*.8),2,1) }
+      for(let a=0;a<=Math.PI;a+=.06){ g.fillStyle=`rgba(235,242,255,${.6*o*pul})`; g.fillRect(round(cx-Math.cos(a)*r),round(cy-Math.sin(a)*r*.8),2,2) } }
     else if(e.type==='flash'&&t>=e.t&&t<e.t+e.dur) flash=Math.max(flash,(1-(t-e.t)/e.dur)*(e.a||.8));
     else if(e.type==='skyflash'&&t>=e.t&&t<e.t+e.dur) skyflash=Math.max(skyflash,(1-(t-e.t)/e.dur)*(e.a||.9));
     else if(e.type==='shake'&&t>=e.t&&t<e.t+e.dur) shake=Math.max(shake,(1-(t-e.t)/e.dur)*(e.amp||2));
