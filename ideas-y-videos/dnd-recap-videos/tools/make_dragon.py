@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Dragón de cobre adulto (5e), perfil mirando a la IZQUIERDA, celda 200x128.
+"""Dragón de cobre adulto (5e), perfil mirando a la IZQUIERDA, celda 248x128.
 Se dibuja con primitivas (polígonos/curvas) y un pase de sombreado pixel art por material:
 luz desde arriba, contorno oscuro, textura de escamas. Devuelve capas + definición de rig para make_rig.py.
 Uso suelto: python3 tools/make_dragon.py [out_dir]  (genera PNG + hoja de contacto)"""
 import sys, os, json, math
 from PIL import Image, ImageDraw
 
-W, H = 200, 128
+W, H = 248, 128
 def T(base, light, hl, dark, line, outline=True, scales=True): return dict(base=base, light=light, hl=hl, dark=dark, line=line, outline=outline, scales=scales)
 def dim(t, f):
     c = lambda x: tuple(int(v * f) for v in x)
@@ -78,12 +78,13 @@ def tri(d, a, b, c): d.polygon([a, b, c], fill=255)
 # ───────────── partes ─────────────
 def part_body(f=1.0, dx=0, dy=0):
     def torso(d):
-        d.ellipse([58+dx, 52+dy, 142+dx, 102+dy], fill=255)
-        curve(d, [(122+dx, 62+dy), (134+dx, 74+dy), (142+dx, 84+dy)], [26, 22, 16])            # grupa → base de la cola
-        for x in range(70, 140, 8): tri(d, (x+dx, 56+dy-(x%16)//8*0), (x+4+dx, 49+dy+(x//8)%2*2), (x+8+dx, 56+dy))   # espinas dorsales
+        d.ellipse([74, 60, 168, 96], fill=255)
+        d.ellipse([78, 58, 114, 98], fill=255)                                                    # pecho
+        curve(d, [(150, 66), (162, 74), (170, 82)], [22, 18, 12])                                 # grupa → cola
+        for x in range(84, 162, 8): tri(d, (x, 62), (x+4, 54 + (x//8) % 2 * 2), (x+8, 62))        # espinas dorsales
     def belly(d):
-        d.chord([62+dx, 62+dy, 138+dx, 108+dy], 0, 180, fill=255)
-        d.rectangle([62+dx, 62+dy, 138+dx, 84+dy], fill=0)
+        d.chord([80, 68, 162, 102], 0, 180, fill=255)
+        d.rectangle([80, 68, 162, 84], fill=0)
     return build([(torso, dim(CU, f)), (belly, dim(BELLY, f))])
 
 def tail_seg(a, b, wa, wb, f=1.0, spade=False):
@@ -95,10 +96,10 @@ def tail_seg(a, b, wa, wb, f=1.0, spade=False):
 
 def part_neck(f=1.0):
     def fn(d):
-        curve(d, [(80, 70), (66, 60), (54, 50), (46, 44)], [24, 20, 14])
-        for (x, y) in [(70, 56), (62, 50), (54, 43), (48, 38)]: tri(d, (x, y), (x+3, y-7), (x+7, y-1))
+        curve(d, [(106, 72), (88, 64), (72, 54), (58, 47), (50, 44)], [20, 11])
+        for (x, y) in [(94, 60), (82, 54), (70, 48), (60, 43), (53, 40)]: tri(d, (x, y), (x+3, y-7), (x+7, y-1))
     def bl(d):
-        curve(d, [(78, 76), (64, 66), (52, 56), (44, 50)], [10, 8, 6])
+        curve(d, [(104, 78), (88, 70), (72, 60), (58, 53), (50, 49)], [9, 5])
     return build([(fn, dim(CU, f)), (bl, dim(BELLY, f))])
 
 def part_head(f=1.0):
@@ -123,9 +124,9 @@ def part_jaw(f=1.0):
         for x in range(8, 38, 5): tri(d, (x, 56), (x+2, 51), (x+4, 56))
     return build([(jaw, dim(CU, f)), (mouth, dim(MOUTH, f)), (teeth, dim(TEETH, f))])
 
-def leg(shoulder, pts, ws, foot, f=1.0, claws_dx=-1):
+def leg(shoulder, pts, ws, foot, f=1.0, r=13):
     def fn(d):
-        d.ellipse([shoulder[0]-13, shoulder[1]-13, shoulder[0]+13, shoulder[1]+15], fill=255)
+        d.ellipse([shoulder[0]-r, shoulder[1]-r, shoulder[0]+r, shoulder[1]+r+2], fill=255)
         curve(d, pts, ws)
         d.polygon(foot, fill=255)
     def cl(d):
@@ -167,39 +168,39 @@ FACES = ['normal', 'blink', 'angry', 'roar', 'hurt', 'dead']
 
 def dragon():
     L = {}
-    L['wing_far'] = wing(0.62, 16, -6)
-    L['leg_far_F'] = leg((90, 88), [(92, 86), (94, 100), (90, 114), (88, 121)], [12, 9, 7, 6], [(78, 126), (94, 126), (94, 120), (82, 120)], 0.62)
-    L['leg_far_H'] = leg((128, 90), [(130, 88), (134, 104), (124, 114), (120, 121)], [14, 11, 8, 6], [(108, 126), (126, 126), (126, 120), (112, 120)], 0.62)
-    L['tail1'] = tail_seg((130, 74), (160, 86), 24, 17)
-    L['tail2'] = tail_seg((158, 86), (182, 94), 17, 10)
-    L['tail3'] = tail_seg((180, 94), (197, 88), 10, 3, spade=True)
+    L['wing_far'] = wing(0.62, 38, -4)
+    L['leg_far_F'] = leg((106, 88), [(108, 86), (110, 100), (105, 113), (103, 121)], [10, 8, 6, 5], [(92, 126), (108, 126), (108, 121), (96, 121)], 0.62, r=8)
+    L['leg_far_H'] = leg((156, 90), [(158, 88), (162, 104), (151, 114), (147, 121)], [13, 10, 7, 6], [(134, 126), (152, 126), (152, 121), (139, 121)], 0.62, r=10)
+    L['tail1'] = tail_seg((160, 76), (190, 86), 15, 11)
+    L['tail2'] = tail_seg((188, 86), (218, 94), 11, 7)
+    L['tail3'] = tail_seg((216, 94), (246, 86), 7, 2, spade=True)
     L['body'] = part_body()
     L['neck'] = part_neck()
     L['jaw'] = part_jaw()
     L['head'] = part_head()
-    L['leg_near_H'] = leg((116, 92), [(118, 86), (122, 102), (110, 114), (106, 121)], [18, 13, 9, 7], [(94, 126), (112, 126), (112, 120), (100, 120)])
-    L['leg_near_F'] = leg((78, 90), [(80, 86), (82, 100), (77, 114), (75, 121)], [15, 11, 8, 7], [(64, 126), (82, 126), (82, 120), (70, 120)])
-    L['wing_near'] = wing(1.0)
+    L['leg_near_H'] = leg((148, 90), [(150, 86), (154, 102), (143, 114), (139, 121)], [14, 10, 7, 6], [(126, 126), (144, 126), (144, 121), (131, 121)], r=11)
+    L['leg_near_F'] = leg((98, 86), [(100, 84), (102, 100), (97, 113), (95, 121)], [11, 8, 6, 5], [(84, 126), (100, 126), (100, 121), (88, 121)], r=9)
+    L['wing_near'] = wing(1.0, 22, 2)
     for k in FACES: L[f'face_{k}'] = face(k)
     rig = {
-        "size": [W, H], "feet": [100, H],
+        "size": [W, H], "feet": [124, H],
         "parts": [
-            {"n": "wing_far",   "parent": "body",  "pivot": [104, 60]},
-            {"n": "leg_far_F",  "parent": "root",  "pivot": [90, 88]},
-            {"n": "leg_far_H",  "parent": "root",  "pivot": [128, 90]},
-            {"n": "tail1",      "parent": "body",  "pivot": [130, 74]},
-            {"n": "tail2",      "parent": "tail1", "pivot": [158, 86]},
-            {"n": "tail3",      "parent": "tail2", "pivot": [180, 94]},
-            {"n": "body",       "parent": "root",  "pivot": [100, 90]},
-            {"n": "neck",       "parent": "body",  "pivot": [80, 70]},
+            {"n": "wing_far",   "parent": "body",  "pivot": [126, 56]},
+            {"n": "leg_far_F",  "parent": "root",  "pivot": [106, 88]},
+            {"n": "leg_far_H",  "parent": "root",  "pivot": [156, 90]},
+            {"n": "tail1",      "parent": "body",  "pivot": [160, 76]},
+            {"n": "tail2",      "parent": "tail1", "pivot": [188, 86]},
+            {"n": "tail3",      "parent": "tail2", "pivot": [216, 94]},
+            {"n": "body",       "parent": "root",  "pivot": [122, 90]},
+            {"n": "neck",       "parent": "body",  "pivot": [104, 72]},
             {"n": "jaw",        "parent": "head",  "pivot": [42, 53]},
             {"n": "head",       "parent": "neck",  "pivot": [48, 44]},
-            {"n": "leg_near_H", "parent": "root",  "pivot": [118, 90]},
-            {"n": "leg_near_F", "parent": "root",  "pivot": [80, 88]},
-            {"n": "wing_near",  "parent": "body",  "pivot": [88, 60]},
+            {"n": "leg_near_H", "parent": "root",  "pivot": [148, 90]},
+            {"n": "leg_near_F", "parent": "root",  "pivot": [98, 86]},
+            {"n": "wing_near",  "parent": "body",  "pivot": [110, 62]},
         ],
         "faces": FACES, "face_parent": "head", "props": {}, "prop_parent": {},
-        "anchors": {"mouth": ["head", 5, 52], "eye": ["head", 25, 37], "chest": ["body", 70, 78], "wing_tip": ["wing_near", 192, 22], "tail_tip": ["tail3", 196, 88], "head_top": ["head", 40, 28]},
+        "anchors": {"mouth": ["head", 5, 52], "eye": ["head", 25, 37], "chest": ["body", 92, 78], "wing_tip": ["wing_near", 214, 24], "tail_tip": ["tail3", 244, 88], "head_top": ["head", 40, 28]},
     }
     return L, rig
 

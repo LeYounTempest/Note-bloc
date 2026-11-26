@@ -7,7 +7,7 @@
   {
    "type": "stage",
    "template": "stage.html",
-   "duration": 24.6,
+   "duration": 15.0,
    "sprites": {
     "dei.arm_L": "../../assets/rig/dei/arm_L.png",
     "dei.arm_R": "../../assets/rig/dei/arm_R.png",
@@ -167,54 +167,6 @@
      "t1": 14.36,
      "text": "y tuvimos que dejar de luchar.",
      "big": false
-    },
-    {
-     "t0": 14.97,
-     "t1": 15.67,
-     "text": "¡Fuego!",
-     "big": false
-    },
-    {
-     "t0": 15.69,
-     "t1": 16.54,
-     "text": "¡Escudos!",
-     "big": false
-    },
-    {
-     "t0": 16.56,
-     "t1": 17.9,
-     "text": "¡Hielo contra escamas!",
-     "big": false
-    },
-    {
-     "t0": 17.92,
-     "t1": 19.26,
-     "text": "El kenku resistía.",
-     "big": false
-    },
-    {
-     "t0": 19.28,
-     "t1": 20.93,
-     "text": "El bardo volvió a atacar.",
-     "big": false
-    },
-    {
-     "t0": 20.95,
-     "t1": 21.81,
-     "text": "Y el elfo...",
-     "big": false
-    },
-    {
-     "t0": 21.83,
-     "t1": 23.41,
-     "text": "se hizo invisible.",
-     "big": false
-    },
-    {
-     "t0": 23.43,
-     "t1": 24.6,
-     "text": "Qué conveniente.",
-     "big": false
     }
    ],
    "actors": [
@@ -235,13 +187,13 @@
        }
       },
       {
-       "t": 14.6,
+       "t": 3.4,
        "x": 24,
        "y": 392,
        "anim": "scared"
       },
       {
-       "t": 15.0,
+       "t": 9.9,
        "x": 24,
        "y": 392,
        "anim": "sing",
@@ -250,10 +202,10 @@
        }
       },
       {
-       "t": 19.3,
+       "t": 14.4,
        "x": 24,
        "y": 392,
-       "anim": "idle"
+       "anim": "scared"
       }
      ]
     },
@@ -271,40 +223,10 @@
        "anim": "idle"
       },
       {
-       "t": 6.5,
+       "t": 3.5,
        "x": 46,
        "y": 404,
        "anim": "scared"
-      },
-      {
-       "t": 15.0,
-       "x": 46,
-       "y": 404,
-       "anim": "sing",
-       "opts": {
-        "seed": 3
-       }
-      },
-      {
-       "t": 19.3,
-       "x": 46,
-       "y": 404,
-       "anim": "scared"
-      },
-      {
-       "t": 23.4,
-       "x": 46,
-       "y": 404,
-       "anim": "sing",
-       "opts": {
-        "seed": 5
-       }
-      },
-      {
-       "t": 24.4,
-       "x": 46,
-       "y": 404,
-       "anim": "idle"
       }
      ]
     },
@@ -322,40 +244,10 @@
        "anim": "idle"
       },
       {
-       "t": 6.5,
+       "t": 3.5,
        "x": 68,
        "y": 394,
        "anim": "scared"
-      },
-      {
-       "t": 15.0,
-       "x": 68,
-       "y": 394,
-       "anim": "sing",
-       "opts": {
-        "seed": 4
-       }
-      },
-      {
-       "t": 19.3,
-       "x": 68,
-       "y": 394,
-       "anim": "scared"
-      },
-      {
-       "t": 20.9,
-       "x": 68,
-       "y": 394,
-       "anim": "sing",
-       "opts": {
-        "seed": 6
-       }
-      },
-      {
-       "t": 21.9,
-       "x": 68,
-       "y": 394,
-       "anim": "idle"
       }
      ]
     },
@@ -377,12 +269,6 @@
        "x": 90,
        "y": 406,
        "anim": "scared"
-      },
-      {
-       "t": 19.3,
-       "x": 90,
-       "y": 406,
-       "anim": "idle"
       }
      ]
     },
@@ -393,29 +279,6 @@
      "keys": [
       {
        "t": 0,
-       "x": 112,
-       "y": 384,
-       "anim": "idle"
-      },
-      {
-       "t": 3.5,
-       "x": 112,
-       "y": 384,
-       "anim": "idle"
-      },
-      {
-       "t": 15.9,
-       "x": 112,
-       "y": 384,
-       "anim": "cast",
-       "fxcol": [
-        130,
-        200,
-        255
-       ]
-      },
-      {
-       "t": 19.0,
        "x": 112,
        "y": 384,
        "anim": "idle"
@@ -435,13 +298,13 @@
        "anim": "idle"
       },
       {
-       "t": 15.7,
+       "t": 6.5,
        "x": 226,
        "y": 366,
        "anim": "guard"
       },
       {
-       "t": 21.0,
+       "t": 9.9,
        "x": 226,
        "y": 366,
        "anim": "idle"
@@ -471,12 +334,6 @@
        "x": 196,
        "y": 380,
        "anim": "idle"
-      },
-      {
-       "t": 21.8,
-       "x": 196,
-       "y": 380,
-       "anim": "vanish"
       }
      ]
     },
@@ -486,19 +343,13 @@
      "name": "Dei",
      "keys": [
       {
-       "t": 17.2,
+       "t": 9.6,
        "x": 330,
        "y": 350,
        "anim": "walk"
       },
       {
-       "t": 19.0,
-       "x": 252,
-       "y": 350,
-       "anim": "cast"
-      },
-      {
-       "t": 21.5,
+       "t": 11.8,
        "x": 252,
        "y": 350,
        "anim": "idle"
@@ -512,77 +363,36 @@
      "keys": [
       {
        "t": 3.5,
-       "x": 170,
+       "x": 135,
        "y": 462,
        "anim": "emerge",
        "clipY": 306
       },
       {
        "t": 6.2,
-       "x": 170,
+       "x": 135,
        "y": 322,
        "anim": "emerge",
        "clipY": 306
       },
       {
        "t": 6.5,
-       "x": 170,
+       "x": 135,
        "y": 322,
        "anim": "roar"
       },
       {
        "t": 9.9,
-       "x": 170,
+       "x": 135,
        "y": 322,
        "anim": "idle"
       },
       {
-       "t": 15.0,
-       "x": 170,
+       "t": 12.8,
+       "x": 135,
        "y": 322,
-       "anim": "breathe",
-       "opts": {
-        "dur": 1.6
-       },
-       "firedx": 0.12,
-       "firedy": 1.5,
-       "firelen": 230
-      },
-      {
-       "t": 16.8,
-       "x": 170,
-       "y": 322,
-       "anim": "hurt"
-      },
-      {
-       "t": 17.5,
-       "x": 170,
-       "y": 322,
-       "anim": "breathe",
-       "opts": {
-        "dur": 1.8
-       },
-       "firedx": 0.12,
-       "firedy": 1.5,
-       "firelen": 230
-      },
-      {
-       "t": 19.5,
-       "x": 170,
-       "y": 322,
-       "anim": "hurt"
-      },
-      {
-       "t": 20.4,
-       "x": 170,
-       "y": 322,
-       "anim": "idle"
-      },
-      {
-       "t": 23.4,
-       "x": 170,
-       "y": 322,
-       "anim": "roar"
+       "anim": "roar",
+       "opts": {}
       }
      ]
     }
@@ -613,19 +423,25 @@
      "amp": 2
     },
     {
+     "type": "shake",
+     "t": 12.8,
+     "dur": 0.9,
+     "amp": 2
+    },
+    {
      "type": "splash",
      "t": 3.5,
      "dur": 1.8,
-     "x": 170,
+     "x": 135,
      "y": 308,
-     "spread": 120,
+     "spread": 130,
      "h": 70
     },
     {
      "type": "splash",
      "t": 4.6,
      "dur": 1.6,
-     "x": 130,
+     "x": 90,
      "y": 308,
      "spread": 90,
      "h": 50
@@ -634,74 +450,14 @@
      "type": "label",
      "t": 6.8,
      "dur": 3.2,
-     "x": 96,
-     "y": 170,
+     "x": 52,
+     "y": 168,
      "text": "Dragón de cobre"
     },
     {
-     "type": "dome",
-     "t": 15.7,
-     "dur": 5.0,
-     "x": 66,
-     "y": 420,
-     "r": 70
-    },
-    {
-     "type": "beam",
-     "t": 16.5,
-     "dur": 1.2,
-     "from": {
-      "actor": "iguana",
-      "anchor": "crystal"
-     },
-     "to": {
-      "actor": "dragon",
-      "anchor": "chest"
-     },
-     "id": 1
-    },
-    {
-     "type": "flash",
-     "t": 16.8,
-     "dur": 0.25,
-     "a": 0.5
-    },
-    {
-     "type": "shake",
-     "t": 16.8,
-     "dur": 0.4,
-     "amp": 2
-    },
-    {
-     "type": "bolt",
-     "t": 19.3,
-     "dur": 0.9,
-     "from": {
-      "actor": "dei",
-      "anchor": "hand_R"
-     },
-     "to": {
-      "actor": "dragon",
-      "anchor": "chest"
-     },
-     "id": 2
-    },
-    {
-     "type": "flash",
-     "t": 19.3,
-     "dur": 0.3,
-     "a": 0.8
-    },
-    {
-     "type": "shake",
-     "t": 19.5,
-     "dur": 0.6,
-     "amp": 3
-    },
-    {
      "type": "fade",
-     "t": 22.8,
-     "dur": 1.8,
+     "t": 13.7,
+     "dur": 1.3,
      "to": "black"
     }
    ]

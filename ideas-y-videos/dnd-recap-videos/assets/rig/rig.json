@@ -606,11 +606,11 @@
  },
  "dragon": {
   "size": [
-   200,
+   248,
    128
   ],
   "feet": [
-   100,
+   124,
    128
   ],
   "parts": [
@@ -618,15 +618,15 @@
     "n": "wing_far",
     "parent": "body",
     "pivot": [
-     104,
-     60
+     126,
+     56
     ]
    },
    {
     "n": "leg_far_F",
     "parent": "root",
     "pivot": [
-     90,
+     106,
      88
     ]
    },
@@ -634,7 +634,7 @@
     "n": "leg_far_H",
     "parent": "root",
     "pivot": [
-     128,
+     156,
      90
     ]
    },
@@ -642,15 +642,15 @@
     "n": "tail1",
     "parent": "body",
     "pivot": [
-     130,
-     74
+     160,
+     76
     ]
    },
    {
     "n": "tail2",
     "parent": "tail1",
     "pivot": [
-     158,
+     188,
      86
     ]
    },
@@ -658,7 +658,7 @@
     "n": "tail3",
     "parent": "tail2",
     "pivot": [
-     180,
+     216,
      94
     ]
    },
@@ -666,7 +666,7 @@
     "n": "body",
     "parent": "root",
     "pivot": [
-     100,
+     122,
      90
     ]
    },
@@ -674,8 +674,8 @@
     "n": "neck",
     "parent": "body",
     "pivot": [
-     80,
-     70
+     104,
+     72
     ]
    },
    {
@@ -698,7 +698,7 @@
     "n": "leg_near_H",
     "parent": "root",
     "pivot": [
-     118,
+     148,
      90
     ]
    },
@@ -706,16 +706,16 @@
     "n": "leg_near_F",
     "parent": "root",
     "pivot": [
-     80,
-     88
+     98,
+     86
     ]
    },
    {
     "n": "wing_near",
     "parent": "body",
     "pivot": [
-     88,
-     60
+     110,
+     62
     ]
    }
   ],
@@ -743,17 +743,17 @@
    ],
    "chest": [
     "body",
-    70,
+    92,
     78
    ],
    "wing_tip": [
     "wing_near",
-    192,
-    22
+    214,
+    24
    ],
    "tail_tip": [
     "tail3",
-    196,
+    244,
     88
    ],
    "head_top": [

@@ -22,30 +22,27 @@
  {
   "id": "ep02_el_dragon_de_cobre",
   "title": "El dragón de cobre",
-  "event": "Emerge el dragón adulto y el grupo pelea junto a los kobolds: fuego, escudos, hielo; el elfo se hace invisible",
-  "duration": 24.6,
+  "event": "El océano ruge y el dragón adulto emerge y abre las alas; todos deben dejar de pelear entre ellos",
+  "duration": 15.0,
   "segments": [
    [
     154.5,
-    179.1
+    169.5
    ]
   ],
   "singers": [
-   "Female Kobold",
-   "Male Kobold 1",
-   "Male Kobold 2",
-   "Three Kobolds"
+   "Female Kobold"
   ],
-  "lines": 12
+  "lines": 4
  },
  {
   "id": "ep03_el_susurro",
   "title": "El susurro",
-  "event": "El dragón derriba a Dei; Chispa va a ayudarlo; el elfo invisible susurra y Chispa muere al instante sin saber de dónde vino",
-  "duration": 34.3,
+  "event": "Todos pelean junto al dragón: fuego, escudos, hielo; el elfo se hace invisible; el dragón derriba a Dei; Chispa va a ayudarlo y el elfo invisible susurra: muere al instante",
+  "duration": 43.9,
   "segments": [
    [
-    179.1,
+    169.5,
     213.4
    ]
   ],
@@ -53,9 +50,10 @@
    "Battle Continues",
    "Female Kobold",
    "Male Kobold 1",
-   "Male Kobold 2"
+   "Male Kobold 2",
+   "Three Kobolds"
   ],
-  "lines": 12
+  "lines": 20
  },
  {
   "id": "ep04_el_cuerpo_es_un_arma",
