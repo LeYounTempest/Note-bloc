@@ -99,14 +99,10 @@
   "id": "ep06_siempre_seremos_ocho",
   "title": "Siempre seremos ocho",
   "event": "Tras la batalla el jefe cuenta a su familia; cuatro lugares vacíos junto al fuego; 'siempre seremos ocho'",
-  "duration": 53.2,
+  "duration": 76.3,
   "segments": [
    [
     332.1,
-    360.3
-   ],
-   [
-    383.4,
     408.4
    ]
   ],
@@ -118,6 +114,6 @@
    "Three Kobolds",
    "Whisper"
   ],
-  "lines": 20
+  "lines": 27
  }
 ]

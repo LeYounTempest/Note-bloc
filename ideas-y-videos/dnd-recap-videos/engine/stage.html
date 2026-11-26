@@ -205,7 +205,7 @@ function draw(t){
   const mode=modeAt(t); background(t,mode,ev.skyflash,{wt,ice});
   if(mode==='night'&&S.camp){ const c=S.camp, tt=t;
     for(const sp of c.spots){ seat(sp.x,sp.y); const lit=sp.t!==undefined&&t>=sp.t; if(lit){ g.fillStyle=`rgba(255,210,110,${.16+.08*sin(t*3)})`; g.fillRect(sp.x-14,sp.y-24,28,26) } ITEMS[sp.item](sp.x,sp.y) }
-    fire(c.x,c.y,tt,c.k||1) }
+    let kf=c.k||1; for(const f of (c.flares||[])) if(t>=f.t) kf=f.k; fire(c.x,c.y,tt,kf) }
   if(S.ships) for(const sh of S.ships){ if(t<sh.t0||t>sh.t1) continue; const u=(t-sh.t0)/(sh.t1-sh.t0), x=sh.x0+(sh.x1-sh.x0)*u, y=sh.y+Math.round(sin(t*1.6)*1.5), sc=sh.s||1;
     g.setTransform(2,0,0,2,0,0); const dk=mode==='night'?'#0a0818':'#46526e', sl=mode==='night'?'#3a4478':'#e8e2d0', ed=mode==='night'?'#9aa4de':'#ffffff';
     for(let i=0;i<8;i++){ const w=round((22-i*1.4)*sc); g.fillStyle=dk; g.fillRect(round(x-w/2),y-i*sc*.7|0,w,Math.max(1,sc*.7|0)) }

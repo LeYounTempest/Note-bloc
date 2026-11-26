@@ -81,82 +81,138 @@
  },
  {
   "start": 25.59,
-  "end": 28.2,
+  "end": 28.22,
   "section": "Bridge",
   "singer": "Male Kobold 2",
   "text": "Cuatro voces que vamos a recordar.",
   "seg": 0
  },
  {
-  "start": 28.18,
-  "end": 30.81,
+  "start": 28.22,
+  "end": 30.21,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Somos hijos de la costa.",
+  "seg": 0
+ },
+ {
+  "start": 30.21,
+  "end": 33.25,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Cuatro no regresarán.",
+  "seg": 0
+ },
+ {
+  "start": 33.25,
+  "end": 34.6,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "No tenemos reino.",
+  "seg": 0
+ },
+ {
+  "start": 34.6,
+  "end": 36.28,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Nunca tuvimos oro.",
+  "seg": 0
+ },
+ {
+  "start": 36.28,
+  "end": 38.91,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Solo este viejo hogar.",
+  "seg": 0
+ },
+ {
+  "start": 38.91,
+  "end": 42.58,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "Pero mientras nuestro jefe siga en pie...",
+  "seg": 0
+ },
+ {
+  "start": 42.58,
+  "end": 47.08,
+  "section": "Final Chorus",
+  "singer": "Three Kobolds",
+  "text": "¡nosotros vamos a continuar!",
+  "seg": 0
+ },
+ {
+  "start": 51.28,
+  "end": 53.91,
   "section": "Outro",
   "singer": "Male Kobold 1",
   "text": "Mañana llegará otro barco.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 30.81,
-  "end": 33.28,
+  "start": 53.91,
+  "end": 56.38,
   "section": "Outro",
   "singer": "Male Kobold 2",
   "text": "Y lo vamos a saquear.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 33.28,
-  "end": 36.56,
+  "start": 56.38,
+  "end": 59.65,
   "section": "Outro",
   "singer": "Female Kobold",
   "text": "Nuestros cuatro idiotas se enojarían",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 36.56,
-  "end": 39.91,
+  "start": 59.65,
+  "end": 63.01,
   "section": "Outro",
   "singer": "Female Kobold",
   "text": "si dejamos el oro atrás.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 39.91,
-  "end": 41.26,
+  "start": 63.01,
+  "end": 64.36,
   "section": "Outro",
   "singer": "Three Kobolds",
   "text": "Fuimos siete.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 41.26,
-  "end": 42.86,
+  "start": 64.36,
+  "end": 65.96,
   "section": "Outro",
   "singer": "Three Kobolds",
   "text": "Seguimos siete.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 42.86,
-  "end": 44.93,
+  "start": 65.96,
+  "end": 68.03,
   "section": "Outro",
   "singer": "Three Kobolds",
   "text": "Con nuestro jefe...",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 44.93,
-  "end": 49.43,
+  "start": 68.03,
+  "end": 72.53,
   "section": "Outro",
   "singer": "Three Kobolds",
   "text": "siempre seremos ocho.",
-  "seg": 1
+  "seg": 0
  },
  {
-  "start": 51.72,
-  "end": 53.15,
+  "start": 74.81,
+  "end": 76.25,
   "section": "Outro",
   "singer": "Whisper",
   "text": "Mr. Iguana...",
-  "seg": 1
+  "seg": 0
  }
 ]

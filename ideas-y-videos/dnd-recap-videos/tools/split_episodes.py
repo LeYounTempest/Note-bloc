@@ -24,7 +24,7 @@ EPISODES = [
   [(251.0, 317.3)]),
  ("ep06_siempre_seremos_ocho", "Siempre seremos ocho",
   "Tras la batalla el jefe cuenta a su familia; cuatro lugares vacíos junto al fuego; 'siempre seremos ocho'",
-  [(332.1, 360.3), (383.4, 408.4)]),
+  [(332.1, 408.4)]),
 ]
 FI, FO = 0.15, 0.6
 meta = []; tmp = Path(tempfile.mkdtemp())
