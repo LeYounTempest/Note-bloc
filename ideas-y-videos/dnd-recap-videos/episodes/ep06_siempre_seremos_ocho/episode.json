@@ -1,0 +1,834 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "audio.m4a",
+ "scenes": [
+  {
+   "type": "stage",
+   "template": "stage.html",
+   "duration": 53.2,
+   "sprites": {
+    "dei.arm_L": "../../assets/rig/dei/arm_L.png",
+    "dei.arm_R": "../../assets/rig/dei/arm_R.png",
+    "dei.face_angry": "../../assets/rig/dei/face_angry.png",
+    "dei.face_blink": "../../assets/rig/dei/face_blink.png",
+    "dei.face_cast": "../../assets/rig/dei/face_cast.png",
+    "dei.face_dead": "../../assets/rig/dei/face_dead.png",
+    "dei.face_hurt": "../../assets/rig/dei/face_hurt.png",
+    "dei.face_normal": "../../assets/rig/dei/face_normal.png",
+    "dei.face_sing": "../../assets/rig/dei/face_sing.png",
+    "dei.face_smirk": "../../assets/rig/dei/face_smirk.png",
+    "dei.head": "../../assets/rig/dei/head.png",
+    "dei.leg_L": "../../assets/rig/dei/leg_L.png",
+    "dei.leg_R": "../../assets/rig/dei/leg_R.png",
+    "dei.lute": "../../assets/rig/dei/lute.png",
+    "dei.tail": "../../assets/rig/dei/tail.png",
+    "dei.torso": "../../assets/rig/dei/torso.png",
+    "dragon.body": "../../assets/rig/dragon/body.png",
+    "dragon.face_angry": "../../assets/rig/dragon/face_angry.png",
+    "dragon.face_blink": "../../assets/rig/dragon/face_blink.png",
+    "dragon.face_dead": "../../assets/rig/dragon/face_dead.png",
+    "dragon.face_hurt": "../../assets/rig/dragon/face_hurt.png",
+    "dragon.face_normal": "../../assets/rig/dragon/face_normal.png",
+    "dragon.face_roar": "../../assets/rig/dragon/face_roar.png",
+    "dragon.head": "../../assets/rig/dragon/head.png",
+    "dragon.jaw": "../../assets/rig/dragon/jaw.png",
+    "dragon.leg_far_F": "../../assets/rig/dragon/leg_far_F.png",
+    "dragon.leg_far_H": "../../assets/rig/dragon/leg_far_H.png",
+    "dragon.leg_near_F": "../../assets/rig/dragon/leg_near_F.png",
+    "dragon.leg_near_H": "../../assets/rig/dragon/leg_near_H.png",
+    "dragon.neck": "../../assets/rig/dragon/neck.png",
+    "dragon.tail1": "../../assets/rig/dragon/tail1.png",
+    "dragon.tail2": "../../assets/rig/dragon/tail2.png",
+    "dragon.tail3": "../../assets/rig/dragon/tail3.png",
+    "dragon.wing_far": "../../assets/rig/dragon/wing_far.png",
+    "dragon.wing_near": "../../assets/rig/dragon/wing_near.png",
+    "hans.arm_L": "../../assets/rig/hans/arm_L.png",
+    "hans.arm_R": "../../assets/rig/hans/arm_R.png",
+    "hans.face_angry": "../../assets/rig/hans/face_angry.png",
+    "hans.face_blink": "../../assets/rig/hans/face_blink.png",
+    "hans.face_dead": "../../assets/rig/hans/face_dead.png",
+    "hans.face_hurt": "../../assets/rig/hans/face_hurt.png",
+    "hans.face_normal": "../../assets/rig/hans/face_normal.png",
+    "hans.face_scared": "../../assets/rig/hans/face_scared.png",
+    "hans.face_smile": "../../assets/rig/hans/face_smile.png",
+    "hans.head": "../../assets/rig/hans/head.png",
+    "hans.leg_L": "../../assets/rig/hans/leg_L.png",
+    "hans.leg_R": "../../assets/rig/hans/leg_R.png",
+    "hans.prop_L_0": "../../assets/rig/hans/prop_L_0.png",
+    "hans.prop_R_0": "../../assets/rig/hans/prop_R_0.png",
+    "hans.prop_R_1": "../../assets/rig/hans/prop_R_1.png",
+    "hans.torso": "../../assets/rig/hans/torso.png",
+    "iguana.arm_s": "../../assets/rig/iguana/arm_s.png",
+    "iguana.book": "../../assets/rig/iguana/book.png",
+    "iguana.cape": "../../assets/rig/iguana/cape.png",
+    "iguana.face_angry": "../../assets/rig/iguana/face_angry.png",
+    "iguana.face_blink": "../../assets/rig/iguana/face_blink.png",
+    "iguana.face_cast": "../../assets/rig/iguana/face_cast.png",
+    "iguana.face_hollow": "../../assets/rig/iguana/face_hollow.png",
+    "iguana.face_normal": "../../assets/rig/iguana/face_normal.png",
+    "iguana.face_sad": "../../assets/rig/iguana/face_sad.png",
+    "iguana.face_scared": "../../assets/rig/iguana/face_scared.png",
+    "iguana.hat": "../../assets/rig/iguana/hat.png",
+    "iguana.head": "../../assets/rig/iguana/head.png",
+    "iguana.leg_L": "../../assets/rig/iguana/leg_L.png",
+    "iguana.leg_R": "../../assets/rig/iguana/leg_R.png",
+    "iguana.staff": "../../assets/rig/iguana/staff.png",
+    "iguana.tail": "../../assets/rig/iguana/tail.png",
+    "iguana.torso": "../../assets/rig/iguana/torso.png",
+    "kenku.arm_L": "../../assets/rig/kenku/arm_L.png",
+    "kenku.arm_R": "../../assets/rig/kenku/arm_R.png",
+    "kenku.cape": "../../assets/rig/kenku/cape.png",
+    "kenku.face_angry": "../../assets/rig/kenku/face_angry.png",
+    "kenku.face_blink": "../../assets/rig/kenku/face_blink.png",
+    "kenku.face_dead": "../../assets/rig/kenku/face_dead.png",
+    "kenku.face_hurt": "../../assets/rig/kenku/face_hurt.png",
+    "kenku.face_normal": "../../assets/rig/kenku/face_normal.png",
+    "kenku.face_serene": "../../assets/rig/kenku/face_serene.png",
+    "kenku.face_speak": "../../assets/rig/kenku/face_speak.png",
+    "kenku.halo": "../../assets/rig/kenku/halo.png",
+    "kenku.head": "../../assets/rig/kenku/head.png",
+    "kenku.hood": "../../assets/rig/kenku/hood.png",
+    "kenku.leg_L": "../../assets/rig/kenku/leg_L.png",
+    "kenku.leg_R": "../../assets/rig/kenku/leg_R.png",
+    "kenku.prop_L_0": "../../assets/rig/kenku/prop_L_0.png",
+    "kenku.prop_R_0": "../../assets/rig/kenku/prop_R_0.png",
+    "kenku.ribbon_L": "../../assets/rig/kenku/ribbon_L.png",
+    "kenku.ribbon_R": "../../assets/rig/kenku/ribbon_R.png",
+    "kenku.tail": "../../assets/rig/kenku/tail.png",
+    "kenku.torso": "../../assets/rig/kenku/torso.png",
+    "kobold.arm_L": "../../assets/rig/kobold/arm_L.png",
+    "kobold.arm_R": "../../assets/rig/kobold/arm_R.png",
+    "kobold.face_angry": "../../assets/rig/kobold/face_angry.png",
+    "kobold.face_blink": "../../assets/rig/kobold/face_blink.png",
+    "kobold.face_dead": "../../assets/rig/kobold/face_dead.png",
+    "kobold.face_happy": "../../assets/rig/kobold/face_happy.png",
+    "kobold.face_hurt": "../../assets/rig/kobold/face_hurt.png",
+    "kobold.face_normal": "../../assets/rig/kobold/face_normal.png",
+    "kobold.face_scared": "../../assets/rig/kobold/face_scared.png",
+    "kobold.face_sing": "../../assets/rig/kobold/face_sing.png",
+    "kobold.face_sing_mid": "../../assets/rig/kobold/face_sing_mid.png",
+    "kobold.head": "../../assets/rig/kobold/head.png",
+    "kobold.leg_L": "../../assets/rig/kobold/leg_L.png",
+    "kobold.leg_R": "../../assets/rig/kobold/leg_R.png",
+    "kobold.prop_L_0": "../../assets/rig/kobold/prop_L_0.png",
+    "kobold.prop_L_1": "../../assets/rig/kobold/prop_L_1.png",
+    "kobold.prop_L_3": "../../assets/rig/kobold/prop_L_3.png",
+    "kobold.prop_L_5": "../../assets/rig/kobold/prop_L_5.png",
+    "kobold.prop_L_6": "../../assets/rig/kobold/prop_L_6.png",
+    "kobold.prop_R_0": "../../assets/rig/kobold/prop_R_0.png",
+    "kobold.prop_R_2": "../../assets/rig/kobold/prop_R_2.png",
+    "kobold.prop_R_3": "../../assets/rig/kobold/prop_R_3.png",
+    "kobold.prop_R_4": "../../assets/rig/kobold/prop_R_4.png",
+    "kobold.prop_R_5": "../../assets/rig/kobold/prop_R_5.png",
+    "kobold.prop_R_6": "../../assets/rig/kobold/prop_R_6.png",
+    "kobold.tail": "../../assets/rig/kobold/tail.png",
+    "kobold.torso": "../../assets/rig/kobold/torso.png"
+   },
+   "metaFile": "../../assets/rig/rig.json",
+   "chip": {
+    "text": "SESIÓN 1 · EP. 6",
+    "t": 0.3,
+    "dur": 2.6
+   },
+   "title": {
+    "text": "Siempre seremos ocho",
+    "t": 0.5,
+    "dur": 2.8
+   },
+   "bg": [
+    {
+     "t": 0,
+     "mode": "night"
+    }
+   ],
+   "camp": {
+    "x": 135,
+    "y": 404,
+    "spots": [
+     {
+      "x": 80,
+      "y": 372,
+      "item": "spyglass",
+      "t": 22.7
+     },
+     {
+      "x": 115,
+      "y": 372,
+      "item": "hammer",
+      "t": 22.7
+     },
+     {
+      "x": 150,
+      "y": 372,
+      "item": "rope",
+      "t": 22.7
+     },
+     {
+      "x": 185,
+      "y": 372,
+      "item": "barrel",
+      "t": 22.7
+     }
+    ]
+   },
+   "lines": [
+    {
+     "t0": 0,
+     "t1": 0.99,
+     "text": "Después...",
+     "big": false
+    },
+    {
+     "t0": 1.01,
+     "t1": 3.7,
+     "text": "solo quedaron las olas.",
+     "big": false
+    },
+    {
+     "t0": 3.72,
+     "t1": 6.34,
+     "text": "Nuestro jefe nos comenzó a contar.",
+     "big": false
+    },
+    {
+     "t0": 6.36,
+     "t1": 7.13,
+     "text": "Uno.",
+     "big": false
+    },
+    {
+     "t0": 7.15,
+     "t1": 7.85,
+     "text": "Dos.",
+     "big": false
+    },
+    {
+     "t0": 7.87,
+     "t1": 8.41,
+     "text": "Tres.",
+     "big": false
+    },
+    {
+     "t0": 8.43,
+     "t1": 12.93,
+     "text": "Y nadie más.",
+     "big": false
+    },
+    {
+     "t0": 15.61,
+     "t1": 20.11,
+     "text": "Antes siete corríamos por la costa.",
+     "big": false
+    },
+    {
+     "t0": 20.16,
+     "t1": 22.69,
+     "text": "Ahora tres mirábamos el mar.",
+     "big": false
+    },
+    {
+     "t0": 22.71,
+     "t1": 25.57,
+     "text": "Cuatro lugares vacíos junto al fuego.",
+     "big": false
+    },
+    {
+     "t0": 25.59,
+     "t1": 28.16,
+     "text": "Cuatro voces que vamos a recordar.",
+     "big": false
+    },
+    {
+     "t0": 28.18,
+     "t1": 30.79,
+     "text": "Mañana llegará otro barco.",
+     "big": false
+    },
+    {
+     "t0": 30.81,
+     "t1": 33.26,
+     "text": "Y lo vamos a saquear.",
+     "big": false
+    },
+    {
+     "t0": 33.28,
+     "t1": 36.54,
+     "text": "Nuestros cuatro idiotas se enojarían",
+     "big": false
+    },
+    {
+     "t0": 36.56,
+     "t1": 39.89,
+     "text": "si dejamos el oro atrás.",
+     "big": false
+    },
+    {
+     "t0": 39.91,
+     "t1": 41.24,
+     "text": "Fuimos siete.",
+     "big": false
+    },
+    {
+     "t0": 41.26,
+     "t1": 42.84,
+     "text": "Seguimos siete.",
+     "big": false
+    },
+    {
+     "t0": 42.86,
+     "t1": 44.91,
+     "text": "Con nuestro jefe...",
+     "big": false
+    },
+    {
+     "t0": 44.93,
+     "t1": 49.43,
+     "text": "siempre seremos ocho.",
+     "big": false
+    },
+    {
+     "t0": 51.72,
+     "t1": 53.15,
+     "text": "Mr. Iguana...",
+     "big": false
+    }
+   ],
+   "actors": [
+    {
+     "id": "k0",
+     "rig": "kobold",
+     "variant": 0,
+     "name": "Julia",
+     "seed": 0,
+     "keys": [
+      {
+       "t": 0,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 7.9,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 1
+       }
+      },
+      {
+       "t": 8.4,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 8.4,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 20
+       }
+      },
+      {
+       "t": 15.4,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 15.6,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 2
+       }
+      },
+      {
+       "t": 22.7,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 33.3,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 3
+       }
+      },
+      {
+       "t": 39.2,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 39.9,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 4
+       }
+      },
+      {
+       "t": 46.5,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k1",
+     "rig": "kobold",
+     "variant": 1,
+     "name": "Piedrín",
+     "seed": 1,
+     "keys": [
+      {
+       "t": 0,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 7.2,
+       "x": 104,
+       "y": 420,
+       "anim": "sing",
+       "opts": {
+        "seed": 5
+       }
+      },
+      {
+       "t": 7.9,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 8.4,
+       "x": 104,
+       "y": 420,
+       "anim": "sing",
+       "opts": {
+        "seed": 21
+       }
+      },
+      {
+       "t": 15.4,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 25.6,
+       "x": 104,
+       "y": 420,
+       "anim": "sing",
+       "opts": {
+        "seed": 6
+       }
+      },
+      {
+       "t": 28.0,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 30.8,
+       "x": 104,
+       "y": 420,
+       "anim": "sing",
+       "opts": {
+        "seed": 7
+       }
+      },
+      {
+       "t": 33.0,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 39.9,
+       "x": 104,
+       "y": 420,
+       "anim": "sing",
+       "opts": {
+        "seed": 8
+       }
+      },
+      {
+       "t": 46.5,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k2",
+     "rig": "kobold",
+     "variant": 2,
+     "name": "Braulio",
+     "seed": 2,
+     "keys": [
+      {
+       "t": 0,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 6.4,
+       "x": 172,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 9
+       }
+      },
+      {
+       "t": 7.2,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 8.4,
+       "x": 172,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 22
+       }
+      },
+      {
+       "t": 15.4,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 22.7,
+       "x": 172,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 10
+       }
+      },
+      {
+       "t": 25.4,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 28.2,
+       "x": 172,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 11
+       }
+      },
+      {
+       "t": 30.6,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 39.9,
+       "x": 172,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 12
+       }
+      },
+      {
+       "t": 46.5,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "k4",
+     "rig": "kobold",
+     "variant": 4,
+     "name": "El Zurdito",
+     "seed": 4,
+     "keys": [
+      {
+       "t": 0,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ]
+    },
+    {
+     "id": "k5",
+     "rig": "kobold",
+     "variant": 5,
+     "name": "Pancho",
+     "seed": 5,
+     "keys": [
+      {
+       "t": 0,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ]
+    },
+    {
+     "id": "k6",
+     "rig": "kobold",
+     "variant": 6,
+     "name": "Lola",
+     "seed": 6,
+     "keys": [
+      {
+       "t": 0,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ]
+    },
+    {
+     "id": "k3",
+     "rig": "kobold",
+     "variant": 3,
+     "name": "Chispa",
+     "seed": 3,
+     "keys": [
+      {
+       "t": 0,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ]
+    },
+    {
+     "id": "iguana",
+     "rig": "iguana",
+     "name": "Mr. Iguana",
+     "keys": [
+      {
+       "t": 0,
+       "x": 138,
+       "y": 440,
+       "anim": "idle"
+      },
+      {
+       "t": 47.4,
+       "x": 138,
+       "y": 440,
+       "anim": "idle"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "fade",
+     "t": 0,
+     "dur": 0.9,
+     "from": "black"
+    },
+    {
+     "type": "label",
+     "t": 6.4,
+     "dur": 0.9,
+     "actor": "k2",
+     "text": "1"
+    },
+    {
+     "type": "label",
+     "t": 7.2,
+     "dur": 0.9,
+     "actor": "k1",
+     "text": "2"
+    },
+    {
+     "type": "label",
+     "t": 7.9,
+     "dur": 0.9,
+     "actor": "k0",
+     "text": "3"
+    },
+    {
+     "type": "label",
+     "t": 23.0,
+     "dur": 7.0,
+     "x": 80,
+     "y": 322,
+     "text": "El Zurdito"
+    },
+    {
+     "type": "label",
+     "t": 23.0,
+     "dur": 7.0,
+     "x": 115,
+     "y": 306,
+     "text": "Pancho"
+    },
+    {
+     "type": "label",
+     "t": 23.0,
+     "dur": 7.0,
+     "x": 150,
+     "y": 322,
+     "text": "Lola"
+    },
+    {
+     "type": "label",
+     "t": 23.0,
+     "dur": 7.0,
+     "x": 185,
+     "y": 306,
+     "text": "Chispa"
+    },
+    {
+     "type": "fade",
+     "t": 50.8,
+     "dur": 2.3,
+     "to": "black"
+    }
+   ]
+  }
+ ]
+}

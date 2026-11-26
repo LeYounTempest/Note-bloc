@@ -1,0 +1,817 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "audio.m4a",
+ "scenes": [
+  {
+   "type": "stage",
+   "template": "stage.html",
+   "duration": 66.3,
+   "sprites": {
+    "dei.arm_L": "../../assets/rig/dei/arm_L.png",
+    "dei.arm_R": "../../assets/rig/dei/arm_R.png",
+    "dei.face_angry": "../../assets/rig/dei/face_angry.png",
+    "dei.face_blink": "../../assets/rig/dei/face_blink.png",
+    "dei.face_cast": "../../assets/rig/dei/face_cast.png",
+    "dei.face_dead": "../../assets/rig/dei/face_dead.png",
+    "dei.face_hurt": "../../assets/rig/dei/face_hurt.png",
+    "dei.face_normal": "../../assets/rig/dei/face_normal.png",
+    "dei.face_sing": "../../assets/rig/dei/face_sing.png",
+    "dei.face_smirk": "../../assets/rig/dei/face_smirk.png",
+    "dei.head": "../../assets/rig/dei/head.png",
+    "dei.leg_L": "../../assets/rig/dei/leg_L.png",
+    "dei.leg_R": "../../assets/rig/dei/leg_R.png",
+    "dei.lute": "../../assets/rig/dei/lute.png",
+    "dei.tail": "../../assets/rig/dei/tail.png",
+    "dei.torso": "../../assets/rig/dei/torso.png",
+    "dragon.body": "../../assets/rig/dragon/body.png",
+    "dragon.face_angry": "../../assets/rig/dragon/face_angry.png",
+    "dragon.face_blink": "../../assets/rig/dragon/face_blink.png",
+    "dragon.face_dead": "../../assets/rig/dragon/face_dead.png",
+    "dragon.face_hurt": "../../assets/rig/dragon/face_hurt.png",
+    "dragon.face_normal": "../../assets/rig/dragon/face_normal.png",
+    "dragon.face_roar": "../../assets/rig/dragon/face_roar.png",
+    "dragon.head": "../../assets/rig/dragon/head.png",
+    "dragon.jaw": "../../assets/rig/dragon/jaw.png",
+    "dragon.leg_far_F": "../../assets/rig/dragon/leg_far_F.png",
+    "dragon.leg_far_H": "../../assets/rig/dragon/leg_far_H.png",
+    "dragon.leg_near_F": "../../assets/rig/dragon/leg_near_F.png",
+    "dragon.leg_near_H": "../../assets/rig/dragon/leg_near_H.png",
+    "dragon.neck": "../../assets/rig/dragon/neck.png",
+    "dragon.tail1": "../../assets/rig/dragon/tail1.png",
+    "dragon.tail2": "../../assets/rig/dragon/tail2.png",
+    "dragon.tail3": "../../assets/rig/dragon/tail3.png",
+    "dragon.wing_far": "../../assets/rig/dragon/wing_far.png",
+    "dragon.wing_near": "../../assets/rig/dragon/wing_near.png",
+    "hans.arm_L": "../../assets/rig/hans/arm_L.png",
+    "hans.arm_R": "../../assets/rig/hans/arm_R.png",
+    "hans.face_angry": "../../assets/rig/hans/face_angry.png",
+    "hans.face_blink": "../../assets/rig/hans/face_blink.png",
+    "hans.face_dead": "../../assets/rig/hans/face_dead.png",
+    "hans.face_hurt": "../../assets/rig/hans/face_hurt.png",
+    "hans.face_normal": "../../assets/rig/hans/face_normal.png",
+    "hans.face_scared": "../../assets/rig/hans/face_scared.png",
+    "hans.face_smile": "../../assets/rig/hans/face_smile.png",
+    "hans.head": "../../assets/rig/hans/head.png",
+    "hans.leg_L": "../../assets/rig/hans/leg_L.png",
+    "hans.leg_R": "../../assets/rig/hans/leg_R.png",
+    "hans.prop_L_0": "../../assets/rig/hans/prop_L_0.png",
+    "hans.prop_R_0": "../../assets/rig/hans/prop_R_0.png",
+    "hans.prop_R_1": "../../assets/rig/hans/prop_R_1.png",
+    "hans.torso": "../../assets/rig/hans/torso.png",
+    "iguana.arm_s": "../../assets/rig/iguana/arm_s.png",
+    "iguana.book": "../../assets/rig/iguana/book.png",
+    "iguana.cape": "../../assets/rig/iguana/cape.png",
+    "iguana.face_angry": "../../assets/rig/iguana/face_angry.png",
+    "iguana.face_blink": "../../assets/rig/iguana/face_blink.png",
+    "iguana.face_cast": "../../assets/rig/iguana/face_cast.png",
+    "iguana.face_hollow": "../../assets/rig/iguana/face_hollow.png",
+    "iguana.face_normal": "../../assets/rig/iguana/face_normal.png",
+    "iguana.face_sad": "../../assets/rig/iguana/face_sad.png",
+    "iguana.face_scared": "../../assets/rig/iguana/face_scared.png",
+    "iguana.hat": "../../assets/rig/iguana/hat.png",
+    "iguana.head": "../../assets/rig/iguana/head.png",
+    "iguana.leg_L": "../../assets/rig/iguana/leg_L.png",
+    "iguana.leg_R": "../../assets/rig/iguana/leg_R.png",
+    "iguana.staff": "../../assets/rig/iguana/staff.png",
+    "iguana.tail": "../../assets/rig/iguana/tail.png",
+    "iguana.torso": "../../assets/rig/iguana/torso.png",
+    "kenku.arm_L": "../../assets/rig/kenku/arm_L.png",
+    "kenku.arm_R": "../../assets/rig/kenku/arm_R.png",
+    "kenku.cape": "../../assets/rig/kenku/cape.png",
+    "kenku.face_angry": "../../assets/rig/kenku/face_angry.png",
+    "kenku.face_blink": "../../assets/rig/kenku/face_blink.png",
+    "kenku.face_dead": "../../assets/rig/kenku/face_dead.png",
+    "kenku.face_hurt": "../../assets/rig/kenku/face_hurt.png",
+    "kenku.face_normal": "../../assets/rig/kenku/face_normal.png",
+    "kenku.face_serene": "../../assets/rig/kenku/face_serene.png",
+    "kenku.face_speak": "../../assets/rig/kenku/face_speak.png",
+    "kenku.halo": "../../assets/rig/kenku/halo.png",
+    "kenku.head": "../../assets/rig/kenku/head.png",
+    "kenku.hood": "../../assets/rig/kenku/hood.png",
+    "kenku.leg_L": "../../assets/rig/kenku/leg_L.png",
+    "kenku.leg_R": "../../assets/rig/kenku/leg_R.png",
+    "kenku.prop_L_0": "../../assets/rig/kenku/prop_L_0.png",
+    "kenku.prop_R_0": "../../assets/rig/kenku/prop_R_0.png",
+    "kenku.ribbon_L": "../../assets/rig/kenku/ribbon_L.png",
+    "kenku.ribbon_R": "../../assets/rig/kenku/ribbon_R.png",
+    "kenku.tail": "../../assets/rig/kenku/tail.png",
+    "kenku.torso": "../../assets/rig/kenku/torso.png",
+    "kobold.arm_L": "../../assets/rig/kobold/arm_L.png",
+    "kobold.arm_R": "../../assets/rig/kobold/arm_R.png",
+    "kobold.face_angry": "../../assets/rig/kobold/face_angry.png",
+    "kobold.face_blink": "../../assets/rig/kobold/face_blink.png",
+    "kobold.face_dead": "../../assets/rig/kobold/face_dead.png",
+    "kobold.face_happy": "../../assets/rig/kobold/face_happy.png",
+    "kobold.face_hurt": "../../assets/rig/kobold/face_hurt.png",
+    "kobold.face_normal": "../../assets/rig/kobold/face_normal.png",
+    "kobold.face_scared": "../../assets/rig/kobold/face_scared.png",
+    "kobold.face_sing": "../../assets/rig/kobold/face_sing.png",
+    "kobold.face_sing_mid": "../../assets/rig/kobold/face_sing_mid.png",
+    "kobold.head": "../../assets/rig/kobold/head.png",
+    "kobold.leg_L": "../../assets/rig/kobold/leg_L.png",
+    "kobold.leg_R": "../../assets/rig/kobold/leg_R.png",
+    "kobold.prop_L_0": "../../assets/rig/kobold/prop_L_0.png",
+    "kobold.prop_L_1": "../../assets/rig/kobold/prop_L_1.png",
+    "kobold.prop_L_3": "../../assets/rig/kobold/prop_L_3.png",
+    "kobold.prop_L_5": "../../assets/rig/kobold/prop_L_5.png",
+    "kobold.prop_L_6": "../../assets/rig/kobold/prop_L_6.png",
+    "kobold.prop_R_0": "../../assets/rig/kobold/prop_R_0.png",
+    "kobold.prop_R_2": "../../assets/rig/kobold/prop_R_2.png",
+    "kobold.prop_R_3": "../../assets/rig/kobold/prop_R_3.png",
+    "kobold.prop_R_4": "../../assets/rig/kobold/prop_R_4.png",
+    "kobold.prop_R_5": "../../assets/rig/kobold/prop_R_5.png",
+    "kobold.prop_R_6": "../../assets/rig/kobold/prop_R_6.png",
+    "kobold.tail": "../../assets/rig/kobold/tail.png",
+    "kobold.torso": "../../assets/rig/kobold/torso.png"
+   },
+   "metaFile": "../../assets/rig/rig.json",
+   "chip": {
+    "text": "SESIÓN 1 · EP. 5",
+    "t": 0.2,
+    "dur": 2.6
+   },
+   "title": {
+    "text": "El Rayo de Hielo",
+    "t": 0.4,
+    "dur": 2.8
+   },
+   "bg": [
+    {
+     "t": 0,
+     "mode": "dusk"
+    }
+   ],
+   "lines": [
+    {
+     "t0": 0.01,
+     "t1": 4.51,
+     "text": "Mr. Iguana levantó una mano.",
+     "big": false
+    },
+    {
+     "t0": 5.04,
+     "t1": 8.05,
+     "text": "El océano dejó de avanzar.",
+     "big": false
+    },
+    {
+     "t0": 8.07,
+     "t1": 10.52,
+     "text": "La escarcha cubrió la costa.",
+     "big": false
+    },
+    {
+     "t0": 10.54,
+     "t1": 13.55,
+     "text": "El aire comenzó a cristalizar.",
+     "big": false
+    },
+    {
+     "t0": 13.57,
+     "t1": 15.95,
+     "text": "Las llamas murieron.",
+     "big": false
+    },
+    {
+     "t0": 15.97,
+     "t1": 19.38,
+     "text": "El cobre dejó de brillar.",
+     "big": false
+    },
+    {
+     "t0": 19.4,
+     "t1": 23.13,
+     "text": "Y por primera vez aquel dragón...",
+     "big": false
+    },
+    {
+     "t0": 23.15,
+     "t1": 27.65,
+     "text": "intentó escapar.",
+     "big": false
+    },
+    {
+     "t0": 28.89,
+     "t1": 30.71,
+     "text": "¡DEMASIADO TARDE!",
+     "big": true
+    },
+    {
+     "t0": 30.73,
+     "t1": 32.23,
+     "text": "¡QUE CALLE EL CIELO!",
+     "big": true
+    },
+    {
+     "t0": 32.25,
+     "t1": 33.34,
+     "text": "¡QUE SE CONGELE EL MAR!",
+     "big": true
+    },
+    {
+     "t0": 33.36,
+     "t1": 35.1,
+     "text": "¡POR NUESTROS CUATRO HERMANOS",
+     "big": true
+    },
+    {
+     "t0": 35.12,
+     "t1": 37.01,
+     "text": "QUE NO VOLVERÁN!",
+     "big": true
+    },
+    {
+     "t0": 37.03,
+     "t1": 41.53,
+     "text": "¡RAYO DE HIELO!",
+     "big": true
+    },
+    {
+     "t0": 42.14,
+     "t1": 45.15,
+     "text": "El rayo atravesó sus escamas.",
+     "big": false
+    },
+    {
+     "t0": 45.17,
+     "t1": 48.1,
+     "text": "Su cuerpo empezó a cristalizar.",
+     "big": false
+    },
+    {
+     "t0": 48.12,
+     "t1": 50.73,
+     "text": "El dragón quedó congelado...",
+     "big": false
+    },
+    {
+     "t0": 50.75,
+     "t1": 54.17,
+     "text": "sin poder siquiera gritar.",
+     "big": false
+    },
+    {
+     "t0": 54.19,
+     "t1": 55.2,
+     "text": "Una grieta.",
+     "big": false
+    },
+    {
+     "t0": 55.22,
+     "t1": 56.64,
+     "text": "Luego otra.",
+     "big": false
+    },
+    {
+     "t0": 56.66,
+     "t1": 58.55,
+     "text": "Y otra más...",
+     "big": false
+    },
+    {
+     "t0": 58.57,
+     "t1": 60.95,
+     "text": "¡Y SE HIZO PEDAZOS",
+     "big": false
+    },
+    {
+     "t0": 60.97,
+     "t1": 65.47,
+     "text": "SOBRE EL MAAAAAR!",
+     "big": true
+    }
+   ],
+   "actors": [
+    {
+     "id": "k0",
+     "rig": "kobold",
+     "variant": 0,
+     "name": "Julia",
+     "seed": 0,
+     "keys": [
+      {
+       "t": 0,
+       "x": 12,
+       "y": 428,
+       "anim": "scared"
+      },
+      {
+       "t": 30.6,
+       "x": 12,
+       "y": 428,
+       "anim": "sing",
+       "opts": {
+        "seed": 1
+       }
+      },
+      {
+       "t": 37.0,
+       "x": 12,
+       "y": 428,
+       "anim": "scared"
+      }
+     ]
+    },
+    {
+     "id": "k1",
+     "rig": "kobold",
+     "variant": 1,
+     "name": "Piedrín",
+     "seed": 1,
+     "keys": [
+      {
+       "t": 0,
+       "x": 32,
+       "y": 432,
+       "anim": "scared"
+      },
+      {
+       "t": 30.6,
+       "x": 32,
+       "y": 432,
+       "anim": "sing",
+       "opts": {
+        "seed": 2
+       }
+      },
+      {
+       "t": 37.0,
+       "x": 32,
+       "y": 432,
+       "anim": "scared"
+      }
+     ]
+    },
+    {
+     "id": "k2",
+     "rig": "kobold",
+     "variant": 2,
+     "name": "Braulio",
+     "seed": 2,
+     "keys": [
+      {
+       "t": 0,
+       "x": 52,
+       "y": 428,
+       "anim": "scared"
+      },
+      {
+       "t": 30.6,
+       "x": 52,
+       "y": 428,
+       "anim": "sing",
+       "opts": {
+        "seed": 3
+       }
+      },
+      {
+       "t": 37.0,
+       "x": 52,
+       "y": 428,
+       "anim": "scared"
+      }
+     ]
+    },
+    {
+     "id": "k4",
+     "rig": "kobold",
+     "variant": 4,
+     "name": "El Zurdito",
+     "seed": 4,
+     "keys": [
+      {
+       "t": 0,
+       "x": 196,
+       "y": 414,
+       "anim": "die",
+       "flip": true
+      }
+     ]
+    },
+    {
+     "id": "k5",
+     "rig": "kobold",
+     "variant": 5,
+     "name": "Pancho",
+     "seed": 5,
+     "keys": [
+      {
+       "t": 0,
+       "x": 222,
+       "y": 422,
+       "anim": "die",
+       "flip": false
+      }
+     ]
+    },
+    {
+     "id": "k6",
+     "rig": "kobold",
+     "variant": 6,
+     "name": "Lola",
+     "seed": 6,
+     "keys": [
+      {
+       "t": 0,
+       "x": 176,
+       "y": 424,
+       "anim": "die",
+       "flip": true
+      }
+     ]
+    },
+    {
+     "id": "kenku",
+     "rig": "kenku",
+     "variant": 0,
+     "name": "Kenku",
+     "keys": [
+      {
+       "t": 0,
+       "x": 84,
+       "y": 386,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "dei",
+     "rig": "dei",
+     "name": "Dei",
+     "keys": [
+      {
+       "t": 0,
+       "x": 150,
+       "y": 388,
+       "anim": "stunned"
+      },
+      {
+       "t": 28.9,
+       "x": 150,
+       "y": 388,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "iguana",
+     "rig": "iguana",
+     "name": "Mr. Iguana",
+     "keys": [
+      {
+       "t": 0,
+       "x": 120,
+       "y": 404,
+       "anim": "cast",
+       "fxcol": [
+        140,
+        210,
+        255
+       ]
+      },
+      {
+       "t": 5.0,
+       "x": 120,
+       "y": 404,
+       "anim": "cast",
+       "fxcol": [
+        140,
+        210,
+        255
+       ],
+       "aura": 0.7
+      },
+      {
+       "t": 28.9,
+       "x": 120,
+       "y": 404,
+       "anim": "cast",
+       "fxcol": [
+        140,
+        210,
+        255
+       ],
+       "aura": 1.4,
+       "float": 410
+      },
+      {
+       "t": 37.0,
+       "x": 120,
+       "y": 350,
+       "anim": "cast",
+       "fxcol": [
+        140,
+        210,
+        255
+       ],
+       "aura": 2.0,
+       "float": 410
+      },
+      {
+       "t": 60.0,
+       "x": 120,
+       "y": 350,
+       "anim": "cast",
+       "fxcol": [
+        140,
+        210,
+        255
+       ],
+       "aura": 1.2,
+       "float": 410
+      }
+     ]
+    },
+    {
+     "id": "dragon",
+     "rig": "dragon",
+     "name": "Dragón",
+     "keys": [
+      {
+       "t": 0,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 13.6,
+       "x": 215,
+       "y": 322,
+       "anim": "breathe",
+       "opts": {
+        "dur": 0.9
+       },
+       "firedx": -0.15,
+       "firedy": 1.55,
+       "firelen": 60
+      },
+      {
+       "t": 15.0,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 16.0,
+       "x": 215,
+       "y": 322,
+       "anim": "idle",
+       "tint": 0.3,
+       "tintc": "130,160,200"
+      },
+      {
+       "t": 19.4,
+       "x": 215,
+       "y": 322,
+       "anim": "fly",
+       "tint": 0.3,
+       "tintc": "130,160,200"
+      },
+      {
+       "t": 28.9,
+       "x": 190,
+       "y": 226,
+       "anim": "freezing",
+       "opts": {
+        "dur": 19
+       },
+       "float": 330
+      },
+      {
+       "t": 48.1,
+       "x": 190,
+       "y": 226,
+       "anim": "frozen",
+       "float": 330
+      },
+      {
+       "t": 58.6,
+       "x": 190,
+       "y": 226,
+       "anim": "frozen",
+       "float": 330,
+       "vis": false
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "fade",
+     "t": 0,
+     "dur": 0.5,
+     "from": "black"
+    },
+    {
+     "type": "dim",
+     "t": 0,
+     "dur": 5.0,
+     "a": 0.3,
+     "fi": 0.05,
+     "fo": 3.0
+    },
+    {
+     "type": "frost",
+     "kind": "seafreeze",
+     "t": 5.0
+    },
+    {
+     "type": "frost",
+     "kind": "ice",
+     "t": 8.1,
+     "t1": 40.0
+    },
+    {
+     "type": "shake",
+     "t": 5.0,
+     "dur": 0.5,
+     "amp": 1
+    },
+    {
+     "type": "shake",
+     "t": 8.1,
+     "dur": 0.4,
+     "amp": 1
+    },
+    {
+     "type": "beam",
+     "t": 28.9,
+     "dur": 1.3,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "chest"
+     },
+     "w": 4,
+     "id": 1
+    },
+    {
+     "type": "flash",
+     "t": 28.9,
+     "dur": 0.3,
+     "a": 0.5
+    },
+    {
+     "type": "flash",
+     "t": 32.2,
+     "dur": 0.2,
+     "a": 0.3
+    },
+    {
+     "type": "flash",
+     "t": 35.1,
+     "dur": 0.3,
+     "a": 0.4
+    },
+    {
+     "type": "flash",
+     "t": 37.0,
+     "dur": 0.6,
+     "a": 0.9
+    },
+    {
+     "type": "shake",
+     "t": 37.0,
+     "dur": 0.9,
+     "amp": 4
+    },
+    {
+     "type": "beam",
+     "t": 37.0,
+     "dur": 13.8,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "chest"
+     },
+     "w": 8,
+     "amp": 3,
+     "id": 2,
+     "cols": [
+      "rgba(160,220,255,.5)",
+      "#b8e8ff",
+      "#ffffff"
+     ]
+    },
+    {
+     "type": "crack",
+     "t": 54.2,
+     "ids": [
+      0,
+      1
+     ]
+    },
+    {
+     "type": "crack",
+     "t": 55.2,
+     "ids": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "crack",
+     "t": 56.7,
+     "ids": [
+      4,
+      5
+     ]
+    },
+    {
+     "type": "flash",
+     "t": 54.2,
+     "dur": 0.15,
+     "a": 0.3
+    },
+    {
+     "type": "flash",
+     "t": 55.2,
+     "dur": 0.15,
+     "a": 0.3
+    },
+    {
+     "type": "flash",
+     "t": 56.7,
+     "dur": 0.2,
+     "a": 0.4
+    },
+    {
+     "type": "shake",
+     "t": 54.2,
+     "dur": 0.25,
+     "amp": 1
+    },
+    {
+     "type": "shake",
+     "t": 55.2,
+     "dur": 0.25,
+     "amp": 1
+    },
+    {
+     "type": "shake",
+     "t": 56.7,
+     "dur": 0.35,
+     "amp": 2
+    },
+    {
+     "type": "shatter",
+     "t": 58.6
+    },
+    {
+     "type": "flash",
+     "t": 58.6,
+     "dur": 0.7,
+     "a": 1.0
+    },
+    {
+     "type": "shake",
+     "t": 58.6,
+     "dur": 1.6,
+     "amp": 5
+    },
+    {
+     "type": "splash",
+     "t": 59.4,
+     "dur": 1.6,
+     "x": 120,
+     "y": 306,
+     "spread": 150,
+     "h": 30
+    },
+    {
+     "type": "splash",
+     "t": 60.0,
+     "dur": 1.6,
+     "x": 200,
+     "y": 306,
+     "spread": 130,
+     "h": 30
+    },
+    {
+     "type": "fade",
+     "t": 64.2,
+     "dur": 2.1,
+     "to": "black"
+    }
+   ],
+   "props": [
+    {
+     "type": "rocks",
+     "x": 28,
+     "y": 448,
+     "w": 74,
+     "h": 42,
+     "seed": 3
+    }
+   ]
+  }
+ ]
+}

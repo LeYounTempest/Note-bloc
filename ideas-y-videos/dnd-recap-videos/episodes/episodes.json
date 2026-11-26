@@ -76,15 +76,31 @@
   "lines": 21
  },
  {
-  "id": "ep05_siempre_seremos_ocho",
-  "title": "Siempre seremos ocho",
-  "event": "Mr. Iguana mata al dragón de cobre (Rayo de Hielo); cuenta a su familia; cierre 'siempre seremos ocho'",
-  "duration": 119.5,
+  "id": "ep05_el_rayo_de_hielo",
+  "title": "El Rayo de Hielo",
+  "event": "Mr. Iguana congela el océano y la costa; el dragón intenta huir; Rayo de Hielo; el dragón se cristaliza y se hace pedazos sobre el mar",
+  "duration": 66.3,
   "segments": [
    [
     251.0,
     317.3
-   ],
+   ]
+  ],
+  "singers": [
+   "Climax",
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "lines": 23
+ },
+ {
+  "id": "ep06_siempre_seremos_ocho",
+  "title": "Siempre seremos ocho",
+  "event": "Tras la batalla el jefe cuenta a su familia; cuatro lugares vacíos junto al fuego; 'siempre seremos ocho'",
+  "duration": 53.2,
+  "segments": [
    [
     332.1,
     360.3
@@ -95,7 +111,6 @@
    ]
   ],
   "singers": [
-   "Climax",
    "Female Kobold",
    "Final Verse",
    "Male Kobold 1",
@@ -103,6 +118,6 @@
    "Three Kobolds",
    "Whisper"
   ],
-  "lines": 43
+  "lines": 20
  }
 ]

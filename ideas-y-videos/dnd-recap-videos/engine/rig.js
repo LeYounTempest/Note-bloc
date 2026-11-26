@@ -299,7 +299,18 @@
     hurt(t) { const k = clamp(t / 0.7), d = 1 - k, p = { expr: 'hurt', tint: t < 0.12 ? 0.5 : 0, tintc: o_ice };
       set(p, 'head', 0, 0, 16 * d); set(p, 'neck', 0, 0, 8 * d); set(p, 'jaw', 0, 0, -22 * d); set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d, 0);
       set(p, 'wing_near', 0, 0, -22 * d); set(p, 'wing_far', 0, 0, -22 * d); DR._tail(p, snap(t, 12) * 3 * TAU, 1.5 * d + 0.3); return p; },
-    frozen(t) { const p = { expr: 'hurt', tint: 0.55, tintc: o_ice }; set(p, 'wing_near', 0, 0, -14); set(p, 'wing_far', 0, 0, -14); set(p, 'head', 0, 0, -8); set(p, 'jaw', 0, 0, -16);
+    fly(t) { const ts = snap(t, 16), ph = ts * 3.4 * TAU, p = { expr: 'angry' };
+      set(p, 'wing_near', 0, 0, sin(ph) * 36 - 6); set(p, 'wing_far', 0, 0, sin(ph - 0.6) * 32 - 6); set(p, 'body', 0, sin(ph + 1) * 2, 0); set(p, 'neck', 0, 0, -4); set(p, 'head', 0, 0, -6);
+      set(p, 'leg_near_F', 0, 0, 28); set(p, 'leg_near_H', 0, 0, -22); set(p, 'leg_far_F', 0, 0, 24); set(p, 'leg_far_H', 0, 0, -18); DR._tail(p, ph - 1, 1.3); return p; },
+    freezing(t, o = {}) {   // se va cristalizando: aleteo cada vez más lento, tinte de hielo creciente
+      const dur = o.dur || 8, k = clamp(t / dur), ts = snap(t, 16), ph = ts * 3.4 * (1 - k * 0.92) * TAU, p = { expr: 'hurt', tint: 0.72 * k, tintc: o_ice };
+      set(p, 'wing_near', 0, 0, sin(ph) * 36 * (1 - k) - 6); set(p, 'wing_far', 0, 0, sin(ph - 0.6) * 32 * (1 - k) - 6); set(p, 'body', 0, sin(ph + 1) * 2 * (1 - k), 0);
+      set(p, 'leg_near_F', 0, 0, 28); set(p, 'leg_near_H', 0, 0, -22); set(p, 'leg_far_F', 0, 0, 24); set(p, 'leg_far_H', 0, 0, -18); set(p, 'jaw', 0, 0, -18 * k); DR._tail(p, ph - 1, 1.3 * (1 - k));
+      if (k > 0.15) p.fx = { sparkle: 1 }; return p; },
+    frozen(t, o = {}) { const p = { expr: 'hurt', tint: o.k != null ? o.k : 0.72, tintc: o_ice };
+      set(p, 'wing_near', 0, 0, -6); set(p, 'wing_far', 0, 0, -6); set(p, 'jaw', 0, 0, -18); set(p, 'leg_near_F', 0, 0, 28); set(p, 'leg_near_H', 0, 0, -22); set(p, 'leg_far_F', 0, 0, 24); set(p, 'leg_far_H', 0, 0, -18); set(p, 'head', 0, 0, 8);
+      p.fx = { sparkle: 1 }; return p; },
+    _old_frozen(t) { const p = { expr: 'hurt', tint: 0.55, tintc: o_ice }; set(p, 'wing_near', 0, 0, -14); set(p, 'wing_far', 0, 0, -14); set(p, 'head', 0, 0, -8); set(p, 'jaw', 0, 0, -16);
       p.fx = { sparkle: 1 }; return p; },
   };
 

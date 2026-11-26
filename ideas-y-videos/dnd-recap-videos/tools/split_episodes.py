@@ -19,9 +19,12 @@ EPISODES = [
  ("ep04_el_cuerpo_es_un_arma", "El cuerpo es un arma",
   "El elfo invisible susurra y Chispa muere al instante; Dei usa su cuerpo como arma contra el dragón; explosión; algo se rompe dentro de Mr. Iguana",
   [(197.0, 251.0)]),
- ("ep05_siempre_seremos_ocho", "Siempre seremos ocho",
-  "Mr. Iguana mata al dragón de cobre (Rayo de Hielo); cuenta a su familia; cierre 'siempre seremos ocho'",
-  [(251.0, 317.3), (332.1, 360.3), (383.4, 408.4)]),
+ ("ep05_el_rayo_de_hielo", "El Rayo de Hielo",
+  "Mr. Iguana congela el océano y la costa; el dragón intenta huir; Rayo de Hielo; el dragón se cristaliza y se hace pedazos sobre el mar",
+  [(251.0, 317.3)]),
+ ("ep06_siempre_seremos_ocho", "Siempre seremos ocho",
+  "Tras la batalla el jefe cuenta a su familia; cuatro lugares vacíos junto al fuego; 'siempre seremos ocho'",
+  [(332.1, 360.3), (383.4, 408.4)]),
 ]
 FI, FO = 0.15, 0.6
 meta = []; tmp = Path(tempfile.mkdtemp())
