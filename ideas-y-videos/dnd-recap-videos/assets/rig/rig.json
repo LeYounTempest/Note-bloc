@@ -1,0 +1,246 @@
+{
+ "kobold": {
+  "size": [
+   36,
+   32
+  ],
+  "feet": [
+   18,
+   32
+  ],
+  "parts": [
+   {
+    "n": "tail",
+    "parent": "root",
+    "pivot": [
+     23,
+     25
+    ]
+   },
+   {
+    "n": "leg_L",
+    "parent": "root",
+    "pivot": [
+     13,
+     25
+    ]
+   },
+   {
+    "n": "leg_R",
+    "parent": "root",
+    "pivot": [
+     21,
+     25
+    ]
+   },
+   {
+    "n": "torso",
+    "parent": "root",
+    "pivot": [
+     18,
+     24
+    ]
+   },
+   {
+    "n": "arm_L",
+    "parent": "torso",
+    "pivot": [
+     9,
+     14
+    ]
+   },
+   {
+    "n": "arm_R",
+    "parent": "torso",
+    "pivot": [
+     26,
+     14
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "torso",
+    "pivot": [
+     18,
+     12
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "happy",
+   "sing",
+   "sing_mid",
+   "scared",
+   "angry",
+   "hurt",
+   "dead"
+  ],
+  "face_parent": "head",
+  "props": {
+   "0": {
+    "L": "prop_L_0",
+    "R": "prop_R_0"
+   },
+   "1": {
+    "L": "prop_L_1"
+   },
+   "2": {
+    "R": "prop_R_2"
+   },
+   "3": {
+    "R": "prop_R_3",
+    "L": "prop_L_3"
+   },
+   "4": {
+    "R": "prop_R_4"
+   },
+   "5": {
+    "R": "prop_R_5",
+    "L": "prop_L_5"
+   },
+   "6": {
+    "L": "prop_L_6",
+    "R": "prop_R_6"
+   }
+  },
+  "prop_parent": {
+   "L": "arm_L",
+   "R": "arm_R"
+  },
+  "anchors": {
+   "hand_L": [
+    "arm_L",
+    8,
+    22
+   ],
+   "hand_R": [
+    "arm_R",
+    27,
+    21
+   ],
+   "head_top": [
+    "head",
+    18,
+    0
+   ]
+  }
+ },
+ "iguana": {
+  "size": [
+   28,
+   30
+  ],
+  "feet": [
+   14,
+   30
+  ],
+  "parts": [
+   {
+    "n": "tail",
+    "parent": "root",
+    "pivot": [
+     22,
+     27
+    ]
+   },
+   {
+    "n": "cape",
+    "parent": "torso",
+    "pivot": [
+     14,
+     19
+    ]
+   },
+   {
+    "n": "leg_L",
+    "parent": "root",
+    "pivot": [
+     10,
+     27
+    ]
+   },
+   {
+    "n": "leg_R",
+    "parent": "root",
+    "pivot": [
+     17,
+     27
+    ]
+   },
+   {
+    "n": "torso",
+    "parent": "root",
+    "pivot": [
+     13,
+     26
+    ]
+   },
+   {
+    "n": "book",
+    "parent": "torso",
+    "pivot": [
+     15,
+     24
+    ]
+   },
+   {
+    "n": "staff",
+    "parent": "arm_s",
+    "pivot": [
+     3,
+     21
+    ]
+   },
+   {
+    "n": "arm_s",
+    "parent": "torso",
+    "pivot": [
+     8,
+     21
+    ]
+   },
+   {
+    "n": "hat",
+    "parent": "head",
+    "pivot": [
+     14,
+     11
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "torso",
+    "pivot": [
+     14,
+     18
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "cast",
+   "angry",
+   "scared",
+   "sad",
+   "hollow"
+  ],
+  "face_parent": "head",
+  "props": {},
+  "prop_parent": {},
+  "anchors": {
+   "crystal": [
+    "staff",
+    2,
+    2
+   ],
+   "hand_book": [
+    "book",
+    15,
+    24
+   ]
+  }
+ }
+}
