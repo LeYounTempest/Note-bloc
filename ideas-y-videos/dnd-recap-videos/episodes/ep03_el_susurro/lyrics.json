@@ -1,0 +1,98 @@
+[
+ {
+  "start": 0.02,
+  "end": 1.78,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "El dracónido cayó herido.",
+  "seg": 0
+ },
+ {
+  "start": 1.78,
+  "end": 3.45,
+  "section": "Bridge",
+  "singer": "Battle Continues",
+  "text": "Uno de nosotros corrió.",
+  "seg": 0
+ },
+ {
+  "start": 3.45,
+  "end": 5.61,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Nuestro hermano lo levantó...",
+  "seg": 0
+ },
+ {
+  "start": 5.61,
+  "end": 8.56,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "aunque a tres de los nuestros mató.",
+  "seg": 0
+ },
+ {
+  "start": 8.56,
+  "end": 11.67,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Aun así quiso salvarlo.",
+  "seg": 0
+ },
+ {
+  "start": 11.67,
+  "end": 16.17,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Porque era mejor que él.",
+  "seg": 0
+ },
+ {
+  "start": 17.9,
+  "end": 21.17,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Entonces escuchó un susurro",
+  "seg": 0
+ },
+ {
+  "start": 21.17,
+  "end": 24.44,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "que ninguno pudo ver.",
+  "seg": 0
+ },
+ {
+  "start": 24.44,
+  "end": 27.23,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Sus ojos se abrieron.",
+  "seg": 0
+ },
+ {
+  "start": 27.23,
+  "end": 29.94,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Su corazón se detuvo.",
+  "seg": 0
+ },
+ {
+  "start": 29.94,
+  "end": 32.42,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y nuestro hermano...",
+  "seg": 0
+ },
+ {
+  "start": 32.42,
+  "end": 34.25,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "cayó.",
+  "seg": 0
+ }
+]

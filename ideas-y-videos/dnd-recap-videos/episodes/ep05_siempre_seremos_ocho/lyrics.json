@@ -1,0 +1,346 @@
+[
+ {
+  "start": 0.01,
+  "end": 4.51,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Mr. Iguana levantó una mano.",
+  "seg": 0
+ },
+ {
+  "start": 5.04,
+  "end": 8.07,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El océano dejó de avanzar.",
+  "seg": 0
+ },
+ {
+  "start": 8.07,
+  "end": 10.54,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "La escarcha cubrió la costa.",
+  "seg": 0
+ },
+ {
+  "start": 10.54,
+  "end": 13.57,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "El aire comenzó a cristalizar.",
+  "seg": 0
+ },
+ {
+  "start": 13.57,
+  "end": 15.97,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Las llamas murieron.",
+  "seg": 0
+ },
+ {
+  "start": 15.97,
+  "end": 19.4,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El cobre dejó de brillar.",
+  "seg": 0
+ },
+ {
+  "start": 19.4,
+  "end": 23.15,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Y por primera vez aquel dragón...",
+  "seg": 0
+ },
+ {
+  "start": 23.15,
+  "end": 27.65,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "intentó escapar.",
+  "seg": 0
+ },
+ {
+  "start": 28.89,
+  "end": 30.73,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡DEMASIADO TARDE!",
+  "seg": 0
+ },
+ {
+  "start": 30.73,
+  "end": 32.25,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE CALLE EL CIELO!",
+  "seg": 0
+ },
+ {
+  "start": 32.25,
+  "end": 33.36,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡QUE SE CONGELE EL MAR!",
+  "seg": 0
+ },
+ {
+  "start": 33.36,
+  "end": 35.12,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "¡POR NUESTROS CUATRO HERMANOS",
+  "seg": 0
+ },
+ {
+  "start": 35.12,
+  "end": 37.03,
+  "section": "Bridge",
+  "singer": "Climax",
+  "text": "QUE NO VOLVERÁN!",
+  "seg": 0
+ },
+ {
+  "start": 37.03,
+  "end": 41.53,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "¡RAYO DE HIELO!",
+  "seg": 0
+ },
+ {
+  "start": 42.14,
+  "end": 45.17,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El rayo atravesó sus escamas.",
+  "seg": 0
+ },
+ {
+  "start": 45.17,
+  "end": 48.12,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Su cuerpo empezó a cristalizar.",
+  "seg": 0
+ },
+ {
+  "start": 48.12,
+  "end": 50.75,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "El dragón quedó congelado...",
+  "seg": 0
+ },
+ {
+  "start": 50.75,
+  "end": 54.19,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "sin poder siquiera gritar.",
+  "seg": 0
+ },
+ {
+  "start": 54.19,
+  "end": 55.22,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Una grieta.",
+  "seg": 0
+ },
+ {
+  "start": 55.22,
+  "end": 56.66,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Luego otra.",
+  "seg": 0
+ },
+ {
+  "start": 56.66,
+  "end": 58.57,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Y otra más...",
+  "seg": 0
+ },
+ {
+  "start": 58.57,
+  "end": 60.97,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "¡Y SE HIZO PEDAZOS",
+  "seg": 0
+ },
+ {
+  "start": 60.97,
+  "end": 65.47,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "SOBRE EL MAAAAAR!",
+  "seg": 0
+ },
+ {
+  "start": 66.27,
+  "end": 67.31,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "Después...",
+  "seg": 1
+ },
+ {
+  "start": 67.31,
+  "end": 70.02,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "solo quedaron las olas.",
+  "seg": 1
+ },
+ {
+  "start": 70.02,
+  "end": 72.66,
+  "section": "Bridge",
+  "singer": "Final Verse",
+  "text": "Nuestro jefe nos comenzó a contar.",
+  "seg": 1
+ },
+ {
+  "start": 72.66,
+  "end": 73.45,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Uno.",
+  "seg": 1
+ },
+ {
+  "start": 73.45,
+  "end": 74.17,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Dos.",
+  "seg": 1
+ },
+ {
+  "start": 74.17,
+  "end": 74.73,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Tres.",
+  "seg": 1
+ },
+ {
+  "start": 74.73,
+  "end": 79.23,
+  "section": "Bridge",
+  "singer": "Three Kobolds",
+  "text": "Y nadie más.",
+  "seg": 1
+ },
+ {
+  "start": 81.91,
+  "end": 86.41,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Antes siete corríamos por la costa.",
+  "seg": 1
+ },
+ {
+  "start": 86.46,
+  "end": 89.01,
+  "section": "Bridge",
+  "singer": "Female Kobold",
+  "text": "Ahora tres mirábamos el mar.",
+  "seg": 1
+ },
+ {
+  "start": 89.01,
+  "end": 91.89,
+  "section": "Bridge",
+  "singer": "Male Kobold 1",
+  "text": "Cuatro lugares vacíos junto al fuego.",
+  "seg": 1
+ },
+ {
+  "start": 91.89,
+  "end": 94.5,
+  "section": "Bridge",
+  "singer": "Male Kobold 2",
+  "text": "Cuatro voces que vamos a recordar.",
+  "seg": 1
+ },
+ {
+  "start": 94.48,
+  "end": 97.11,
+  "section": "Outro",
+  "singer": "Male Kobold 1",
+  "text": "Mañana llegará otro barco.",
+  "seg": 2
+ },
+ {
+  "start": 97.11,
+  "end": 99.58,
+  "section": "Outro",
+  "singer": "Male Kobold 2",
+  "text": "Y lo vamos a saquear.",
+  "seg": 2
+ },
+ {
+  "start": 99.58,
+  "end": 102.86,
+  "section": "Outro",
+  "singer": "Female Kobold",
+  "text": "Nuestros cuatro idiotas se enojarían",
+  "seg": 2
+ },
+ {
+  "start": 102.86,
+  "end": 106.21,
+  "section": "Outro",
+  "singer": "Female Kobold",
+  "text": "si dejamos el oro atrás.",
+  "seg": 2
+ },
+ {
+  "start": 106.21,
+  "end": 107.56,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Fuimos siete.",
+  "seg": 2
+ },
+ {
+  "start": 107.56,
+  "end": 109.16,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Seguimos siete.",
+  "seg": 2
+ },
+ {
+  "start": 109.16,
+  "end": 111.23,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "Con nuestro jefe...",
+  "seg": 2
+ },
+ {
+  "start": 111.23,
+  "end": 115.73,
+  "section": "Outro",
+  "singer": "Three Kobolds",
+  "text": "siempre seremos ocho.",
+  "seg": 2
+ },
+ {
+  "start": 118.02,
+  "end": 119.45,
+  "section": "Outro",
+  "singer": "Whisper",
+  "text": "Mr. Iguana...",
+  "seg": 2
+ }
+]

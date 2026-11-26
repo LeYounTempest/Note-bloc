@@ -1,0 +1,178 @@
+[
+ {
+  "start": -0.02,
+  "end": 1.66,
+  "section": "Verse 2",
+  "singer": "Male Kobold 1",
+  "text": "“¡Jefe! ¡Hay ladrones",
+  "seg": 0
+ },
+ {
+  "start": 1.66,
+  "end": 3.26,
+  "section": "Verse 2",
+  "singer": "Male Kobold 1",
+  "text": "cerca del barco, por allá!”",
+  "seg": 0
+ },
+ {
+  "start": 3.26,
+  "end": 4.85,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Un elfo apareció con vino,",
+  "seg": 0
+ },
+ {
+  "start": 4.85,
+  "end": 6.29,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "como queriendo conversar.",
+  "seg": 0
+ },
+ {
+  "start": 6.29,
+  "end": 7.88,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "Tres hermanos fueron hacia el bardo,",
+  "seg": 0
+ },
+ {
+  "start": 7.88,
+  "end": 9.56,
+  "section": "Verse 2",
+  "singer": "Male Kobold 2",
+  "text": "solo lo querían amarrar.",
+  "seg": 0
+ },
+ {
+  "start": 9.56,
+  "end": 12.91,
+  "section": "Verse 2",
+  "singer": "Female Kobold",
+  "text": "Pero vimos un relámpago...",
+  "seg": 0
+ },
+ {
+  "start": 12.91,
+  "end": 13.71,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡UNO!",
+  "seg": 0
+ },
+ {
+  "start": 13.71,
+  "end": 14.43,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡DOS!",
+  "seg": 0
+ },
+ {
+  "start": 14.43,
+  "end": 15.22,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡TRES!",
+  "seg": 0
+ },
+ {
+  "start": 15.22,
+  "end": 18.9,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "Tres cuerpos cayeron frente al mar.",
+  "seg": 0
+ },
+ {
+  "start": 18.9,
+  "end": 22.48,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "Mr. Iguana alzó sus manos.",
+  "seg": 0
+ },
+ {
+  "start": 22.48,
+  "end": 24.16,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "¡VENTISCA!",
+  "seg": 0
+ },
+ {
+  "start": 24.16,
+  "end": 27.03,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "El viento comenzó a gritar.",
+  "seg": 0
+ },
+ {
+  "start": 27.03,
+  "end": 29.67,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "El dracónido salió volando,",
+  "seg": 0
+ },
+ {
+  "start": 29.67,
+  "end": 34.17,
+  "section": "Verse 2",
+  "singer": "Three Kobolds",
+  "text": "separado de los demás.",
+  "seg": 0
+ },
+ {
+  "start": 36.69,
+  "end": 39.88,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Éramos siete en esta costa.",
+  "seg": 0
+ },
+ {
+  "start": 39.88,
+  "end": 42.83,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Ahora tres no volverán.",
+  "seg": 0
+ },
+ {
+  "start": 42.83,
+  "end": 44.91,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "No buscábamos una guerra.",
+  "seg": 0
+ },
+ {
+  "start": 44.91,
+  "end": 47.94,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Solo queríamos saquear.",
+  "seg": 0
+ },
+ {
+  "start": 47.94,
+  "end": 51.05,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "Tres lugares junto al fuego...",
+  "seg": 0
+ },
+ {
+  "start": 51.05,
+  "end": 55.55,
+  "section": "Verse 2",
+  "singer": "Dark Chorus",
+  "text": "nadie los volverá a ocupar.",
+  "seg": 0
+ }
+]

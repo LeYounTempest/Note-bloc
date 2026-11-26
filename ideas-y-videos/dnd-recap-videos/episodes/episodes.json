@@ -1,0 +1,110 @@
+[
+ {
+  "id": "ep01_dei_el_kenku_y_el_elfo",
+  "title": "Dei, el kenku y el elfo",
+  "event": "Llegan Dei, el kenku y el elfo con vino; Dei mata con relámpagos; Mr. Iguana responde con Ventisca; duelo por los caídos",
+  "duration": 58.9,
+  "segments": [
+   [
+    95.6,
+    154.5
+   ]
+  ],
+  "singers": [
+   "Dark Chorus",
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "lines": 22
+ },
+ {
+  "id": "ep02_el_dragon_de_cobre",
+  "title": "El dragón de cobre",
+  "event": "Emerge el dragón adulto y el grupo pelea junto a los kobolds: fuego, escudos, hielo; el elfo se hace invisible",
+  "duration": 24.6,
+  "segments": [
+   [
+    154.5,
+    179.1
+   ]
+  ],
+  "singers": [
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "lines": 12
+ },
+ {
+  "id": "ep03_el_susurro",
+  "title": "El susurro",
+  "event": "El dragón derriba a Dei; Chispa va a ayudarlo; el elfo invisible susurra y Chispa muere al instante sin saber de dónde vino",
+  "duration": 34.3,
+  "segments": [
+   [
+    179.1,
+    213.4
+   ]
+  ],
+  "singers": [
+   "Battle Continues",
+   "Female Kobold",
+   "Male Kobold 1",
+   "Male Kobold 2"
+  ],
+  "lines": 12
+ },
+ {
+  "id": "ep04_el_cuerpo_es_un_arma",
+  "title": "El cuerpo es un arma",
+  "event": "Dei usa el cuerpo de Chispa como arma contra el dragón; explosión; algo se rompe dentro de Mr. Iguana",
+  "duration": 37.6,
+  "segments": [
+   [
+    213.4,
+    251.0
+   ]
+  ],
+  "singers": [
+   "Female Kobold",
+   "Impact",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds"
+  ],
+  "lines": 15
+ },
+ {
+  "id": "ep05_siempre_seremos_ocho",
+  "title": "Siempre seremos ocho",
+  "event": "Mr. Iguana mata al dragón de cobre (Rayo de Hielo); cuenta a su familia; cierre 'siempre seremos ocho'",
+  "duration": 119.5,
+  "segments": [
+   [
+    251.0,
+    317.3
+   ],
+   [
+    332.1,
+    360.3
+   ],
+   [
+    383.4,
+    408.4
+   ]
+  ],
+  "singers": [
+   "Climax",
+   "Female Kobold",
+   "Final Verse",
+   "Male Kobold 1",
+   "Male Kobold 2",
+   "Three Kobolds",
+   "Whisper"
+  ],
+  "lines": 43
+ }
+]
