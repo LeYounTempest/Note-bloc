@@ -126,6 +126,9 @@
       set(p, 'root', 0, -abs(s) * 6); set(p, 'arm_L', 0, 0, 150 + s * 18); set(p, 'arm_R', 0, 0, -150 - s * 18);
       set(p, 'leg_L', 0, 0, 10 * abs(s)); set(p, 'leg_R', 0, 0, -10 * abs(s)); set(p, 'tail', 0, 0, s * 20); return p;
     },
+    stiff(t) { const p = { expr: 'scared' }; set(p, 'arm_L', 0, 0, 120); set(p, 'arm_R', 0, 0, -120); set(p, 'leg_L', 0, 0, 5); set(p, 'leg_R', 0, 0, -5); return p; },
+    lift(t) { const ts = snap(t, 10), s = sin(ts * 3 * TAU), p = { expr: 'angry' };   // esfuerzo: brazos arriba, vaivén
+      set(p, 'arm_L', 0, 0, 145 + s * 8); set(p, 'arm_R', 0, 0, -145 - s * 8); set(p, 'root', 0, s > 0.4 ? 1 : 0, s * 3); set(p, 'head', 0, 0, -s * 3); set(p, 'tail', 0, 0, s * 12); return p; },
     hurt(t) {   // t local; 0..0.6
       const k = clamp(t / 0.6), d = (1 - k), p = { expr: 'hurt', tint: t < 0.1 ? 0.9 : 0 };
       set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d - 3 * easeOut(clamp(t / .2)) * d, 0, -6 * d);
@@ -202,6 +205,10 @@
       const wind = clamp(t / 0.35), thr = clamp((t - 0.35) / 0.12), rec = clamp((t - 0.5) / 0.4), p = { expr: 'angry', fx: { aura: 1.5 + (1 - rec) } };
       set(p, 'arm_L', 0, 0, -30 * wind * (1 - thr) + 55 * thr * (1 - rec)); set(p, 'torso', -1 * wind + 2 * thr * (1 - rec), 0, -6 * wind + 10 * thr * (1 - rec));
       set(p, 'root', 2 * thr * (1 - rec), 0); set(p, 'halo', 0, 0, Math.floor(t * 12) * 6); set(p, 'arm_R', 0, 0, -10); return p; },
+    block(t) {   // recibe un golpe con el escudo en alto y aguanta
+      const k = clamp(t / 0.8), d = 1 - k, ts = snap(t, 24), p = { expr: 'angry', fx: { aura: 1.5 + 2.6 * d }, tint: t < 0.08 ? 0.4 : 0 };
+      set(p, 'root', -4 * d * clamp(t / 0.06 + 1 - 1) , 0); set(p, 'arm_R', 0, -1, -36 + 8 * d); set(p, 'arm_L', 0, 0, 8); set(p, 'head', 0, 1, 4); set(p, 'torso', -1 * d, 1, -5 * d);
+      set(p, 'halo', 0, 0, Math.floor(t * 14) * 6); set(p, 'ribbon_L', 0, 0, 18 + sin(ts) * 7 * d); set(p, 'ribbon_R', 0, 0, -18 + sin(ts + 1) * 7 * d); return p; },
     hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); p.fx = { aura: 0.6 }; return p; },
     die(t) { const p = diePose(t, { hurt: 'hurt', dead: 'dead', h: 42 }); p.fx = { aura: Math.max(0, 1 - t) }; return p; },
   };
@@ -223,6 +230,8 @@
       const ts = snap(t, 15), p = { expr: 'hurt', hide: ['lute'] };
       set(p, 'arm_L', 0, 0, 110 + sin(ts * 9) * 25); set(p, 'arm_R', 0, 0, -110 - sin(ts * 9 + 1) * 25); set(p, 'leg_L', 0, 0, 25 + sin(ts * 7) * 15); set(p, 'leg_R', 0, 0, -25 - sin(ts * 7) * 15);
       set(p, 'head', 0, 0, sin(ts * 6) * 10); set(p, 'tail', 0, 0, sin(ts * 10) * 30); return p; },
+    down(t) { const p = diePose(t, { hurt: 'hurt', dead: 'hurt', h: 64 }); p.hide = ['lute']; return p; },
+    rise(t) { const p = diePose(0.7 * (1 - clamp(t / 1.8)), { hurt: 'hurt', dead: 'hurt', h: 64 }); p.tint = 0; return p; },
     hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); return p; },
     die(t) { return diePose(t, { hurt: 'hurt', dead: 'dead', h: 64 }); },
   };
@@ -261,18 +270,23 @@
     emerge(t) {   // rugido al salir del mar; t local
       const k = easeOut(clamp(t / 1.2)), ts = snap(t, 12), p = { expr: 'roar' };
       set(p, 'wing_near', 0, 0, -30 * k + sin(ts * 5) * 6); set(p, 'wing_far', 0, 0, -30 * k + sin(ts * 5 - 1) * 6);
-      set(p, 'head', 0, 0, -14 * k); set(p, 'neck', 0, 0, -6 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'root', (Math.floor(t * 28) % 2 ? 1 : -1) * k, 0);
+      set(p, 'head', 0, 0, 14 * k); set(p, 'neck', 0, 0, 6 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'root', (Math.floor(t * 28) % 2 ? 1 : -1) * k, 0);
       DR._tail(p, ts * 2 * TAU, 1.4); return p; },
     roar(t) { const k = clamp(t / 0.25) * clamp((1.6 - t) / 0.3), ts = snap(t, 12), p = { expr: 'roar' };
-      set(p, 'head', 0, 0, -13 * k); set(p, 'neck', 0, 0, -7 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'wing_near', 0, 0, -26 * k + sin(ts * 6) * 5 * k); set(p, 'wing_far', 0, 0, -26 * k + sin(ts * 6 - 1) * 5 * k);
+      set(p, 'head', 0, 0, 13 * k); set(p, 'neck', 0, 0, 7 * k); set(p, 'jaw', 0, 0, -30 * k); set(p, 'wing_near', 0, 0, -26 * k + sin(ts * 6) * 5 * k); set(p, 'wing_far', 0, 0, -26 * k + sin(ts * 6 - 1) * 5 * k);
       set(p, 'root', (Math.floor(t * 28) % 2 ? 1 : -1) * k, 0); DR._tail(p, ts * 2 * TAU, 1.2); return p; },
     breathe(t, o = {}) {   // aliento de fuego; t local: carga .45 s, fuego hasta o.dur (1.6)
       const dur = o.dur || 1.6, w = clamp(t / 0.45), on = t >= 0.45 && t < dur, end = clamp((t - dur) / 0.3), ts = snap(t, 12), p = { expr: 'angry' };
-      set(p, 'head', 0, 0, 6 * w + (on ? 12 : 0) * (1 - end)); set(p, 'neck', 0, 0, 4 * w + (on ? 6 : 0) * (1 - end)); set(p, 'jaw', 0, 0, -10 * w - (on ? 22 : 0) * (1 - end));
+      set(p, 'head', 0, 0, (on ? -14 : 10 * w) * (1 - end)); set(p, 'neck', 0, 0, (on ? -8 : 4 * w) * (1 - end)); set(p, 'jaw', 0, 0, -10 * w - (on ? 22 : 0) * (1 - end));
       set(p, 'body', 0, 0, on ? -2 : 0); set(p, 'wing_near', 0, 0, -18 * w * (1 - end) + sin(ts * 4) * 5); set(p, 'wing_far', 0, 0, -18 * w * (1 - end) + sin(ts * 4 - 1) * 5);
       DR._tail(p, ts * 1.6 * TAU, 1.2); if (on) p.fx = { fire: clamp((t - 0.45) / 0.15) * (1 - end) }; return p; },
+    bite(t) {   // mordisco hacia abajo-izquierda; el impacto cae a ~0.35 s
+      const wind = clamp(t / 0.25), st = clamp((t - 0.25) / 0.12), rec = clamp((t - 0.55) / 0.5), ts = snap(t, 12), p = { expr: 'angry' };
+      const a = (10 * wind * (1 - st) - 34 * st) * (1 - rec);
+      set(p, 'head', 0, 0, a * 1.3); set(p, 'neck', 0, 0, (4 * wind * (1 - st) - 26 * st) * (1 - rec)); set(p, 'jaw', 0, 0, (-26 * st) * (1 - clamp((t - 0.45) / 0.15)) * (1 - rec));
+      set(p, 'root', -3 * st * (1 - rec), 0); set(p, 'wing_near', 0, 0, -12 * (1 - rec) + sin(ts * 5) * 4); set(p, 'wing_far', 0, 0, -12 * (1 - rec) + sin(ts * 5 - 1) * 4); DR._tail(p, ts * 2 * TAU, 1.2); return p; },
     hurt(t) { const k = clamp(t / 0.7), d = 1 - k, p = { expr: 'hurt', tint: t < 0.12 ? 0.5 : 0, tintc: o_ice };
-      set(p, 'head', 0, 0, -16 * d); set(p, 'neck', 0, 0, -8 * d); set(p, 'jaw', 0, 0, -22 * d); set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d, 0);
+      set(p, 'head', 0, 0, 16 * d); set(p, 'neck', 0, 0, 8 * d); set(p, 'jaw', 0, 0, -22 * d); set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d, 0);
       set(p, 'wing_near', 0, 0, -22 * d); set(p, 'wing_far', 0, 0, -22 * d); DR._tail(p, snap(t, 12) * 3 * TAU, 1.5 * d + 0.3); return p; },
     frozen(t) { const p = { expr: 'hurt', tint: 0.55, tintc: o_ice }; set(p, 'wing_near', 0, 0, -14); set(p, 'wing_far', 0, 0, -14); set(p, 'head', 0, 0, -8); set(p, 'jaw', 0, 0, -16);
       p.fx = { sparkle: 1 }; return p; },

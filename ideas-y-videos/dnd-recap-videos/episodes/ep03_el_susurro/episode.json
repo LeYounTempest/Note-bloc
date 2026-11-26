@@ -1,0 +1,916 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "audio.m4a",
+ "scenes": [
+  {
+   "type": "stage",
+   "template": "stage.html",
+   "duration": 43.9,
+   "sprites": {
+    "dei.arm_L": "../../assets/rig/dei/arm_L.png",
+    "dei.arm_R": "../../assets/rig/dei/arm_R.png",
+    "dei.face_angry": "../../assets/rig/dei/face_angry.png",
+    "dei.face_blink": "../../assets/rig/dei/face_blink.png",
+    "dei.face_cast": "../../assets/rig/dei/face_cast.png",
+    "dei.face_dead": "../../assets/rig/dei/face_dead.png",
+    "dei.face_hurt": "../../assets/rig/dei/face_hurt.png",
+    "dei.face_normal": "../../assets/rig/dei/face_normal.png",
+    "dei.face_sing": "../../assets/rig/dei/face_sing.png",
+    "dei.face_smirk": "../../assets/rig/dei/face_smirk.png",
+    "dei.head": "../../assets/rig/dei/head.png",
+    "dei.leg_L": "../../assets/rig/dei/leg_L.png",
+    "dei.leg_R": "../../assets/rig/dei/leg_R.png",
+    "dei.lute": "../../assets/rig/dei/lute.png",
+    "dei.tail": "../../assets/rig/dei/tail.png",
+    "dei.torso": "../../assets/rig/dei/torso.png",
+    "dragon.body": "../../assets/rig/dragon/body.png",
+    "dragon.face_angry": "../../assets/rig/dragon/face_angry.png",
+    "dragon.face_blink": "../../assets/rig/dragon/face_blink.png",
+    "dragon.face_dead": "../../assets/rig/dragon/face_dead.png",
+    "dragon.face_hurt": "../../assets/rig/dragon/face_hurt.png",
+    "dragon.face_normal": "../../assets/rig/dragon/face_normal.png",
+    "dragon.face_roar": "../../assets/rig/dragon/face_roar.png",
+    "dragon.head": "../../assets/rig/dragon/head.png",
+    "dragon.jaw": "../../assets/rig/dragon/jaw.png",
+    "dragon.leg_far_F": "../../assets/rig/dragon/leg_far_F.png",
+    "dragon.leg_far_H": "../../assets/rig/dragon/leg_far_H.png",
+    "dragon.leg_near_F": "../../assets/rig/dragon/leg_near_F.png",
+    "dragon.leg_near_H": "../../assets/rig/dragon/leg_near_H.png",
+    "dragon.neck": "../../assets/rig/dragon/neck.png",
+    "dragon.tail1": "../../assets/rig/dragon/tail1.png",
+    "dragon.tail2": "../../assets/rig/dragon/tail2.png",
+    "dragon.tail3": "../../assets/rig/dragon/tail3.png",
+    "dragon.wing_far": "../../assets/rig/dragon/wing_far.png",
+    "dragon.wing_near": "../../assets/rig/dragon/wing_near.png",
+    "hans.arm_L": "../../assets/rig/hans/arm_L.png",
+    "hans.arm_R": "../../assets/rig/hans/arm_R.png",
+    "hans.face_angry": "../../assets/rig/hans/face_angry.png",
+    "hans.face_blink": "../../assets/rig/hans/face_blink.png",
+    "hans.face_dead": "../../assets/rig/hans/face_dead.png",
+    "hans.face_hurt": "../../assets/rig/hans/face_hurt.png",
+    "hans.face_normal": "../../assets/rig/hans/face_normal.png",
+    "hans.face_scared": "../../assets/rig/hans/face_scared.png",
+    "hans.face_smile": "../../assets/rig/hans/face_smile.png",
+    "hans.head": "../../assets/rig/hans/head.png",
+    "hans.leg_L": "../../assets/rig/hans/leg_L.png",
+    "hans.leg_R": "../../assets/rig/hans/leg_R.png",
+    "hans.prop_L_0": "../../assets/rig/hans/prop_L_0.png",
+    "hans.prop_R_0": "../../assets/rig/hans/prop_R_0.png",
+    "hans.prop_R_1": "../../assets/rig/hans/prop_R_1.png",
+    "hans.torso": "../../assets/rig/hans/torso.png",
+    "iguana.arm_s": "../../assets/rig/iguana/arm_s.png",
+    "iguana.book": "../../assets/rig/iguana/book.png",
+    "iguana.cape": "../../assets/rig/iguana/cape.png",
+    "iguana.face_angry": "../../assets/rig/iguana/face_angry.png",
+    "iguana.face_blink": "../../assets/rig/iguana/face_blink.png",
+    "iguana.face_cast": "../../assets/rig/iguana/face_cast.png",
+    "iguana.face_hollow": "../../assets/rig/iguana/face_hollow.png",
+    "iguana.face_normal": "../../assets/rig/iguana/face_normal.png",
+    "iguana.face_sad": "../../assets/rig/iguana/face_sad.png",
+    "iguana.face_scared": "../../assets/rig/iguana/face_scared.png",
+    "iguana.hat": "../../assets/rig/iguana/hat.png",
+    "iguana.head": "../../assets/rig/iguana/head.png",
+    "iguana.leg_L": "../../assets/rig/iguana/leg_L.png",
+    "iguana.leg_R": "../../assets/rig/iguana/leg_R.png",
+    "iguana.staff": "../../assets/rig/iguana/staff.png",
+    "iguana.tail": "../../assets/rig/iguana/tail.png",
+    "iguana.torso": "../../assets/rig/iguana/torso.png",
+    "kenku.arm_L": "../../assets/rig/kenku/arm_L.png",
+    "kenku.arm_R": "../../assets/rig/kenku/arm_R.png",
+    "kenku.cape": "../../assets/rig/kenku/cape.png",
+    "kenku.face_angry": "../../assets/rig/kenku/face_angry.png",
+    "kenku.face_blink": "../../assets/rig/kenku/face_blink.png",
+    "kenku.face_dead": "../../assets/rig/kenku/face_dead.png",
+    "kenku.face_hurt": "../../assets/rig/kenku/face_hurt.png",
+    "kenku.face_normal": "../../assets/rig/kenku/face_normal.png",
+    "kenku.face_serene": "../../assets/rig/kenku/face_serene.png",
+    "kenku.face_speak": "../../assets/rig/kenku/face_speak.png",
+    "kenku.halo": "../../assets/rig/kenku/halo.png",
+    "kenku.head": "../../assets/rig/kenku/head.png",
+    "kenku.hood": "../../assets/rig/kenku/hood.png",
+    "kenku.leg_L": "../../assets/rig/kenku/leg_L.png",
+    "kenku.leg_R": "../../assets/rig/kenku/leg_R.png",
+    "kenku.prop_L_0": "../../assets/rig/kenku/prop_L_0.png",
+    "kenku.prop_R_0": "../../assets/rig/kenku/prop_R_0.png",
+    "kenku.ribbon_L": "../../assets/rig/kenku/ribbon_L.png",
+    "kenku.ribbon_R": "../../assets/rig/kenku/ribbon_R.png",
+    "kenku.tail": "../../assets/rig/kenku/tail.png",
+    "kenku.torso": "../../assets/rig/kenku/torso.png",
+    "kobold.arm_L": "../../assets/rig/kobold/arm_L.png",
+    "kobold.arm_R": "../../assets/rig/kobold/arm_R.png",
+    "kobold.face_angry": "../../assets/rig/kobold/face_angry.png",
+    "kobold.face_blink": "../../assets/rig/kobold/face_blink.png",
+    "kobold.face_dead": "../../assets/rig/kobold/face_dead.png",
+    "kobold.face_happy": "../../assets/rig/kobold/face_happy.png",
+    "kobold.face_hurt": "../../assets/rig/kobold/face_hurt.png",
+    "kobold.face_normal": "../../assets/rig/kobold/face_normal.png",
+    "kobold.face_scared": "../../assets/rig/kobold/face_scared.png",
+    "kobold.face_sing": "../../assets/rig/kobold/face_sing.png",
+    "kobold.face_sing_mid": "../../assets/rig/kobold/face_sing_mid.png",
+    "kobold.head": "../../assets/rig/kobold/head.png",
+    "kobold.leg_L": "../../assets/rig/kobold/leg_L.png",
+    "kobold.leg_R": "../../assets/rig/kobold/leg_R.png",
+    "kobold.prop_L_0": "../../assets/rig/kobold/prop_L_0.png",
+    "kobold.prop_L_1": "../../assets/rig/kobold/prop_L_1.png",
+    "kobold.prop_L_3": "../../assets/rig/kobold/prop_L_3.png",
+    "kobold.prop_L_5": "../../assets/rig/kobold/prop_L_5.png",
+    "kobold.prop_L_6": "../../assets/rig/kobold/prop_L_6.png",
+    "kobold.prop_R_0": "../../assets/rig/kobold/prop_R_0.png",
+    "kobold.prop_R_2": "../../assets/rig/kobold/prop_R_2.png",
+    "kobold.prop_R_3": "../../assets/rig/kobold/prop_R_3.png",
+    "kobold.prop_R_4": "../../assets/rig/kobold/prop_R_4.png",
+    "kobold.prop_R_5": "../../assets/rig/kobold/prop_R_5.png",
+    "kobold.prop_R_6": "../../assets/rig/kobold/prop_R_6.png",
+    "kobold.tail": "../../assets/rig/kobold/tail.png",
+    "kobold.torso": "../../assets/rig/kobold/torso.png"
+   },
+   "metaFile": "../../assets/rig/rig.json",
+   "chip": {
+    "text": "SESIÓN 1 · EP. 3",
+    "t": 0.2,
+    "dur": 2.6
+   },
+   "title": {
+    "text": "El susurro",
+    "t": 0.4,
+    "dur": 2.6
+   },
+   "bg": [
+    {
+     "t": 0,
+     "mode": "dusk"
+    }
+   ],
+   "lines": [
+    {
+     "t0": 0,
+     "t1": 0.67,
+     "text": "¡Fuego!",
+     "big": false
+    },
+    {
+     "t0": 0.69,
+     "t1": 1.54,
+     "text": "¡Escudos!",
+     "big": false
+    },
+    {
+     "t0": 1.56,
+     "t1": 2.9,
+     "text": "¡Hielo contra escamas!",
+     "big": false
+    },
+    {
+     "t0": 2.92,
+     "t1": 4.26,
+     "text": "El kenku resistía.",
+     "big": false
+    },
+    {
+     "t0": 4.28,
+     "t1": 5.93,
+     "text": "El bardo volvió a atacar.",
+     "big": false
+    },
+    {
+     "t0": 5.95,
+     "t1": 6.81,
+     "text": "Y el elfo...",
+     "big": false
+    },
+    {
+     "t0": 6.83,
+     "t1": 8.41,
+     "text": "se hizo invisible.",
+     "big": false
+    },
+    {
+     "t0": 8.43,
+     "t1": 9.6,
+     "text": "Qué conveniente.",
+     "big": false
+    },
+    {
+     "t0": 9.62,
+     "t1": 11.36,
+     "text": "El dracónido cayó herido.",
+     "big": false
+    },
+    {
+     "t0": 11.38,
+     "t1": 13.03,
+     "text": "Uno de nosotros corrió.",
+     "big": false
+    },
+    {
+     "t0": 13.05,
+     "t1": 15.19,
+     "text": "Nuestro hermano lo levantó...",
+     "big": false
+    },
+    {
+     "t0": 15.21,
+     "t1": 18.14,
+     "text": "aunque a tres de los nuestros mató.",
+     "big": false
+    },
+    {
+     "t0": 18.16,
+     "t1": 21.25,
+     "text": "Aun así quiso salvarlo.",
+     "big": false
+    },
+    {
+     "t0": 21.27,
+     "t1": 25.77,
+     "text": "Porque era mejor que él.",
+     "big": false
+    },
+    {
+     "t0": 27.5,
+     "t1": 30.75,
+     "text": "Entonces escuchó un susurro",
+     "big": false
+    },
+    {
+     "t0": 30.77,
+     "t1": 34.02,
+     "text": "que ninguno pudo ver.",
+     "big": false
+    },
+    {
+     "t0": 34.04,
+     "t1": 36.81,
+     "text": "Sus ojos se abrieron.",
+     "big": false
+    },
+    {
+     "t0": 36.83,
+     "t1": 39.52,
+     "text": "Su corazón se detuvo.",
+     "big": false
+    },
+    {
+     "t0": 39.54,
+     "t1": 42.0,
+     "text": "Y nuestro hermano...",
+     "big": false
+    },
+    {
+     "t0": 42.02,
+     "t1": 43.85,
+     "text": "cayó.",
+     "big": false
+    }
+   ],
+   "actors": [
+    {
+     "id": "k0",
+     "rig": "kobold",
+     "variant": 0,
+     "name": "Julia",
+     "seed": 0,
+     "keys": [
+      {
+       "t": 0,
+       "x": 12,
+       "y": 428,
+       "anim": "scared"
+      },
+      {
+       "t": 36.8,
+       "x": 12,
+       "y": 428,
+       "anim": "stiff"
+      }
+     ]
+    },
+    {
+     "id": "k1",
+     "rig": "kobold",
+     "variant": 1,
+     "name": "Piedrín",
+     "seed": 1,
+     "keys": [
+      {
+       "t": 0,
+       "x": 32,
+       "y": 432,
+       "anim": "scared"
+      }
+     ]
+    },
+    {
+     "id": "k2",
+     "rig": "kobold",
+     "variant": 2,
+     "name": "Braulio",
+     "seed": 2,
+     "keys": [
+      {
+       "t": 0,
+       "x": 52,
+       "y": 428,
+       "anim": "scared"
+      }
+     ]
+    },
+    {
+     "id": "k3",
+     "rig": "kobold",
+     "variant": 3,
+     "name": "Chispa",
+     "seed": 3,
+     "keys": [
+      {
+       "t": 0,
+       "x": 26,
+       "y": 424,
+       "anim": "scared"
+      },
+      {
+       "t": 11.4,
+       "x": 26,
+       "y": 424,
+       "anim": "run"
+      },
+      {
+       "t": 12.9,
+       "x": 140,
+       "y": 392,
+       "anim": "idle"
+      },
+      {
+       "t": 13.1,
+       "x": 140,
+       "y": 392,
+       "anim": "lift"
+      },
+      {
+       "t": 15.0,
+       "x": 140,
+       "y": 392,
+       "anim": "idle"
+      },
+      {
+       "t": 34.0,
+       "x": 140,
+       "y": 392,
+       "anim": "stiff"
+      },
+      {
+       "t": 42.0,
+       "x": 140,
+       "y": 392,
+       "anim": "die"
+      }
+     ]
+    },
+    {
+     "id": "k4",
+     "rig": "kobold",
+     "variant": 4,
+     "name": "El Zurdito",
+     "seed": 4,
+     "keys": [
+      {
+       "t": 0,
+       "x": 196,
+       "y": 414,
+       "anim": "die",
+       "opts": {},
+       "flip": true
+      }
+     ]
+    },
+    {
+     "id": "k5",
+     "rig": "kobold",
+     "variant": 5,
+     "name": "Pancho",
+     "seed": 5,
+     "keys": [
+      {
+       "t": 0,
+       "x": 222,
+       "y": 422,
+       "anim": "die",
+       "opts": {},
+       "flip": false
+      }
+     ]
+    },
+    {
+     "id": "k6",
+     "rig": "kobold",
+     "variant": 6,
+     "name": "Lola",
+     "seed": 6,
+     "keys": [
+      {
+       "t": 0,
+       "x": 176,
+       "y": 424,
+       "anim": "die",
+       "opts": {},
+       "flip": true
+      }
+     ]
+    },
+    {
+     "id": "kenku",
+     "rig": "kenku",
+     "variant": 0,
+     "name": "Kenku",
+     "keys": [
+      {
+       "t": 0,
+       "x": 84,
+       "y": 386,
+       "anim": "guard"
+      },
+      {
+       "t": 3.25,
+       "x": 84,
+       "y": 386,
+       "anim": "block"
+      },
+      {
+       "t": 4.2,
+       "x": 84,
+       "y": 386,
+       "anim": "guard"
+      },
+      {
+       "t": 16.3,
+       "x": 84,
+       "y": 386,
+       "anim": "block"
+      },
+      {
+       "t": 17.2,
+       "x": 84,
+       "y": 386,
+       "anim": "guard"
+      },
+      {
+       "t": 25.0,
+       "x": 84,
+       "y": 386,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "dei",
+     "rig": "dei",
+     "name": "Dei",
+     "keys": [
+      {
+       "t": 0,
+       "x": 172,
+       "y": 384,
+       "anim": "idle"
+      },
+      {
+       "t": 4.2,
+       "x": 172,
+       "y": 384,
+       "anim": "cast"
+      },
+      {
+       "t": 8.2,
+       "x": 172,
+       "y": 384,
+       "anim": "idle"
+      },
+      {
+       "t": 9.9,
+       "x": 172,
+       "y": 384,
+       "anim": "hurt"
+      },
+      {
+       "t": 10.5,
+       "x": 172,
+       "y": 384,
+       "anim": "down"
+      },
+      {
+       "t": 13.1,
+       "x": 172,
+       "y": 384,
+       "anim": "rise"
+      },
+      {
+       "t": 15.0,
+       "x": 172,
+       "y": 384,
+       "anim": "idle"
+      }
+     ]
+    },
+    {
+     "id": "iguana",
+     "rig": "iguana",
+     "name": "Mr. Iguana",
+     "keys": [
+      {
+       "t": 0,
+       "x": 50,
+       "y": 316,
+       "anim": "cast",
+       "float": 392,
+       "fxcol": [
+        130,
+        200,
+        255
+       ]
+      }
+     ]
+    },
+    {
+     "id": "hans",
+     "rig": "hans",
+     "variant": 0,
+     "name": "Hans",
+     "keys": [
+      {
+       "t": 0,
+       "x": 208,
+       "y": 394,
+       "anim": "idle"
+      },
+      {
+       "t": 6.0,
+       "x": 208,
+       "y": 394,
+       "anim": "idle"
+      },
+      {
+       "t": 6.8,
+       "x": 208,
+       "y": 394,
+       "anim": "vanish"
+      },
+      {
+       "t": 21.0,
+       "x": 208,
+       "y": 394,
+       "anim": "sneak",
+       "opts": {
+        "alpha": 0.2
+       }
+      },
+      {
+       "t": 26.5,
+       "x": 156,
+       "y": 394,
+       "anim": "sneak",
+       "opts": {
+        "alpha": 0.2
+       }
+      },
+      {
+       "t": 27.5,
+       "x": 156,
+       "y": 394,
+       "anim": "idle",
+       "alpha": 0.25
+      },
+      {
+       "t": 30.8,
+       "x": 156,
+       "y": 394,
+       "anim": "idle",
+       "alpha": 0.0
+      }
+     ]
+    },
+    {
+     "id": "dragon",
+     "rig": "dragon",
+     "name": "Dragón",
+     "keys": [
+      {
+       "t": 0,
+       "x": 215,
+       "y": 322,
+       "anim": "breathe",
+       "opts": {
+        "dur": 1.5
+       },
+       "firedx": -0.15,
+       "firedy": 1.55,
+       "firelen": 190
+      },
+      {
+       "t": 2.2,
+       "x": 215,
+       "y": 322,
+       "anim": "hurt"
+      },
+      {
+       "t": 2.9,
+       "x": 215,
+       "y": 322,
+       "anim": "bite"
+      },
+      {
+       "t": 4.4,
+       "x": 215,
+       "y": 322,
+       "anim": "hurt"
+      },
+      {
+       "t": 5.2,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 9.0,
+       "x": 215,
+       "y": 322,
+       "anim": "bite"
+      },
+      {
+       "t": 10.6,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 15.8,
+       "x": 215,
+       "y": 322,
+       "anim": "bite"
+      },
+      {
+       "t": 17.4,
+       "x": 215,
+       "y": 322,
+       "anim": "hurt"
+      },
+      {
+       "t": 18.2,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 23.0,
+       "x": 215,
+       "y": 322,
+       "anim": "roar"
+      },
+      {
+       "t": 25.0,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      },
+      {
+       "t": 33.0,
+       "x": 215,
+       "y": 322,
+       "anim": "idle"
+      }
+     ]
+    }
+   ],
+   "events": [
+    {
+     "type": "fade",
+     "t": 0,
+     "dur": 0.5,
+     "from": "black"
+    },
+    {
+     "type": "dome",
+     "t": 0.7,
+     "dur": 5.2,
+     "x": 128,
+     "y": 412,
+     "r": 86
+    },
+    {
+     "type": "dome",
+     "t": 15.8,
+     "dur": 3.6,
+     "x": 128,
+     "y": 412,
+     "r": 86
+    },
+    {
+     "type": "beam",
+     "t": 1.6,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 1
+    },
+    {
+     "type": "beam",
+     "t": 4.6,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 2
+    },
+    {
+     "type": "beam",
+     "t": 7.4,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 3
+    },
+    {
+     "type": "beam",
+     "t": 11.0,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 4
+    },
+    {
+     "type": "beam",
+     "t": 16.6,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 5
+    },
+    {
+     "type": "beam",
+     "t": 19.5,
+     "dur": 1.0,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 6
+    },
+    {
+     "type": "beam",
+     "t": 22.0,
+     "dur": 1.2,
+     "from": {
+      "actor": "iguana",
+      "anchor": "crystal"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "eye"
+     },
+     "id": 7
+    },
+    {
+     "type": "flash",
+     "t": 2.3,
+     "dur": 0.2,
+     "a": 0.4
+    },
+    {
+     "type": "flash",
+     "t": 3.25,
+     "dur": 0.3,
+     "a": 0.7
+    },
+    {
+     "type": "shake",
+     "t": 3.25,
+     "dur": 0.5,
+     "amp": 3
+    },
+    {
+     "type": "bolt",
+     "t": 4.6,
+     "dur": 1.0,
+     "from": {
+      "actor": "dei",
+      "anchor": "hand_R"
+     },
+     "to": {
+      "actor": "dragon",
+      "anchor": "chest"
+     },
+     "id": 8
+    },
+    {
+     "type": "flash",
+     "t": 4.6,
+     "dur": 0.25,
+     "a": 0.7
+    },
+    {
+     "type": "shake",
+     "t": 4.8,
+     "dur": 0.4,
+     "amp": 2
+    },
+    {
+     "type": "flash",
+     "t": 9.35,
+     "dur": 0.25,
+     "a": 0.6
+    },
+    {
+     "type": "shake",
+     "t": 9.35,
+     "dur": 0.7,
+     "amp": 4
+    },
+    {
+     "type": "flash",
+     "t": 16.15,
+     "dur": 0.3,
+     "a": 0.7
+    },
+    {
+     "type": "shake",
+     "t": 16.15,
+     "dur": 0.5,
+     "amp": 3
+    },
+    {
+     "type": "label",
+     "t": 27.8,
+     "dur": 2.6,
+     "actor": "hans",
+     "dy": 52,
+     "text": "psst…"
+    },
+    {
+     "type": "dim",
+     "t": 26.5,
+     "dur": 15.5,
+     "a": 0.28,
+     "fi": 2.0,
+     "fo": 1.0
+    },
+    {
+     "type": "dim",
+     "t": 36.7,
+     "dur": 2.4,
+     "a": 0.55,
+     "fi": 0.15,
+     "fo": 1.2
+    },
+    {
+     "type": "fade",
+     "t": 42.4,
+     "dur": 1.5,
+     "to": "black"
+    }
+   ],
+   "props": [
+    {
+     "type": "rocks",
+     "x": 28,
+     "y": 448,
+     "w": 74,
+     "h": 42,
+     "seed": 3
+    }
+   ]
+  }
+ ]
+}

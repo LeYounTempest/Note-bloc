@@ -78,16 +78,28 @@ function stateOf(a,t){
   const flip=k.flip!==undefined?k.flip:(n&&!n.jump&&n.x<k.x);
   return {k,x,y,rot,flip,lt:t-k.t};
 }
+function rocks(p){   // peñascos pixelados: (x,y) = base centro
+  const bl=[[0,0,1],[-.28,.18,.7],[.3,.22,.62]];
+  for(let b=0;b<bl.length;b++){ const [ox,oy,sc]=bl[b], w=p.w*sc, h=p.h*sc, cx=p.x+ox*p.w, base=p.y-oy*p.h;
+    for(let yy=0;yy<h;yy++){ const u=(yy+.5)/h, half=Math.sqrt(Math.max(0,1-Math.pow((u-.62)/.62,2)))*w/2*(.55+.45*u);
+      const col=yy<2?'#a89cb8':yy<h*.3?'#857a96':yy<h*.75?'#6a607c':'#4a4258'; R(col,cx-half,base-h+yy,half*2,1);
+      if(half>2){ R('#2e2838',cx-half,base-h+yy,1,1); R('#2e2838',cx+half-1,base-h+yy,1,1) } }
+    for(let i=0;i<6;i++){ R('#3a3248',cx-w*.35+hash(p.seed+b,i)*w*.7,base-h*.8+hash(p.seed+b,i+9)*h*.7,2,1) } }
+}
 function drawActors(t){
-  const list=[]; ACT.forEach(a=>{ const st=stateOf(a,t); if(st&&st.k.vis!==false) list.push([a,st]) });
+  const list=[]; ACT.forEach(a=>{ const st=stateOf(a,t); if(st&&st.k.vis!==false) list.push([a,st,a.keys[0]]) });
+  (S.props||[]).forEach(p=>list.push([{prop:p},{y:p.y},null]));
   list.sort((p,q)=>p[1].y-q[1].y);
   for(const [a,st] of list){
+    if(a.prop){ rocks(a.prop); continue }
     const k=st.k, lib=Rig.has(a.rig,k.anim)?k.anim:'idle';
     const pose=Rig.sample(a.rig,lib,st.lt,Object.assign({seed:a.seed||0},k.opts||{}));
     if(st.rot){ pose.root=pose.root||{}; pose.root.a=(pose.root.a||0)+st.rot }
     if(k.alpha!==undefined) pose.alpha=(pose.alpha==null?1:pose.alpha)*k.alpha;
     if(k.clipY!=null){ g.save(); g.beginPath(); g.rect(0,0,270,k.clipY); g.clip() }
-    const A=Rig.draw(g,a.rig,pose,st.x,st.y,{variant:a.variant,flip:st.flip}); ANCH[a.id]=A; a._st=st;
+    let dy=0, shad=true;
+    if(k.float!=null){ dy=round(sin(t*3)*2)-0; shad=false; const sw=RIGS[a.rig].size[0]*.4; g.fillStyle='rgba(0,0,0,.28)'; g.fillRect(round(st.x-sw*.8),round(k.float),round(sw*1.6),2) }
+    const A=Rig.draw(g,a.rig,pose,st.x,st.y+dy,{variant:a.variant,flip:st.flip,shadow:shad}); ANCH[a.id]=A; a._st=st;
     if(k.clipY!=null) g.restore();
     const fx=pose.fx;
     if(fx&&A.crystal) Rig.glow(g,A.crystal[0],A.crystal[1],fx,t,{col:k.fxcol});
@@ -153,6 +165,7 @@ function draw(t){
     fire(c.x,c.y,tt,c.k||1) }
   drawActors(t);
   const o=overlays(t); blizzard(t);
+  for(const e of S.events) if(e.type==='dim'&&t>=e.t&&t<e.t+e.dur){ g.fillStyle=`rgba(4,2,14,${(e.a||.5)*envelope(t,e.t,e.dur,e.fi||.4,e.fo||.8)})`; g.fillRect(0,0,270,480) }
   cv.style.transform=o.shake>0?`translate(${round((hash(Math.floor(t*30),1)-.5)*o.shake*2)*4}px,${round((hash(Math.floor(t*30),2)-.5)*o.shake*2)*4}px)`:'';
   document.getElementById('flash').style.opacity=o.flash; document.getElementById('fade').style.opacity=o.fadeA;
   labels(t);
