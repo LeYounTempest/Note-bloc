@@ -18,6 +18,7 @@
   const sin = Math.sin, abs = Math.abs, round = Math.round, max = Math.max;
 
   let RIGS = null; const IM = {};
+  const off = document.createElement('canvas'), og = off.getContext('2d');
   const tmp = document.createElement('canvas'); const tg = tmp.getContext('2d'); tg.imageSmoothingEnabled = false;
 
   /* ───────────── carga ───────────── */
@@ -60,17 +61,21 @@
       g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = 'rgba(0,0,0,.35)';
       g.fillRect(round(X0 + Z * (x - sw * lift)), round(Y0 + Z * y - Z), round(Z * sw * 2 * lift), round(Z * 2));
     }
-    const tint = pose.tint || 0;
+    const tint = pose.tint || 0, hide = pose.hide || [], alpha = pose.alpha == null ? 1 : pose.alpha;
+    let gg = g;
+    if (alpha < 1) { if (off.width !== g.canvas.width) { off.width = g.canvas.width; off.height = g.canvas.height; } og.setTransform(1, 0, 0, 1, 0, 0); og.clearRect(0, 0, off.width, off.height); og.imageSmoothingEnabled = false; gg = og; }
     for (const p of parts) {
+      if (hide.includes(p.n)) continue;
       const img = p.img || IM[`${name}.${p.n}`]; if (!img) continue;
-      const m = M[p.n]; g.setTransform(m.a, m.b, m.c, m.d, m.e, m.f);
+      const m = M[p.n]; gg.setTransform(m.a, m.b, m.c, m.d, m.e, m.f);
       if (tint > 0) {
         tmp.width = w; tmp.height = h; tg.imageSmoothingEnabled = false; tg.clearRect(0, 0, w, h);
         tg.globalCompositeOperation = 'source-over'; tg.drawImage(img, 0, 0);
         tg.globalCompositeOperation = 'source-atop'; tg.fillStyle = `rgba(255,255,255,${tint})`; tg.fillRect(0, 0, w, h);
-        g.drawImage(tmp, 0, 0);
-      } else g.drawImage(img, 0, 0);
+        gg.drawImage(tmp, 0, 0);
+      } else gg.drawImage(img, 0, 0);
     }
+    if (alpha < 1) { g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = alpha; g.drawImage(off, 0, 0); g.globalAlpha = 1; }
     g.restore();
     // anclas en coordenadas de pantalla (para efectos: cristal, manos…)
     const A = {};
@@ -169,7 +174,79 @@
     },
   };
 
-  const LIB = { kobold: K, iguana: I };
+
+  /* ───────────── humanoides altos: kenku, Dei, Hans ───────────── */
+  // helpers comunes
+  const hurtPose = (t, cfg) => { const k = clamp(t / 0.6), d = 1 - k, p = { expr: cfg.hurt, tint: t < 0.1 ? 0.8 : 0 };
+    set(p, 'root', (Math.floor(t * 30) % 2 ? 2 : -2) * d - 3 * easeOut(clamp(t / .2)) * d, 0, -5 * d);
+    set(p, 'torso', 0, 0, -12 * d); set(p, 'head', 0, 0, -9 * d); set(p, 'arm_L', 0, 0, 35 * d); set(p, 'arm_R', 0, 0, -35 * d); return p; };
+  const diePose = (t, cfg) => { const k = easeOut(clamp(t / 0.7)), p = { expr: t > 0.15 ? cfg.dead : cfg.hurt, tint: t < 0.08 ? 0.8 : 0 };
+    set(p, 'root', -4 * k, -cfg.h * 0.28 * k - sin(clamp(t / 0.7) * Math.PI) * 5, -90 * k);
+    set(p, 'arm_L', 0, 0, 45 * k); set(p, 'arm_R', 0, 0, -50 * k); set(p, 'leg_L', 0, 0, 10 * k); set(p, 'leg_R', 0, 0, -8 * k); return p; };
+  const stride = (t, sp, amp, cfg) => { const ts = snap(t), ph = ts * 2 * sp * TAU, s = sin(ph), c = sin(ph + TAU / 4), p = { expr: cfg.expr || 'normal', ph, s };
+    set(p, 'leg_L', 0, -max(0, s) * 2, s * amp); set(p, 'leg_R', 0, -max(0, -s) * 2, -s * amp);
+    set(p, 'root', 0, -abs(c) * 1.4); set(p, 'torso', 0, 0, s * 2.5); set(p, 'head', 0, 0, -s * 2); return p; };
+
+  const KN = {   // kenku paladín: pesado, solemne
+    idle(t) { const ts = snap(t), ph = ts * 0.7 * TAU, b = sin(ph) > 0.1 ? 1 : 0, p = { expr: blinkAt(t) ? 'blink' : 'serene', fx: { aura: 1 } };
+      set(p, 'torso', 0, b); set(p, 'halo', 0, 0, Math.floor(t * 8) * 6); set(p, 'arm_L', 0, 0, sin(ph) * 2); set(p, 'arm_R', 0, 0, -3 - sin(ph) * 2);
+      set(p, 'ribbon_L', 0, 0, 8 + sin(ts * 1.6 * TAU) * 7); set(p, 'ribbon_R', 0, 0, -8 - sin(ts * 1.6 * TAU + 1) * 7); set(p, 'cape', 0, 0, sin(ts * 1.1 * TAU) * 3); set(p, 'hood', 0, 0, 0); return p; },
+    walk(t, o = {}) { const p = stride(t, (o.speed || 1) * 0.9, 20, { expr: 'serene' }); p.fx = { aura: 1 };
+      set(p, 'halo', 0, 0, Math.floor(t * 8) * 6); set(p, 'arm_L', 0, 0, p.s * 6); set(p, 'arm_R', 0, 0, -p.s * 4 - 4);
+      set(p, 'ribbon_L', 0, 0, 14 + sin(p.ph - 1) * 10); set(p, 'ribbon_R', 0, 0, -14 - sin(p.ph - 1.4) * 10); set(p, 'cape', 0, 0, sin(p.ph - 1) * 4); return p; },
+    guard(t) {   // "el kenku resistía": escudo arriba, impactos
+      const ts = snap(t, 24), imp = hash(Math.floor(t * 6), 4) > 0.45 && (t * 6 % 1) < 0.35, p = { expr: 'angry', fx: { aura: 1.6 + (imp ? 1 : 0) }, tint: imp ? 0.3 : 0 };
+      set(p, 'arm_R', 0, -1, -34 + (imp ? 6 : 0)); set(p, 'arm_L', 0, 0, 6); set(p, 'head', 0, 1, 4); set(p, 'torso', imp ? -1 : 0, 1, imp ? -4 : 0);
+      set(p, 'root', imp ? -1 : 0, 0); set(p, 'halo', 0, 0, Math.floor(t * 12) * 6); set(p, 'ribbon_L', 0, 0, 16 + sin(ts) * 6); set(p, 'ribbon_R', 0, 0, -16 + sin(ts + 1) * 6); return p; },
+    smite(t) {   // lanzada; t local
+      const wind = clamp(t / 0.35), thr = clamp((t - 0.35) / 0.12), rec = clamp((t - 0.5) / 0.4), p = { expr: 'angry', fx: { aura: 1.5 + (1 - rec) } };
+      set(p, 'arm_L', 0, 0, -30 * wind * (1 - thr) + 55 * thr * (1 - rec)); set(p, 'torso', -1 * wind + 2 * thr * (1 - rec), 0, -6 * wind + 10 * thr * (1 - rec));
+      set(p, 'root', 2 * thr * (1 - rec), 0); set(p, 'halo', 0, 0, Math.floor(t * 12) * 6); set(p, 'arm_R', 0, 0, -10); return p; },
+    hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); p.fx = { aura: 0.6 }; return p; },
+    die(t) { const p = diePose(t, { hurt: 'hurt', dead: 'dead', h: 42 }); p.fx = { aura: Math.max(0, 1 - t) }; return p; },
+  };
+
+  const DEI = {   // Dei: bardo eléctrico, canchero
+    idle(t) { const ts = snap(t), ph = ts * 0.8 * TAU, b = sin(ph) > 0.1 ? 1 : 0, p = { expr: blinkAt(t) ? 'blink' : 'smirk' };
+      set(p, 'torso', 0, b); set(p, 'head', 0, 0, sin(ph) * 3); set(p, 'arm_L', 0, 0, -30); set(p, 'arm_R', 0, 0, 30); set(p, 'tail', 0, 0, sin(ts * 1.2 * TAU) * 10); return p; },
+    walk(t, o = {}) { const p = stride(t, (o.speed || 1) * 0.95, 24, { expr: 'smirk' });
+      set(p, 'arm_L', 0, 0, -30 + p.s * 4); set(p, 'arm_R', 0, 0, 30 - p.s * 4); set(p, 'tail', 0, 0, sin(p.ph + 1.4) * 14); return p; },
+    play(t) {   // rasguea el laúd cantando
+      const ts = snap(t, 16), st = sin(ts * 7 * TAU), m = hash(Math.floor(t * 8), 2) > 0.4, p = { expr: m ? 'sing' : 'smirk' };
+      set(p, 'arm_L', 0, 0, -32); set(p, 'arm_R', 0, 0, 36 + st * 12); set(p, 'torso', 0, st > 0.6 ? -1 : 0, sin(ts * 1.6 * TAU) * 3);
+      set(p, 'head', 0, 0, sin(ts * 0.8 * TAU) * 6 - 2); set(p, 'tail', 0, 0, sin(ts * 2 * TAU) * 14); return p; },
+    cast(t) {   // relámpago: manos arriba, laúd guardado; t local
+      const k = clamp(t / 0.35), hold = t > 0.35, ts = snap(t, 24), p = { expr: hold ? 'cast' : 'angry', hide: ['lute'], fx: { arcs: hold ? 1 : k * 0.5, bolt: hold ? 1 : 0 } };
+      set(p, 'arm_L', 0, 0, 100 * easeOut(k) + sin(ts * 9) * (hold ? 5 : 0)); set(p, 'arm_R', 0, 0, -100 * easeOut(k) - sin(ts * 9 + 1) * (hold ? 5 : 0));
+      set(p, 'head', 0, 0, hold ? -8 : 0); set(p, 'root', hold ? (Math.floor(t * 30) % 2 ? 1 : -1) : 0, 0); set(p, 'tail', 0, 0, 12 + sin(ts * 12) * 6); return p; },
+    hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); return p; },
+    die(t) { return diePose(t, { hurt: 'hurt', dead: 'dead', h: 64 }); },
+  };
+
+  const HA = {   // Hans: elfo elegante con vino
+    idle(t) { const ts = snap(t), ph = ts * 0.8 * TAU, b = sin(ph) > 0.1 ? 1 : 0, p = { expr: blinkAt(t) ? 'blink' : 'smile' };
+      set(p, 'torso', 0, b); set(p, 'head', 0, 0, sin(ph) * 3); set(p, 'arm_L', 0, 0, -14 + sin(ph) * 2); set(p, 'arm_R', 0, 0, 5); return p; },
+    walk(t, o = {}) { const p = stride(t, (o.speed || 1) * 1.0, 22, { expr: 'smile' });
+      set(p, 'arm_L', 0, 0, -14 - p.s * 6); set(p, 'arm_R', 0, 0, p.s * 14); return p; },
+    toast(t) {   // brinda con la botella
+      const ts = snap(t, 12), s = sin(ts * 2.2 * TAU), p = { expr: 'smile' };
+      set(p, 'arm_R', 0, 0, -(120 + s * 8)); set(p, 'torso', 0, 0, s * 2); set(p, 'head', 0, 0, 4 + s * 2); set(p, 'arm_L', 0, 0, -14); return p; },
+    vanish(t, o = {}) {   // se vuelve invisible; t local. alpha se queda bajo y titila
+      const k = clamp(t / 0.6), flick = 0.12 + 0.06 * sin(Math.floor(t * 12) * 2.3), p = { expr: 'smile' };
+      p.alpha = t < 0.6 ? 1 - 0.85 * k : flick; set(p, 'arm_L', 0, 0, -14); set(p, 'arm_R', 0, 0, 5); set(p, 'torso', 0, (sin(t * 8) > 0.2 ? 1 : 0)); return p; },
+    scared(t) { const j = (Math.floor(t * 24) % 2) ? 1 : -1, p = { expr: 'scared' }; set(p, 'root', j, 0); set(p, 'arm_L', 0, 0, 40); set(p, 'arm_R', 0, 0, -40); return p; },
+    sneak(t, o = {}) {   // pícaro: agachado, paso corto y silencioso; alpha opcional (o.alpha)
+      const p = stride(t, 0.55, 14, { expr: 'smile' }); set(p, 'root', 0, 3); set(p, 'torso', 0, 0, 9); set(p, 'head', 0, 1, 6);
+      set(p, 'arm_L', 0, 0, 20); set(p, 'arm_R', 0, 0, -28 + p.s * 6); if (o.alpha != null) p.alpha = o.alpha; return p; },
+    stab(t) {   // puñalada; t local (usa variante 1 = daga)
+      const wind = clamp(t / 0.3), thr = clamp((t - 0.3) / 0.1), rec = clamp((t - 0.45) / 0.35), p = { expr: t > 0.28 ? 'angry' : 'smile' };
+      set(p, 'arm_R', 0, 0, -75 * wind * (1 - thr) + 95 * thr * (1 - rec)); set(p, 'torso', 0, 0, -8 * wind + 14 * thr * (1 - rec));
+      set(p, 'root', 4 * thr * (1 - rec), 2 * wind * (1 - thr)); set(p, 'arm_L', 0, 0, 25 * wind); set(p, 'head', 0, 0, 5 * thr * (1 - rec)); return p; },
+    hurt(t) { return hurtPose(t, { hurt: 'hurt' }); },
+    die(t) { return diePose(t, { hurt: 'hurt', dead: 'dead', h: 58 }); },
+  };
+
+  const LIB = { kobold: K, iguana: I, kenku: KN, dei: DEI, hans: HA };
   function sample(name, anim, t, o) { const fn = LIB[name][anim]; return fn(t, o || {}); }
 
   /* ───────────── efectos ───────────── */
@@ -187,5 +264,43 @@
     g.globalAlpha = 1;
   }
 
-  G.Rig = { init, draw, sample, glow, hash, clamp, easeOut, snap };
+
+  // aura plateada del kenku: anillos expansivos + motas que suben (coordenadas de pantalla)
+  function aura(g, cx, cy, t, k = 1, o = {}) {
+    const R = (o.r || 14) * 1; g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    for (let i = 0; i < 3; i++) {
+      const ph = ((t * 0.7 + i / 3) % 1), r = (4 + ph * R) * (o.z || 1);
+      g.globalAlpha = (1 - ph) * 0.5 * Math.min(1, k);
+      g.fillStyle = '#dfe8ff';
+      const n = Math.max(12, Math.round(r * 2.2));
+      for (let j = 0; j < n; j++) { const a = j / n * TAU; g.fillRect(round(cx + Math.cos(a) * r * 1.1), round(cy + Math.sin(a) * r * 1.35), o.z || 1, o.z || 1); }
+    }
+    for (let i = 0; i < 16 * Math.min(1.5, k); i++) {
+      const age = (t * 0.6 + hash(i, 3)) % 1, x = cx + (hash(i, 4) - .5) * R * 1.6 * (o.z || 1), y = cy + R * 0.9 * (o.z || 1) - age * R * 2 * (o.z || 1);
+      g.globalAlpha = Math.sin(age * Math.PI) * 0.9; g.fillStyle = hash(i, 5) > .5 ? '#ffffff' : '#b9c6ff'; g.fillRect(round(x), round(y), o.z || 1, o.z || 1);
+    }
+    g.restore();
+  }
+  // relámpago irregular de (x0,y0) a (x1,y1); se re-sortea a 20 fps
+  function bolt(g, x0, y0, x1, y1, t, o = {}) {
+    const seed = Math.floor(t * 20), n = o.seg || 9, z = o.z || 1, pts = [[x0, y0]];
+    const dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy) || 1, nx = -dy / len, ny = dx / len;
+    for (let i = 1; i < n; i++) { const off = (hash(seed, i + (o.id || 0) * 13) - .5) * (o.amp || 10) * Math.min(1, i / 2, (n - i) / 2); pts.push([x0 + dx * i / n + nx * off, y0 + dy * i / n + ny * off]); }
+    pts.push([x1, y1]);
+    g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    const line = (a, b, col, w) => { const steps = Math.max(abs(b[0] - a[0]), abs(b[1] - a[1])) | 0; g.fillStyle = col; for (let s_ = 0; s_ <= steps; s_++) { const f = steps ? s_ / steps : 0; g.fillRect(round(a[0] + (b[0] - a[0]) * f - w / 2), round(a[1] + (b[1] - a[1]) * f - w / 2), w, w); } };
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], 'rgba(120,210,255,.55)', 3 * z);
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], '#9ee8ff', 2 * z);
+    for (let i = 0; i < pts.length - 1; i++) line(pts[i], pts[i + 1], '#ffffff', 1 * z);
+    if (o.fork !== false) for (let k = 0; k < 2; k++) { const i = 2 + k * 3, a = pts[i], b = [a[0] + (hash(seed, 40 + k) - .5) * 24 * z, a[1] + (hash(seed, 50 + k) - .2) * 18 * z]; line(a, b, '#9ee8ff', 1 * z); }
+    g.restore();
+  }
+  // arcos eléctricos cortos alrededor de un punto
+  function arcs(g, cx, cy, t, k = 1, o = {}) {
+    const z = o.z || 1, n = Math.round(4 * k);
+    for (let i = 0; i < n; i++) { const a = hash(Math.floor(t * 14), i) * TAU, r0 = (4 + hash(Math.floor(t * 14), i + 9) * 4) * z, r1 = r0 + (8 + hash(Math.floor(t * 14), i + 19) * 10) * z;
+      bolt(g, cx + Math.cos(a) * r0, cy + Math.sin(a) * r0, cx + Math.cos(a) * r1, cy + Math.sin(a) * r1, t + i * 0.013, { seg: 4, amp: 5 * z, z: Math.max(1, z / 2), id: i, fork: false }); }
+  }
+
+  G.Rig = { init, draw, sample, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
 })(window);

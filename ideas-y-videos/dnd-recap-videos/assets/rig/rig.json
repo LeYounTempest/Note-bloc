@@ -242,5 +242,366 @@
     24
    ]
   }
+ },
+ "kenku": {
+  "size": [
+   33,
+   42
+  ],
+  "feet": [
+   16,
+   42
+  ],
+  "parts": [
+   {
+    "n": "halo",
+    "parent": "head",
+    "pivot": [
+     16,
+     9
+    ]
+   },
+   {
+    "n": "ribbon_L",
+    "parent": "torso",
+    "pivot": [
+     9,
+     16
+    ]
+   },
+   {
+    "n": "ribbon_R",
+    "parent": "torso",
+    "pivot": [
+     24,
+     16
+    ]
+   },
+   {
+    "n": "cape",
+    "parent": "torso",
+    "pivot": [
+     16,
+     15
+    ]
+   },
+   {
+    "n": "tail",
+    "parent": "root",
+    "pivot": [
+     16,
+     28
+    ]
+   },
+   {
+    "n": "leg_L",
+    "parent": "root",
+    "pivot": [
+     14,
+     29
+    ]
+   },
+   {
+    "n": "leg_R",
+    "parent": "root",
+    "pivot": [
+     20,
+     29
+    ]
+   },
+   {
+    "n": "torso",
+    "parent": "root",
+    "pivot": [
+     16,
+     28
+    ]
+   },
+   {
+    "n": "arm_L",
+    "parent": "torso",
+    "pivot": [
+     9,
+     16
+    ]
+   },
+   {
+    "n": "arm_R",
+    "parent": "torso",
+    "pivot": [
+     24,
+     16
+    ]
+   },
+   {
+    "n": "hood",
+    "parent": "head",
+    "pivot": [
+     16,
+     14
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "torso",
+    "pivot": [
+     16,
+     14
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "angry",
+   "serene",
+   "hurt",
+   "speak",
+   "dead"
+  ],
+  "face_parent": "head",
+  "props": {
+   "0": {
+    "L": "prop_L_0",
+    "R": "prop_R_0"
+   }
+  },
+  "prop_parent": {
+   "L": "arm_L",
+   "R": "arm_R"
+  },
+  "anchors": {
+   "halo": [
+    "halo",
+    16,
+    9
+   ],
+   "spear_tip": [
+    "arm_L",
+    7,
+    0
+   ],
+   "shield": [
+    "arm_R",
+    28,
+    23
+   ]
+  }
+ },
+ "dei": {
+  "size": [
+   48,
+   64
+  ],
+  "feet": [
+   24,
+   64
+  ],
+  "parts": [
+   {
+    "n": "tail",
+    "parent": "root",
+    "pivot": [
+     30,
+     44
+    ]
+   },
+   {
+    "n": "leg_L",
+    "parent": "root",
+    "pivot": [
+     21,
+     43
+    ]
+   },
+   {
+    "n": "leg_R",
+    "parent": "root",
+    "pivot": [
+     27,
+     43
+    ]
+   },
+   {
+    "n": "torso",
+    "parent": "root",
+    "pivot": [
+     24,
+     42
+    ]
+   },
+   {
+    "n": "lute",
+    "parent": "torso",
+    "pivot": [
+     24,
+     44
+    ]
+   },
+   {
+    "n": "arm_L",
+    "parent": "torso",
+    "pivot": [
+     12,
+     22
+    ]
+   },
+   {
+    "n": "arm_R",
+    "parent": "torso",
+    "pivot": [
+     36,
+     22
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "torso",
+    "pivot": [
+     24,
+     19
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "smirk",
+   "angry",
+   "sing",
+   "cast",
+   "hurt",
+   "dead"
+  ],
+  "face_parent": "head",
+  "props": {},
+  "prop_parent": {},
+  "anchors": {
+   "hand_L": [
+    "arm_L",
+    10,
+    41
+   ],
+   "hand_R": [
+    "arm_R",
+    36,
+    41
+   ],
+   "head_top": [
+    "head",
+    24,
+    0
+   ],
+   "eyes": [
+    "head",
+    24,
+    8
+   ],
+   "lute": [
+    "lute",
+    28,
+    45
+   ]
+  }
+ },
+ "hans": {
+  "size": [
+   40,
+   58
+  ],
+  "feet": [
+   20,
+   58
+  ],
+  "parts": [
+   {
+    "n": "leg_L",
+    "parent": "root",
+    "pivot": [
+     16,
+     43
+    ]
+   },
+   {
+    "n": "leg_R",
+    "parent": "root",
+    "pivot": [
+     23,
+     43
+    ]
+   },
+   {
+    "n": "torso",
+    "parent": "root",
+    "pivot": [
+     20,
+     42
+    ]
+   },
+   {
+    "n": "arm_L",
+    "parent": "torso",
+    "pivot": [
+     9,
+     22
+    ]
+   },
+   {
+    "n": "arm_R",
+    "parent": "torso",
+    "pivot": [
+     31,
+     22
+    ]
+   },
+   {
+    "n": "head",
+    "parent": "torso",
+    "pivot": [
+     20,
+     18
+    ]
+   }
+  ],
+  "faces": [
+   "normal",
+   "blink",
+   "smile",
+   "angry",
+   "scared",
+   "hurt",
+   "dead"
+  ],
+  "face_parent": "head",
+  "props": {
+   "0": {
+    "L": "prop_L_0",
+    "R": "prop_R_0"
+   },
+   "1": {
+    "R": "prop_R_1"
+   }
+  },
+  "prop_parent": {
+   "L": "arm_L",
+   "R": "arm_R"
+  },
+  "anchors": {
+   "hand_R": [
+    "arm_R",
+    31,
+    38
+   ],
+   "hand_L": [
+    "arm_L",
+    8,
+    38
+   ],
+   "head_top": [
+    "head",
+    20,
+    2
+   ]
+  }
  }
 }

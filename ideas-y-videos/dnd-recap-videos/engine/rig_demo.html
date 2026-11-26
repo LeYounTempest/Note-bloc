@@ -12,11 +12,11 @@
 <script src="rig.js"></script>
 <script>
 const cv=document.getElementById('cv'), g=cv.getContext('2d'); g.imageSmoothingEnabled=false;
-const CW=90, CH=80, Z=2;
+let CW=90, CH=80, Z=2, FY=33, FX=22, TITLE='';
 const EXPR_K=['normal','blink','happy','sing','sing_mid','scared','angry','hurt','dead'];
 const EXPR_I=['normal','blink','cast','angry','scared','sad','hollow'];
 // celdas: [rig, anim, variante, opciones, etiqueta]
-const CELLS=[
+let CELLS=[
  ['kobold','idle',0,{}, 'idle'],            ['kobold','walk',0,{}, 'walk'],            ['kobold','run',3,{}, 'run'],
  ['kobold','scared',1,{}, 'scared'],        ['kobold','sing',2,{}, 'sing (mandolina)'],['kobold','cheer',0,{}, 'cheer'],
  ['kobold','hurt',5,{loop:1.6},'hurt'],     ['kobold','die',6,{loop:2.4,x:9},'die'],       ['kobold','walk',1,{flip:1,speed:.8},'walk ←'],
@@ -24,11 +24,13 @@ const CELLS=[
  ['iguana','hollow',0,{loop:3.2}, 'se rompió'],['kobold','exprs',0,{}, 'expresiones'], ['iguana','exprs',0,{}, 'expresiones'],
  ['kobold','walk',2,{speed:1.3}, 'walk rápido'],['kobold','sing',0,{seed:3}, 'sing'],      ['kobold','run',5,{flip:1}, 'run ←'],
 ];
-const labs=document.getElementById('labs');
-CELLS.forEach((c,i)=>{const d=document.createElement('div');d.className='lab';d.textContent=c[4];
-  d.style.left=((i%3)*CW*4)+'px'; d.style.top=(Math.floor(i/3)*CH*4+CH*4-30)+'px'; labs.appendChild(d)});
+let COLS=3;
+function buildLabels(){ const labs=document.getElementById('labs'); labs.innerHTML='';
+  CELLS.forEach((c,i)=>{const d=document.createElement('div');d.className='lab';d.textContent=c[4];d.style.width=(CW*4)+'px';
+    d.style.left=((i%COLS)*CW*4)+'px'; d.style.top=(Math.floor(i/COLS)*CH*4+CH*4-30)+'px'; labs.appendChild(d)}) }
+buildLabels();
 function cell(i,t){
-  const [rig,anim,v,o]=CELLS[i], col=i%3, row=Math.floor(i/3), ox=col*CW, oy=row*CH;
+  const [rig,anim,v,o]=CELLS[i], col=i%COLS, row=Math.floor(i/COLS), ox=col*CW, oy=row*CH;
   g.setTransform(1,0,0,1,0,0); g.save(); g.beginPath(); g.rect(ox,oy,CW,CH); g.clip();
   g.fillStyle=(row+col)%2?'#1c1530':'#241a3a'; g.fillRect(ox,oy,CW,CH);
   g.fillStyle='#3a2c52'; g.fillRect(ox,oy+CH-18,CW,1);   // línea de suelo
@@ -38,9 +40,13 @@ function cell(i,t){
     pose=Rig.sample(rig,'idle',t); pose.expr=list[k]; document.getElementById('labs').children[i].textContent=list[k]; }
   else pose=Rig.sample(rig,anim,lt,o);
   // paseos: avanzan y reaparecen
-  let x=o.x||22; if(!window.STILL&&/walk|run/.test(anim)){ const sp=(anim==='run'?26:11)*(o.speed||1), span=CW/Z+30; let p=(t*sp)%span; x=o.flip? (CW/Z+15-p) : (p-15); }
-  const A=Rig.draw(g,rig,pose,x,33,{zoom:Z,ox,oy,variant:v,flip:o.flip});
-  if(pose.fx&&A.crystal) Rig.glow(g,A.crystal[0],A.crystal[1],pose.fx,t);
+  let x=o.x||FX; if(!window.STILL&&/walk|run/.test(anim)){ const sp=(anim==='run'?26:11)*(o.speed||1), span=CW/Z+30; let p=(t*sp)%span; x=o.flip? (CW/Z+15-p) : (p-15); }
+  const A=Rig.draw(g,rig,pose,x,FY,{zoom:Z,ox,oy,variant:v,flip:o.flip});
+  const fx=pose.fx;
+  if(fx&&A.crystal) Rig.glow(g,A.crystal[0],A.crystal[1],fx,t);
+  if(fx&&fx.aura&&A.halo) Rig.aura(g,A.halo[0],A.halo[1]+Z*8,t,fx.aura,{r:16,z:Z>1?Z:1});
+  if(fx&&fx.arcs&&A.eyes) Rig.arcs(g,A.eyes[0],A.eyes[1]+Z*12,t,fx.arcs,{z:Z});
+  if(fx&&fx.bolt&&A.hand_R){ const tx=ox+CW-8, ty=oy+CH-14; Rig.bolt(g,A.hand_R[0],A.hand_R[1],tx,ty,t,{amp:12*Z,z:Z}); Rig.bolt(g,A.hand_L[0],A.hand_L[1],tx,ty,t+.03,{amp:12*Z,z:Z,id:2}) }
   g.restore();
 }
 function draw(t){ g.setTransform(1,0,0,1,0,0); g.fillStyle='#120c1e'; g.fillRect(0,0,270,480); for(let i=0;i<CELLS.length;i++) cell(i,t) }
@@ -48,6 +54,7 @@ function load(src){return new Promise((res,rej)=>{const i=new Image();i.onload=(
 window.setScene=async(sc)=>{ window.STILL=!!sc.still;
   const names=Object.keys(sc.sprites), imgs=await Promise.all(names.map(n=>load(sc.sprites[n])));
   const m={}; names.forEach((n,i)=>m[n]=imgs[i]); Rig.init(sc,m);
+  if(sc.cells){ CELLS=sc.cells; const gr=sc.grid||{}; COLS=gr.cols||3; CW=Math.floor(270/COLS); CH=Math.floor(480/(gr.rows||6)); Z=gr.zoom||2; FY=gr.feetY||33; FX=gr.feetX||22; buildLabels(); }
 };
 window.seek=(t)=>draw(t);
 </script></body></html>
