@@ -7,7 +7,7 @@
   {
    "type": "stage",
    "template": "stage.html",
-   "duration": 43.9,
+   "duration": 27.5,
    "sprites": {
     "dei.arm_L": "../../assets/rig/dei/arm_L.png",
     "dei.arm_R": "../../assets/rig/dei/arm_R.png",
@@ -227,42 +227,6 @@
      "t1": 25.77,
      "text": "Porque era mejor que él.",
      "big": false
-    },
-    {
-     "t0": 27.5,
-     "t1": 30.75,
-     "text": "Entonces escuchó un susurro",
-     "big": false
-    },
-    {
-     "t0": 30.77,
-     "t1": 34.02,
-     "text": "que ninguno pudo ver.",
-     "big": false
-    },
-    {
-     "t0": 34.04,
-     "t1": 36.81,
-     "text": "Sus ojos se abrieron.",
-     "big": false
-    },
-    {
-     "t0": 36.83,
-     "t1": 39.52,
-     "text": "Su corazón se detuvo.",
-     "big": false
-    },
-    {
-     "t0": 39.54,
-     "t1": 42.0,
-     "text": "Y nuestro hermano...",
-     "big": false
-    },
-    {
-     "t0": 42.02,
-     "t1": 43.85,
-     "text": "cayó.",
-     "big": false
     }
    ],
    "actors": [
@@ -278,12 +242,6 @@
        "x": 12,
        "y": 428,
        "anim": "scared"
-      },
-      {
-       "t": 36.8,
-       "x": 12,
-       "y": 428,
-       "anim": "stiff"
       }
      ]
     },
@@ -353,18 +311,6 @@
        "x": 140,
        "y": 392,
        "anim": "idle"
-      },
-      {
-       "t": 34.0,
-       "x": 140,
-       "y": 392,
-       "anim": "stiff"
-      },
-      {
-       "t": 42.0,
-       "x": 140,
-       "y": 392,
-       "anim": "die"
       }
      ]
     },
@@ -554,38 +500,6 @@
        "x": 208,
        "y": 394,
        "anim": "vanish"
-      },
-      {
-       "t": 21.0,
-       "x": 208,
-       "y": 394,
-       "anim": "sneak",
-       "opts": {
-        "alpha": 0.2
-       }
-      },
-      {
-       "t": 26.5,
-       "x": 156,
-       "y": 394,
-       "anim": "sneak",
-       "opts": {
-        "alpha": 0.2
-       }
-      },
-      {
-       "t": 27.5,
-       "x": 156,
-       "y": 394,
-       "anim": "idle",
-       "alpha": 0.25
-      },
-      {
-       "t": 30.8,
-       "x": 156,
-       "y": 394,
-       "anim": "idle",
-       "alpha": 0.0
       }
      ]
     },
@@ -668,12 +582,6 @@
       },
       {
        "t": 25.0,
-       "x": 215,
-       "y": 322,
-       "anim": "idle"
-      },
-      {
-       "t": 33.0,
        "x": 215,
        "y": 322,
        "anim": "idle"
@@ -871,33 +779,17 @@
      "amp": 3
     },
     {
-     "type": "label",
-     "t": 27.8,
-     "dur": 2.6,
-     "actor": "hans",
-     "dy": 52,
-     "text": "psst…"
-    },
-    {
      "type": "dim",
-     "t": 26.5,
-     "dur": 15.5,
-     "a": 0.28,
-     "fi": 2.0,
+     "t": 17.0,
+     "dur": 10.5,
+     "a": 0.22,
+     "fi": 3.0,
      "fo": 1.0
     },
     {
-     "type": "dim",
-     "t": 36.7,
-     "dur": 2.4,
-     "a": 0.55,
-     "fi": 0.15,
-     "fo": 1.2
-    },
-    {
      "type": "fade",
-     "t": 42.4,
-     "dur": 1.5,
+     "t": 25.8,
+     "dur": 1.7,
      "to": "black"
     }
    ],

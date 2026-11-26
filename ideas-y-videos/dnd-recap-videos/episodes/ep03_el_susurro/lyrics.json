@@ -110,53 +110,5 @@
   "singer": "Male Kobold 2",
   "text": "Porque era mejor que él.",
   "seg": 0
- },
- {
-  "start": 27.5,
-  "end": 30.77,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "Entonces escuchó un susurro",
-  "seg": 0
- },
- {
-  "start": 30.77,
-  "end": 34.04,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "que ninguno pudo ver.",
-  "seg": 0
- },
- {
-  "start": 34.04,
-  "end": 36.83,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "Sus ojos se abrieron.",
-  "seg": 0
- },
- {
-  "start": 36.83,
-  "end": 39.54,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "Su corazón se detuvo.",
-  "seg": 0
- },
- {
-  "start": 39.54,
-  "end": 42.02,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "Y nuestro hermano...",
-  "seg": 0
- },
- {
-  "start": 42.02,
-  "end": 43.85,
-  "section": "Bridge",
-  "singer": "Female Kobold",
-  "text": "cayó.",
-  "seg": 0
  }
 ]

@@ -230,6 +230,17 @@
       const ts = snap(t, 15), p = { expr: 'hurt', hide: ['lute'] };
       set(p, 'arm_L', 0, 0, 110 + sin(ts * 9) * 25); set(p, 'arm_R', 0, 0, -110 - sin(ts * 9 + 1) * 25); set(p, 'leg_L', 0, 0, 25 + sin(ts * 7) * 15); set(p, 'leg_R', 0, 0, -25 - sin(ts * 7) * 15);
       set(p, 'head', 0, 0, sin(ts * 6) * 10); set(p, 'tail', 0, 0, sin(ts * 10) * 30); return p; },
+    hoist(t) {   // levanta un cuerpo sobre la cabeza; esfuerzo
+      const k = easeOut(clamp(t / 0.8)), ts = snap(t, 12), p = { expr: 'angry', hide: ['lute'] };
+      set(p, 'arm_L', 0, 0, 150 * k + sin(ts * 5) * 4); set(p, 'arm_R', 0, 0, -150 * k - sin(ts * 5 + 1) * 4); set(p, 'head', 0, 0, -6 * k); set(p, 'torso', 0, 0, sin(ts * 4) * 1.5);
+      set(p, 'leg_L', 0, 0, 5 * k); set(p, 'leg_R', 0, 0, -5 * k); set(p, 'tail', 0, 0, 10 * k); return p; },
+    throw(t) {   // lanzamiento; t local
+      const w = clamp(t / 0.25), r = clamp((t - 0.25) / 0.18), fo = clamp((t - 0.6) / 0.6), p = { expr: t > 0.2 ? 'cast' : 'angry', hide: ['lute'] };
+      const up = (1 - r) * 150 + r * 55 * (1 - fo) + fo * 12; set(p, 'arm_L', 0, 0, w * up + (1 - w) * 150); set(p, 'arm_R', 0, 0, -(w * up + (1 - w) * 150));
+      set(p, 'torso', r * 2 * (1 - fo), 0, -8 * w * (1 - r) + 12 * r * (1 - fo)); set(p, 'root', 3 * r * (1 - fo), 0); set(p, 'head', 0, 0, 6 * r * (1 - fo)); return p; },
+    stunned(t) {   // aturdido, culpable
+      const ts = snap(t, 6), p = { expr: 'hurt', hide: ['lute'] };
+      set(p, 'head', 0, 1, 14); set(p, 'torso', 0, 1, 4); set(p, 'arm_L', 0, 0, 10 + sin(ts * 1.5) * 2); set(p, 'arm_R', 0, 0, -10); set(p, 'tail', 0, 0, -8); return p; },
     down(t) { const p = diePose(t, { hurt: 'hurt', dead: 'hurt', h: 64 }); p.hide = ['lute']; return p; },
     rise(t) { const p = diePose(0.7 * (1 - clamp(t / 1.8)), { hurt: 'hurt', dead: 'hurt', h: 64 }); p.tint = 0; return p; },
     hurt(t) { const p = hurtPose(t, { hurt: 'hurt' }); return p; },

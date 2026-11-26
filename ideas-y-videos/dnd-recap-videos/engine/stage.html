@@ -130,6 +130,7 @@ function overlays(t){
       for(let yy=-r;yy<=0;yy++){ const w=Math.sqrt(r*r-yy*yy); g.fillStyle=`rgba(210,225,255,${.08*o})`; g.fillRect(round(cx-w),round(cy+yy*.8),round(w*2),1);
         g.fillStyle=`rgba(235,242,255,${.55*o*pul})`; g.fillRect(round(cx-w),round(cy+yy*.8),2,1); g.fillRect(round(cx+w-2),round(cy+yy*.8),2,1) }
       for(let a=0;a<=Math.PI;a+=.06){ g.fillStyle=`rgba(235,242,255,${.6*o*pul})`; g.fillRect(round(cx-Math.cos(a)*r),round(cy-Math.sin(a)*r*.8),2,2) } }
+    else if(e.type==='explosion'&&t>=e.t&&t<e.t+(e.dur||1.8)) explosion(e,t-e.t)
     else if(e.type==='flash'&&t>=e.t&&t<e.t+e.dur) flash=Math.max(flash,(1-(t-e.t)/e.dur)*(e.a||.8));
     else if(e.type==='skyflash'&&t>=e.t&&t<e.t+e.dur) skyflash=Math.max(skyflash,(1-(t-e.t)/e.dur)*(e.a||.9));
     else if(e.type==='shake'&&t>=e.t&&t<e.t+e.dur) shake=Math.max(shake,(1-(t-e.t)/e.dur)*(e.amp||2));
@@ -138,6 +139,20 @@ function overlays(t){
   let last=null; for(const e of S.events) if(e.type==='fade'&&e.t<=t&&(!last||e.t>=last.t)) last=e;
   if(last){ const u=clamp((t-last.t)/last.dur); fadeA=last.to==='black'?u:1-u }
   return {shake,flash,skyflash,fadeA};
+}
+function explosion(e,u){
+  const r=e.r||44, x=e.x, y=e.y, d=e.dur||1.8;
+  const grow=1-Math.pow(1-clamp(u/.45),3), fade=clamp((u-.35)/(d-.35));
+  g.save(); g.setTransform(1,0,0,1,0,0);
+  if(u<.18){ g.fillStyle=`rgba(255,255,255,${1-u/.18})`; const rr=r*1.4*(u/.18); for(let yy=-rr;yy<=rr;yy+=1){ const w=Math.sqrt(Math.max(0,rr*rr-yy*yy)); g.fillRect(round(x-w),round(y+yy),round(w*2),1) } }
+  for(const [k,col] of [[1,'#a02a1c'],[.82,'#f07a28'],[.6,'#ffc43c'],[.34,'#fff4c0']]){
+    const rr=r*grow*k*(1-fade*.5); if(rr<1) continue; g.globalAlpha=1-fade;
+    for(let yy=-rr;yy<=rr;yy++){ const w=Math.sqrt(Math.max(0,rr*rr-yy*yy))*(.88+.12*hash(Math.floor(u*20),Math.floor(yy)+9)); g.fillStyle=col; g.fillRect(round(x-w),round(y+yy),round(w*2),1) } }
+  g.globalAlpha=1; const ring=r*2.1*grow; g.fillStyle=`rgba(255,240,200,${.7*(1-grow)})`; for(let a=0;a<TAU;a+=.05) g.fillRect(round(x+Math.cos(a)*ring),round(y+Math.sin(a)*ring*.7),2,2);
+  for(let i=0;i<48;i++){ const a=hash(i,1)*TAU, v=40+hash(i,2)*90, tt=u; g.globalAlpha=clamp(1-tt/1.4); g.fillStyle=['#ffd048','#f07a28','#ffffff','#7a3a20'][i%4];
+    g.fillRect(round(x+Math.cos(a)*v*tt),round(y+Math.sin(a)*v*tt+90*tt*tt),i%5?1:2,i%5?1:2) }
+  for(let i=0;i<14;i++){ const age=clamp((u-.3)/(d-.3)); if(age<=0) continue; g.globalAlpha=.5*(1-age); g.fillStyle='#3a3040'; const s2=3+age*14, bx=x+(hash(i,3)-.5)*r*1.6, by=y-age*r*1.4+(hash(i,4)-.5)*10; g.fillRect(round(bx-s2/2),round(by-s2/2),round(s2),round(s2)) }
+  g.restore();
 }
 function blizzard(t){
   let k=0; for(const e of S.events) if(e.type==='blizzard'&&t>=e.t-1&&t<=e.t1+2) k=Math.max(k,Math.min(clamp((t-e.t)/1.2),clamp((e.t1-t)/1.8+(t<e.t1?0:0))));

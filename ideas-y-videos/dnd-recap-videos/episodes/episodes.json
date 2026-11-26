@@ -37,13 +37,13 @@
  },
  {
   "id": "ep03_el_susurro",
-  "title": "El susurro",
-  "event": "Todos pelean junto al dragón: fuego, escudos, hielo; el elfo se hace invisible; el dragón derriba a Dei; Chispa va a ayudarlo y el elfo invisible susurra: muere al instante",
-  "duration": 43.9,
+  "title": "Era mejor que él",
+  "event": "Todos pelean junto al dragón: fuego, escudos, hielo; el elfo se hace invisible; el dragón derriba a Dei; Chispa corre a levantarlo: 'era mejor que él'",
+  "duration": 27.5,
   "segments": [
    [
     169.5,
-    213.4
+    197.0
    ]
   ],
   "singers": [
@@ -53,16 +53,16 @@
    "Male Kobold 2",
    "Three Kobolds"
   ],
-  "lines": 20
+  "lines": 14
  },
  {
   "id": "ep04_el_cuerpo_es_un_arma",
   "title": "El cuerpo es un arma",
-  "event": "Dei usa el cuerpo de Chispa como arma contra el dragón; explosión; algo se rompe dentro de Mr. Iguana",
-  "duration": 37.6,
+  "event": "El elfo invisible susurra y Chispa muere al instante; Dei usa su cuerpo como arma contra el dragón; explosión; algo se rompe dentro de Mr. Iguana",
+  "duration": 54.0,
   "segments": [
    [
-    213.4,
+    197.0,
     251.0
    ]
   ],
@@ -73,7 +73,7 @@
    "Male Kobold 2",
    "Three Kobolds"
   ],
-  "lines": 15
+  "lines": 21
  },
  {
   "id": "ep05_siempre_seremos_ocho",
