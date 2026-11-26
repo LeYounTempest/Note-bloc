@@ -1,0 +1,15 @@
+{
+  "fps": 30, "width": 1080, "height": 1920,
+  "scenes": [
+    {"type":"title","duration":3,"tag":"Sesión 7 · Clip 1","title":"La noche que el bardo casi nos mata","subtitle":"Resumen de sesión",
+     "narration":"Anoche el bardo casi mata a todo el grupo"},
+    {"type":"map","duration":4,"tag":"Escena","heading":"Las criptas de Valdrek","pan":[-1,0.6],"pin":[0.62,0.45],
+     "narration":"Entramos a las criptas buscando la reliquia"},
+    {"type":"portrait","duration":4,"tag":"Personaje","name":"Kael","cls":"Pícaro · Nivel 5","hp":[7,31],"hpFrom":31,
+     "narration":"Kael recibió un golpe brutal del liche"},
+    {"type":"roll","duration":4,"tag":"Tirada","heading":"Kael ataca al liche","die":20,"result":20,"label":"Ataque furtivo",
+     "narration":"Y entonces sacó un veinte natural"},
+    {"type":"roll","duration":4,"tag":"Tirada","heading":"El bardo lanza Palabra de Poder","die":20,"result":1,"label":"Salvación del bardo",
+     "narration":"Pero el bardo sacó un uno"}
+  ]
+}

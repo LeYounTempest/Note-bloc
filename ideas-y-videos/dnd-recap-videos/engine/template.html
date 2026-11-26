@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#0b0a10; --ink:#f3ecdf; --muted:#9a90a8; --gold:#e0b25a; --ember:#c8473a;
+    --violet:#7a5ad6; --teal:#3fb7a4; --panel:#16131f; --line:#2a2438;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);
+    font-family:'Inter','DM Sans','Open Sans',sans-serif;color:var(--ink)}
+  #stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+  #bg{position:absolute;inset:0}
+  #grid{position:absolute;left:0;right:0;bottom:0;height:900px;opacity:.55}
+  #content{position:absolute;inset:0}
+  .serif{font-family:'Gelasio','Georgia',serif}
+  /* shared */
+  .tag{position:absolute;top:120px;left:80px;font-size:34px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--gold)}
+  .hook{position:absolute;left:80px;right:80px;top:230px;font-size:84px;line-height:1.08;font-weight:700}
+  /* captions */
+  #caps{position:absolute;left:60px;right:60px;top:1380px;text-align:center;
+    font-size:78px;font-weight:800;line-height:1.15;text-shadow:0 6px 24px rgba(0,0,0,.8)}
+  #caps .w{display:inline-block;margin:0 10px;color:#fff;opacity:.55}
+  #caps .w.on{color:var(--gold);opacity:1}
+  /* title */
+  .title-wrap{position:absolute;inset:0;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;padding:0 90px}
+  .title-wrap .big{font-size:150px;line-height:1;font-weight:800}
+  .title-wrap .sub{margin-top:44px;font-size:56px;color:var(--muted)}
+  /* map */
+  .map-frame{position:absolute;left:60px;right:60px;top:300px;height:980px;border-radius:36px;
+    overflow:hidden;border:3px solid var(--line);background:#14111c}
+  .map-img{position:absolute;inset:-10%;background-size:cover;background-position:center}
+  .map-gen{position:absolute;inset:-10%}
+  .pin{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--ember);
+    box-shadow:0 0 0 8px rgba(200,71,58,.25)}
+  /* portrait */
+  .card{position:absolute;left:110px;right:110px;top:300px;height:980px;border-radius:40px;
+    background:linear-gradient(160deg,#1d1829,#120f1a);border:3px solid var(--line);overflow:hidden}
+  .card .art{position:absolute;left:0;right:0;top:0;height:640px;background-size:cover;background-position:center top}
+  .card .ph{position:absolute;left:0;right:0;top:0;height:640px;display:flex;align-items:center;
+    justify-content:center;font-size:360px;font-weight:800;color:rgba(255,255,255,.08);
+    background:radial-gradient(circle at 50% 40%,#2c2340,#15111d)}
+  .card .name{position:absolute;left:44px;top:665px;font-size:76px;font-weight:800}
+  .card .cls{position:absolute;left:46px;top:760px;font-size:40px;color:var(--gold);letter-spacing:.06em}
+  .hpbar{position:absolute;left:44px;right:44px;top:850px;height:46px;border-radius:23px;background:#2a2230;overflow:hidden}
+  .hpfill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#3fb76a,#8fd36a)}
+  .hptxt{position:absolute;left:44px;right:44px;top:910px;font-size:36px;color:var(--muted);display:flex;justify-content:space-between}
+  /* roll */
+  .roll-wrap{position:absolute;inset:0}
+  .die{position:absolute;left:50%;top:480px;width:560px;height:560px;margin-left:-280px}
+  .die svg{width:100%;height:100%;overflow:visible}
+  .die .num{font-family:'Gelasio',serif;font-weight:700}
+  .roll-label{position:absolute;left:80px;right:80px;top:1250px;text-align:center;font-size:48px;color:var(--muted)}
+  .verdict{position:absolute;left:0;right:0;top:1130px;text-align:center;font-size:110px;font-weight:900;letter-spacing:.04em}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <div id="content"></div>
+  <div id="caps"></div>
+</div>
+<script>
+// ---------- utils ----------
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const easeOut=t=>1-Math.pow(1-t,3);
+const easeOutBack=t=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2)};
+function rng(seed){let s=seed>>>0;return()=>{s=(s*1664525+1013904223)>>>0;return s/4294967296}}
+const $=id=>document.getElementById(id);
+
+let S=null, theme={};
+
+// ---------- background (pure function of t) ----------
+const bgc=$('bg'), g=bgc.getContext('2d');
+const pr=rng(7), P=[];
+for(let i=0;i<46;i++)P.push({x:pr()*1080,y:pr()*1920,v:10+pr()*28,s:3+pr()*6,c:pr()<.5?'#3fb7a4':(pr()<.5?'#7a5ad6':'#c9c2d6'),ph:pr()*6.28});
+function drawBG(t){
+  g.clearRect(0,0,1080,1920);
+  const gr=g.createRadialGradient(540,620,80,540,900,1400);
+  gr.addColorStop(0,'#1a1426');gr.addColorStop(1,'#0b0a10');
+  g.fillStyle=gr;g.fillRect(0,0,1080,1920);
+  // perspective floor grid
+  const hy=1050, scroll=(t*60)%90;
+  g.strokeStyle='rgba(122,90,214,.28)';g.lineWidth=2;
+  for(let i=-14;i<=14;i++){g.beginPath();g.moveTo(540+i*40,hy);g.lineTo(540+i*260,1920);g.stroke()}
+  for(let k=0;k<16;k++){
+    const u=((k*90+scroll)%1440)/1440, y=hy+Math.pow(u,2.1)*(1920-hy);
+    g.globalAlpha=.15+.5*u;g.beginPath();g.moveTo(0,y);g.lineTo(1080,y);g.stroke();
+  }
+  g.globalAlpha=1;
+  for(const p of P){
+    const y=(p.y-t*p.v+1920*10)%1920;
+    g.globalAlpha=.35+.35*Math.sin(t*1.6+p.ph);
+    g.fillStyle=p.c;g.save();g.translate(p.x+Math.sin(t*.5+p.ph)*14,y);g.rotate(Math.PI/4);
+    g.fillRect(-p.s/2,-p.s/2,p.s,p.s);g.restore();
+  }
+  g.globalAlpha=1;
+}
+
+// ---------- captions ----------
+let words=[];
+function buildCaps(ws){
+  words=ws||[];
+  const c=$('caps');c.innerHTML='';
+  words.forEach((w,i)=>{const s=document.createElement('span');s.className='w';s.textContent=w.w;s.id='w'+i;c.appendChild(s)});
+}
+function updateCaps(t){
+  // show a sliding window of ~5 words around the active one
+  let a=-1;for(let i=0;i<words.length;i++){if(t>=words[i].t)a=i}
+  const from=Math.max(0,a-2), to=Math.min(words.length,from+5);
+  const start=Math.max(0,Math.min(from,words.length-5));
+  words.forEach((w,i)=>{
+    const el=$('w'+i);
+    const vis=a>=0&&i>=start&&i<start+5;
+    el.style.display=vis?'inline-block':'none';
+    el.className='w'+(i===a?' on':'');
+    if(i===a){const k=easeOut(clamp((t-w.t)/.12));el.style.transform='scale('+(1+.12*(1-k))+')'}
+    else el.style.transform='none';
+  });
+  $('caps').style.opacity=(a>=0&&t<=(words.length?words[words.length-1].t+words[words.length-1].d+.4:0))?1:0;
+}
+
+// ---------- scenes ----------
+const C=$('content');
+let built={};
+function el(html){const d=document.createElement('div');d.innerHTML=html.trim();return d.firstChild}
+
+function imgStyle(src){return src?`background-image:url('${src}')`:''}
+
+function buildScene(sc){
+  C.innerHTML='';built={};
+  if(sc.type==='title'){
+    built.root=el(`<div class="title-wrap"><div class="tag" style="position:static;margin-bottom:40px">${sc.tag||''}</div>
+      <div class="big serif">${sc.title||''}</div><div class="sub">${sc.subtitle||''}</div></div>`);
+  }else if(sc.type==='map'){
+    const inner=sc.image?`<div class="map-img" style="${imgStyle(sc.image)}"></div>`:`<canvas class="map-gen" width="1300" height="1180"></canvas>`;
+    built.root=el(`<div><div class="tag">${sc.tag||'Escena'}</div>
+      <div class="hook serif" style="top:170px;font-size:70px">${sc.heading||''}</div>
+      <div class="map-frame">${inner}<div class="pin" id="pin"></div></div></div>`);
+    if(!sc.image){
+      const cv=built.root.querySelector('canvas'),x=cv.getContext('2d'),r=rng(11);
+      x.fillStyle='#1a1624';x.fillRect(0,0,1300,1180);
+      x.strokeStyle='rgba(224,178,90,.18)';x.lineWidth=2;
+      for(let i=0;i<=26;i++){x.beginPath();x.moveTo(i*50,0);x.lineTo(i*50,1180);x.stroke()}
+      for(let i=0;i<=24;i++){x.beginPath();x.moveTo(0,i*50);x.lineTo(1300,i*50);x.stroke()}
+      for(let i=0;i<7;i++){x.fillStyle='rgba(122,90,214,.18)';x.fillRect(100+r()*1000,100+r()*900,100+r()*200,100+r()*160)}
+    }
+  }else if(sc.type==='portrait'){
+    const art=sc.image?`<div class="art" style="${imgStyle(sc.image)}"></div>`:`<div class="ph">${(sc.name||'?')[0]}</div>`;
+    const hp=sc.hp||[1,1];
+    built.root=el(`<div><div class="tag">${sc.tag||'Personaje'}</div>
+      <div class="card">${art}<div class="name serif">${sc.name||''}</div><div class="cls">${sc.cls||''}</div>
+      <div class="hpbar"><div class="hpfill" id="hpfill"></div></div>
+      <div class="hptxt"><span>HP</span><span id="hptxt"></span></div></div></div>`);
+  }else if(sc.type==='roll'){
+    built.root=el(`<div class="roll-wrap"><div class="tag">${sc.tag||'Tirada'}</div>
+      <div class="hook serif" style="font-size:76px">${sc.heading||''}</div>
+      <div class="die" id="die"></div><div class="verdict" id="verdict"></div>
+      <div class="roll-label">${sc.label||''}</div></div>`);
+  }
+  C.appendChild(built.root);
+}
+
+function dieSVG(n,color,glow){
+  // icosahedron-ish silhouette (hexagon with inner triangle edges)
+  const pts=[[280,10],[535,150],[535,410],[280,550],[25,410],[25,150]].map(p=>p.join(',')).join(' ');
+  return `<svg viewBox="0 0 560 560">
+    <defs><filter id="gl"><feGaussianBlur stdDeviation="${glow}" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+    <g filter="url(#gl)"><polygon points="${pts}" fill="#1b1626" stroke="${color}" stroke-width="10" stroke-linejoin="round"/>
+    <polyline points="280,10 25,410 535,410 280,10" fill="none" stroke="${color}" stroke-opacity=".55" stroke-width="5"/>
+    <polyline points="25,150 280,215 535,150 280,215 280,550" fill="none" stroke="${color}" stroke-opacity=".35" stroke-width="4"/></g>
+    <text class="num" x="280" y="335" text-anchor="middle" font-size="${n>=10?190:220}" fill="#f3ecdf" style="font-family:Gelasio,serif;font-weight:700">${n}</text></svg>`;
+}
+
+function seekScene(t){
+  const sc=S, d=sc.duration;
+  const fadeIn=easeOut(clamp(t/.35)), fadeOut=clamp((d-t)/.3);
+  C.style.opacity=Math.min(fadeIn,fadeOut);
+  const r=built.root;
+  if(sc.type==='title'){
+    const k=easeOut(clamp(t/.8));
+    r.style.transform=`translateY(${(1-k)*40}px) scale(${.96+.04*k})`;
+  }else if(sc.type==='map'){
+    const k=t/d, frame=r.querySelector('.map-frame');
+    const tgt=r.querySelector('.map-img')||r.querySelector('.map-gen');
+    const z=1.05+.12*k, px=(sc.pan?.[0]??0)*60*k, py=(sc.pan?.[1]??0)*60*k;
+    tgt.style.transform=`translate(${px}px,${py}px) scale(${z})`;
+    const pin=$('pin');const pp=sc.pin||[.6,.5];
+    pin.style.left=(pp[0]*980)+'px';pin.style.top=(pp[1]*980)+'px';
+    const b=1+.25*Math.sin(t*5);pin.style.transform=`scale(${clamp(t/.6)*b})`;
+  }else if(sc.type==='portrait'){
+    const hp=sc.hp||[1,1], from=sc.hpFrom??hp[0];
+    const k=ease(clamp((t-.8)/1.2)), cur=Math.round(from+(hp[0]-from)*k);
+    $('hpfill').style.width=(100*cur/hp[1])+'%';
+    $('hptxt').textContent=cur+' / '+hp[1];
+    const card=r.querySelector('.card');card.style.transform=`translateY(${(1-easeOut(clamp(t/.7)))*80}px)`;
+    if(cur/hp[1]<.35)$('hpfill').style.background='linear-gradient(90deg,#c8473a,#e0714a)';
+  }else if(sc.type==='roll'){
+    const faces=sc.die||20, res=sc.result, land=1.6;
+    const die=$('die'), v=$('verdict');
+    let shown, rot=0, sc2=1;
+    if(t<land){
+      const kk=t/land, flicks=Math.floor(Math.pow(kk,.6)*26);
+      const rr=rng(flicks*977+3);shown=1+Math.floor(rr()*faces);
+      rot=(1-easeOut(kk))*720; sc2=.7+.3*easeOut(kk);
+    }else{shown=res;const kk=clamp((t-land)/.4);sc2=1+.18*Math.sin(kk*Math.PI);}
+    const nat20=faces===20&&res===20, nat1=faces===20&&res===1;
+    const col=t<land?'#e0b25a':(nat20?'#e0b25a':nat1?'#c8473a':'#9a90a8');
+    const glow=t<land?2:(nat20?16:nat1?10:3);
+    let dx=0;if(nat1&&t>=land&&t<land+.5)dx=Math.sin((t-land)*70)*14*(1-(t-land)/.5);
+    die.innerHTML=dieSVG(shown,col,glow);
+    die.style.transform=`translateX(${dx}px) rotate(${rot}deg) scale(${sc2})`;
+    if(t>=land){
+      const kk=easeOutBack(clamp((t-land)/.45));
+      v.style.transform=`scale(${kk})`;v.style.opacity=clamp((t-land)/.2);
+      v.textContent=nat20?'¡CRÍTICO!':nat1?'PIFIA':('Total '+(sc.total??res));
+      v.style.color=nat20?'#e0b25a':nat1?'#c8473a':'#f3ecdf';
+    }else v.textContent='';
+  }
+}
+
+// ---------- API called by render.py ----------
+window.setScene=(sc,ws)=>{S=sc;buildScene(sc);buildCaps(ws);};
+window.seek=(t,gt)=>{drawBG(gt===undefined?t:gt);seekScene(t);updateCaps(t);};
+</script>
+</body>
+</html>

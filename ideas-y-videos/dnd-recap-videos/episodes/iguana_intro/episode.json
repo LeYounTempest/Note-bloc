@@ -1,0 +1,78 @@
+{
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "audio": "audio.m4a",
+ "scenes": [
+  {
+   "type": "pixel",
+   "template": "pixel_intro.html",
+   "duration": 46,
+   "sprites": {
+    "iguana": "sprites/iguana.png",
+    "kobold_0": "sprites/kobold_0.png",
+    "kobold_1": "sprites/kobold_1.png",
+    "kobold_2": "sprites/kobold_2.png",
+    "kobold_3": "sprites/kobold_3.png",
+    "kobold_4": "sprites/kobold_4.png",
+    "kobold_5": "sprites/kobold_5.png",
+    "kobold_6": "sprites/kobold_6.png",
+    "kobold_0_sing": "sprites/kobold_0_sing.png",
+    "kobold_0_scared": "sprites/kobold_0_scared.png",
+    "kobold_1_sing": "sprites/kobold_1_sing.png",
+    "kobold_1_scared": "sprites/kobold_1_scared.png",
+    "kobold_2_sing": "sprites/kobold_2_sing.png",
+    "kobold_2_scared": "sprites/kobold_2_scared.png",
+    "kobold_3_sing": "sprites/kobold_3_sing.png",
+    "kobold_3_scared": "sprites/kobold_3_scared.png",
+    "kobold_4_sing": "sprites/kobold_4_sing.png",
+    "kobold_4_scared": "sprites/kobold_4_scared.png",
+    "kobold_5_sing": "sprites/kobold_5_sing.png",
+    "kobold_5_scared": "sprites/kobold_5_scared.png",
+    "kobold_6_sing": "sprites/kobold_6_sing.png",
+    "kobold_6_scared": "sprites/kobold_6_scared.png"
+   },
+   "metaFile": "sprites/meta.json",
+   "lines": [
+    {
+     "t0": 3.0,
+     "t1": 8.0,
+     "text": "Donde las olas rompen barcos olvidados,"
+    },
+    {
+     "t0": 8.4,
+     "t1": 14.8,
+     "text": "siete pequeñas sombras recorríamos el mar."
+    },
+    {
+     "t0": 15.0,
+     "t1": 22.0,
+     "text": "Hasta que un viejo casco cayó sobre nosotros"
+    },
+    {
+     "t0": 22.5,
+     "t1": 29.0,
+     "text": "y pensamos que allí íbamos a acabar."
+    },
+    {
+     "t0": 30.0,
+     "t1": 32.2,
+     "text": "Entonces él llegó."
+    },
+    {
+     "t0": 33.0,
+     "t1": 38.0,
+     "text": "Una mano levantó... y todo comenzó a flotar."
+    }
+   ],
+   "times": {
+    "hullStart": 15.0,
+    "hullDown": 28.5,
+    "iguIn": 29.2,
+    "iguStop": 31.8,
+    "kob": 29.2,
+    "fear": 21.0
+   }
+  }
+ ]
+}
