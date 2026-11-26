@@ -167,6 +167,15 @@
       set(p, 'tail', 0, 0, 14 + flut * 8);
       p.fx = { glow: hold ? 1 : wind * 0.6, burst: hold ? clamp(1 - (t - 0.7) / 0.6) : 0 }; return p;
     },
+    charge(t, o = {}) {   // carga el Rayo de Hielo, furioso: tiembla, la capa y el sombrero se agitan; t local, ~26 s hasta el máximo
+      const k = clamp(t / (o.dur || 26)), ts = snap(t, 24), tr = Math.floor(t * 30) % 2 ? 1 : -1, fl = sin(ts * 11), p = { expr: k < 0.5 ? 'angry' : 'cast', fx: { glow: 0.35 + 0.65 * k, burst: k > 0.6 ? 0.5 * k : 0 } };
+      set(p, 'staff', 0, 0, 22 + 12 * k); set(p, 'arm_s', 0, -1 - 2 * k, 8 + 8 * k); set(p, 'head', 0, 0, -4 - 2 * k); set(p, 'torso', 0, 0, 3 * k);
+      set(p, 'root', tr * (0.4 + 1.2 * k) * (k > 0.1 ? 1 : 0), 0); set(p, 'hat', 0, 0, -8 - 10 * k + fl * (4 + 8 * k)); set(p, 'cape', 0, 0, -14 - 10 * k + fl * 6 * k);
+      set(p, 'book', 0, -1 - k, 0); set(p, 'tail', 0, 0, 12 + sin(ts * 9) * 8 * k); set(p, 'leg_L', 0, 0, 6 * k + sin(ts * 5) * 3 * k); set(p, 'leg_R', 0, 0, -4 * k - sin(ts * 5) * 3 * k); return p; },
+    point(t, o = {}) {   // señala con el bastón; o.sa = inclinación del bastón (+ derecha / − izquierda)
+      const k = easeOut(clamp(t / 0.12)), ts = snap(t, 16), p = { expr: 'normal', fx: { glow: 0.8 * k, burst: 0.6 * k } }, d = (o.sa || 55) > 0 ? 1 : -1;
+      set(p, 'staff', 0, 0, (o.sa || 55) * k); set(p, 'arm_s', 0, -1 * k, 14 * k * d); set(p, 'head', 0, 0, 5 * k * d); set(p, 'hat', 0, 0, -6 * k * d + sin(ts * 8) * 2);
+      set(p, 'cape', 0, 0, sin(ts * 3) * 3); set(p, 'torso', 0, 0, 2 * k * d); return p; },
     hollow(t) {   // "algo dentro de él se rompió"
       const ts = snap(t, 8), p = { expr: t < 0.3 ? 'scared' : (t < 0.9 ? 'hollow' : 'sad') };
       const k = easeOut(clamp(t / 0.8));
@@ -373,6 +382,14 @@
 
   const has = (name, anim) => !!(LIB[name] && LIB[name][anim]);
 
+  // carga de energía: partículas que convergen hacia (cx,cy); k = intensidad 0..1
+  function gather(g, cx, cy, t, k, o = {}) {
+    const n = Math.round(14 + 40 * Math.min(1, k)), R = (o.r || 30) * (0.7 + 0.5 * k); g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
+    for (let i = 0; i < n; i++) { const age = (t * (1.1 + k) + hash(i, 1)) % 1, r = R * (1 - age), ang = hash(i, 2) * TAU + age * 6 * (hash(i, 3) > .5 ? 1 : -1);
+      g.globalAlpha = Math.sin(age * Math.PI) * 0.95; g.fillStyle = hash(i, 4) > .55 ? '#ffffff' : (hash(i, 4) > .25 ? '#bfe8ff' : '#7fc4f0');
+      g.fillRect(round(cx + Math.cos(ang) * r), round(cy + Math.sin(ang) * r * 0.85), hash(i, 5) > .8 ? 2 : 1, hash(i, 5) > .8 ? 2 : 1) }
+    g.globalAlpha = 1; g.restore();
+  }
   // aliento de fuego: partículas deterministas desde (x,y) en dirección (dx,dy)
   function fire(g, x, y, dx, dy, t, k = 1, o = {}) {
     const L = (o.len || 130) * Math.min(1, k + 0.2), n = 90, z = o.z || 1; g.save(); g.setTransform(1, 0, 0, 1, 0, 0);
@@ -390,5 +407,5 @@
       const x = round(cx + (hash(i, 3) - .5) * w), y = round(cy + (hash(i, 4) - .5) * h); g.fillRect(x, y, 1, 1); if (ph > .4 && ph < .6) { g.fillRect(x - 1, y, 3, 1); g.fillRect(x, y - 1, 1, 3) } }
     g.globalAlpha = 1; g.restore(); }
 
-  G.Rig = { init, draw, sample, has, fire, sparkle, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
+  G.Rig = { init, draw, sample, has, gather, fire, sparkle, glow, aura, bolt, arcs, hash, clamp, easeOut, snap };
 })(window);

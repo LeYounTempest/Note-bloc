@@ -141,6 +141,14 @@
     {
      "t": 0,
      "mode": "night"
+    },
+    {
+     "t": 15.25,
+     "mode": "day"
+    },
+    {
+     "t": 20.349999999999998,
+     "mode": "night"
     }
    ],
    "camp": {
@@ -173,6 +181,16 @@
      }
     ]
    },
+   "ships": [
+    {
+     "x0": 150,
+     "x1": 62,
+     "t0": 26.5,
+     "t1": 41.0,
+     "y": 94,
+     "s": 1.5
+    }
+   ],
    "lines": [
     {
      "t0": 0,
@@ -299,9 +317,7 @@
     {
      "id": "k0",
      "rig": "kobold",
-     "variant": 0,
      "name": "Julia",
-     "seed": 0,
      "keys": [
       {
        "t": 0,
@@ -313,39 +329,52 @@
        "t": 7.9,
        "x": 84,
        "y": 408,
-       "anim": "sing",
+       "anim": "cheer",
        "opts": {
         "seed": 1
        }
       },
       {
-       "t": 8.4,
+       "t": 8.5,
        "x": 84,
        "y": 408,
        "anim": "idle"
       },
       {
-       "t": 8.4,
-       "x": 84,
-       "y": 408,
-       "anim": "sing",
-       "opts": {
-        "seed": 20
-       }
-      },
-      {
-       "t": 15.4,
-       "x": 84,
-       "y": 408,
-       "anim": "idle"
-      },
-      {
-       "t": 15.6,
+       "t": 8.5,
        "x": 84,
        "y": 408,
        "anim": "sing",
        "opts": {
         "seed": 2
+       }
+      },
+      {
+       "t": 15.2,
+       "x": 84,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 15.3,
+       "x": 84,
+       "y": 408,
+       "anim": "idle",
+       "vis": false
+      },
+      {
+       "t": 20.4,
+       "x": 84,
+       "y": 408,
+       "anim": "sing"
+      },
+      {
+       "t": 20.4,
+       "x": 84,
+       "y": 408,
+       "anim": "sing",
+       "opts": {
+        "seed": 3
        }
       },
       {
@@ -360,7 +389,7 @@
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 3
+        "seed": 4
        }
       },
       {
@@ -375,7 +404,7 @@
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 4
+        "seed": 5
        }
       },
       {
@@ -384,14 +413,14 @@
        "y": 408,
        "anim": "idle"
       }
-     ]
+     ],
+     "variant": 0,
+     "seed": 0
     },
     {
      "id": "k1",
      "rig": "kobold",
-     "variant": 1,
      "name": "Piedrín",
-     "seed": 1,
      "keys": [
       {
        "t": 0,
@@ -403,9 +432,9 @@
        "t": 7.2,
        "x": 104,
        "y": 420,
-       "anim": "sing",
+       "anim": "cheer",
        "opts": {
-        "seed": 5
+        "seed": 6
        }
       },
       {
@@ -415,16 +444,29 @@
        "anim": "idle"
       },
       {
-       "t": 8.4,
+       "t": 8.5,
        "x": 104,
        "y": 420,
        "anim": "sing",
        "opts": {
-        "seed": 21
+        "seed": 7
        }
       },
       {
-       "t": 15.4,
+       "t": 15.2,
+       "x": 104,
+       "y": 420,
+       "anim": "idle"
+      },
+      {
+       "t": 15.3,
+       "x": 104,
+       "y": 420,
+       "anim": "idle",
+       "vis": false
+      },
+      {
+       "t": 20.4,
        "x": 104,
        "y": 420,
        "anim": "idle"
@@ -435,7 +477,7 @@
        "y": 420,
        "anim": "sing",
        "opts": {
-        "seed": 6
+        "seed": 8
        }
       },
       {
@@ -448,9 +490,9 @@
        "t": 30.8,
        "x": 104,
        "y": 420,
-       "anim": "sing",
+       "anim": "cheer",
        "opts": {
-        "seed": 7
+        "seed": 9
        }
       },
       {
@@ -465,7 +507,7 @@
        "y": 420,
        "anim": "sing",
        "opts": {
-        "seed": 8
+        "seed": 10
        }
       },
       {
@@ -474,14 +516,14 @@
        "y": 420,
        "anim": "idle"
       }
-     ]
+     ],
+     "variant": 1,
+     "seed": 1
     },
     {
      "id": "k2",
      "rig": "kobold",
-     "variant": 2,
      "name": "Braulio",
-     "seed": 2,
      "keys": [
       {
        "t": 0,
@@ -493,9 +535,9 @@
        "t": 6.4,
        "x": 172,
        "y": 408,
-       "anim": "sing",
+       "anim": "cheer",
        "opts": {
-        "seed": 9
+        "seed": 11
        }
       },
       {
@@ -505,16 +547,29 @@
        "anim": "idle"
       },
       {
-       "t": 8.4,
+       "t": 8.5,
        "x": 172,
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 22
+        "seed": 12
        }
       },
       {
-       "t": 15.4,
+       "t": 15.2,
+       "x": 172,
+       "y": 408,
+       "anim": "idle"
+      },
+      {
+       "t": 15.3,
+       "x": 172,
+       "y": 408,
+       "anim": "idle",
+       "vis": false
+      },
+      {
+       "t": 20.4,
        "x": 172,
        "y": 408,
        "anim": "idle"
@@ -525,7 +580,7 @@
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 10
+        "seed": 13
        }
       },
       {
@@ -540,7 +595,7 @@
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 11
+        "seed": 14
        }
       },
       {
@@ -555,7 +610,7 @@
        "y": 408,
        "anim": "sing",
        "opts": {
-        "seed": 12
+        "seed": 15
        }
       },
       {
@@ -564,183 +619,9 @@
        "y": 408,
        "anim": "idle"
       }
-     ]
-    },
-    {
-     "id": "k4",
-     "rig": "kobold",
-     "variant": 4,
-     "name": "El Zurdito",
-     "seed": 4,
-     "keys": [
-      {
-       "t": 0,
-       "x": 80,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 39.2,
-       "x": 80,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 42.5,
-       "x": 80,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 44.9,
-       "x": 80,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 46.5,
-       "x": 80,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.72
-      }
-     ]
-    },
-    {
-     "id": "k5",
-     "rig": "kobold",
-     "variant": 5,
-     "name": "Pancho",
-     "seed": 5,
-     "keys": [
-      {
-       "t": 0,
-       "x": 115,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 39.2,
-       "x": 115,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 42.5,
-       "x": 115,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 44.9,
-       "x": 115,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 46.5,
-       "x": 115,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.72
-      }
-     ]
-    },
-    {
-     "id": "k6",
-     "rig": "kobold",
-     "variant": 6,
-     "name": "Lola",
-     "seed": 6,
-     "keys": [
-      {
-       "t": 0,
-       "x": 150,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 39.2,
-       "x": 150,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 42.5,
-       "x": 150,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 44.9,
-       "x": 150,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 46.5,
-       "x": 150,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.72
-      }
-     ]
-    },
-    {
-     "id": "k3",
-     "rig": "kobold",
-     "variant": 3,
-     "name": "Chispa",
-     "seed": 3,
-     "keys": [
-      {
-       "t": 0,
-       "x": 185,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 39.2,
-       "x": 185,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.0
-      },
-      {
-       "t": 42.5,
-       "x": 185,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 44.9,
-       "x": 185,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.5
-      },
-      {
-       "t": 46.5,
-       "x": 185,
-       "y": 378,
-       "anim": "idle",
-       "alpha": 0.72
-      }
-     ]
+     ],
+     "variant": 2,
+     "seed": 2
     },
     {
      "id": "iguana",
@@ -754,12 +635,566 @@
        "anim": "idle"
       },
       {
+       "t": 6.2,
+       "x": 138,
+       "y": 440,
+       "anim": "point",
+       "opts": {
+        "sa": 55
+       }
+      },
+      {
+       "t": 7.0,
+       "x": 138,
+       "y": 440,
+       "anim": "point",
+       "opts": {
+        "sa": -55
+       }
+      },
+      {
+       "t": 7.7,
+       "x": 138,
+       "y": 440,
+       "anim": "point",
+       "opts": {
+        "sa": -75
+       }
+      },
+      {
+       "t": 8.6,
+       "x": 138,
+       "y": 440,
+       "anim": "idle"
+      },
+      {
+       "t": 15.3,
+       "x": 138,
+       "y": 440,
+       "anim": "idle",
+       "vis": false
+      },
+      {
+       "t": 20.4,
+       "x": 138,
+       "y": 440,
+       "anim": "idle"
+      },
+      {
        "t": 47.4,
        "x": 138,
        "y": 440,
        "anim": "idle"
       }
      ]
+    },
+    {
+     "id": "g4",
+     "rig": "kobold",
+     "name": "El Zurdito",
+     "keys": [
+      {
+       "t": 0,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 33.0,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 34.0,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.22
+      },
+      {
+       "t": 35.5,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 80,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ],
+     "variant": 4,
+     "seed": 4
+    },
+    {
+     "id": "g5",
+     "rig": "kobold",
+     "name": "Pancho",
+     "keys": [
+      {
+       "t": 0,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 33.0,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 34.0,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.22
+      },
+      {
+       "t": 35.5,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 115,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ],
+     "variant": 5,
+     "seed": 5
+    },
+    {
+     "id": "g6",
+     "rig": "kobold",
+     "name": "Lola",
+     "keys": [
+      {
+       "t": 0,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 33.0,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 34.0,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.22
+      },
+      {
+       "t": 35.5,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 150,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ],
+     "variant": 6,
+     "seed": 6
+    },
+    {
+     "id": "g3",
+     "rig": "kobold",
+     "name": "Chispa",
+     "keys": [
+      {
+       "t": 0,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 33.0,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 34.0,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.22
+      },
+      {
+       "t": 35.5,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 39.2,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.0
+      },
+      {
+       "t": 42.5,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 44.9,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.5
+      },
+      {
+       "t": 46.5,
+       "x": 185,
+       "y": 378,
+       "anim": "idle",
+       "alpha": 0.72
+      }
+     ],
+     "variant": 3,
+     "seed": 3
+    },
+    {
+     "id": "f0",
+     "rig": "kobold",
+     "name": "Julia",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": 24,
+       "y": 376,
+       "anim": "walk"
+      },
+      {
+       "t": 20.4,
+       "x": 150,
+       "y": 376,
+       "anim": "walk"
+      },
+      {
+       "t": 20.5,
+       "x": 150,
+       "y": 376,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 0,
+     "seed": 0
+    },
+    {
+     "id": "f1",
+     "rig": "kobold",
+     "name": "Piedrín",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": 236,
+       "y": 358,
+       "anim": "walk",
+       "opts": {
+        "speed": 0.8
+       }
+      },
+      {
+       "t": 20.4,
+       "x": 140,
+       "y": 358,
+       "anim": "walk",
+       "opts": {
+        "speed": 0.8
+       }
+      },
+      {
+       "t": 20.5,
+       "x": 140,
+       "y": 358,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 1,
+     "seed": 1
+    },
+    {
+     "id": "f2",
+     "rig": "kobold",
+     "name": "Braulio",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": 176,
+       "y": 372,
+       "anim": "sing",
+       "opts": {
+        "seed": 31
+       }
+      },
+      {
+       "t": 20.4,
+       "x": 176,
+       "y": 372,
+       "anim": "sing",
+       "opts": {
+        "seed": 33
+       }
+      },
+      {
+       "t": 20.5,
+       "x": 176,
+       "y": 372,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 2,
+     "seed": 2
+    },
+    {
+     "id": "f3",
+     "rig": "kobold",
+     "name": "Chispa",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": -14,
+       "y": 342,
+       "anim": "run"
+      },
+      {
+       "t": 17.0,
+       "x": 290,
+       "y": 342,
+       "anim": "run"
+      },
+      {
+       "t": 17.1,
+       "x": 290,
+       "y": 345,
+       "anim": "run",
+       "jump": true
+      },
+      {
+       "t": 18.8,
+       "x": -14,
+       "y": 345,
+       "anim": "run"
+      },
+      {
+       "t": 18.900000000000002,
+       "x": -14,
+       "y": 342,
+       "anim": "run",
+       "jump": true
+      },
+      {
+       "t": 20.4,
+       "x": 120,
+       "y": 342,
+       "anim": "run"
+      },
+      {
+       "t": 20.5,
+       "x": 120,
+       "y": 342,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 3,
+     "seed": 3
+    },
+    {
+     "id": "f6",
+     "rig": "kobold",
+     "name": "Lola",
+     "keys": [
+      {
+       "t": 15.850000000000001,
+       "x": -14,
+       "y": 364,
+       "anim": "run"
+      },
+      {
+       "t": 17.55,
+       "x": 290,
+       "y": 364,
+       "anim": "run"
+      },
+      {
+       "t": 17.650000000000002,
+       "x": 290,
+       "y": 367,
+       "anim": "run",
+       "jump": true
+      },
+      {
+       "t": 19.35,
+       "x": -14,
+       "y": 367,
+       "anim": "run"
+      },
+      {
+       "t": 19.450000000000003,
+       "x": -14,
+       "y": 364,
+       "anim": "run",
+       "jump": true
+      },
+      {
+       "t": 20.4,
+       "x": 120,
+       "y": 364,
+       "anim": "run"
+      },
+      {
+       "t": 20.5,
+       "x": 120,
+       "y": 364,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 6,
+     "seed": 6
+    },
+    {
+     "id": "f4",
+     "rig": "kobold",
+     "name": "El Zurdito",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": 108,
+       "y": 326,
+       "anim": "idle"
+      },
+      {
+       "t": 20.5,
+       "x": 108,
+       "y": 326,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 4,
+     "seed": 4
+    },
+    {
+     "id": "f5",
+     "rig": "kobold",
+     "name": "Pancho",
+     "keys": [
+      {
+       "t": 15.3,
+       "x": 238,
+       "y": 384,
+       "anim": "cheer"
+      },
+      {
+       "t": 20.5,
+       "x": 238,
+       "y": 384,
+       "anim": "idle",
+       "vis": false
+      }
+     ],
+     "variant": 5,
+     "seed": 5
     }
    ],
    "events": [
@@ -774,21 +1209,67 @@
      "t": 6.4,
      "dur": 0.9,
      "actor": "k2",
-     "text": "1"
+     "text": "1",
+     "big": true
     },
     {
      "type": "label",
      "t": 7.2,
      "dur": 0.9,
      "actor": "k1",
-     "text": "2"
+     "text": "2",
+     "big": true
     },
     {
      "type": "label",
      "t": 7.9,
      "dur": 0.9,
      "actor": "k0",
-     "text": "3"
+     "text": "3",
+     "big": true
+    },
+    {
+     "type": "flash",
+     "t": 6.4,
+     "dur": 0.2,
+     "a": 0.25
+    },
+    {
+     "type": "flash",
+     "t": 7.2,
+     "dur": 0.2,
+     "a": 0.25
+    },
+    {
+     "type": "flash",
+     "t": 7.9,
+     "dur": 0.2,
+     "a": 0.25
+    },
+    {
+     "type": "flash",
+     "t": 15.200000000000001,
+     "dur": 0.6,
+     "a": 1.0
+    },
+    {
+     "type": "tint",
+     "t": 15.3,
+     "dur": 5.099999999999998,
+     "a": 0.14,
+     "c": "255,222,160",
+     "vig": true
+    },
+    {
+     "type": "grain",
+     "t": 15.3,
+     "dur": 5.099999999999998
+    },
+    {
+     "type": "flash",
+     "t": 20.299999999999997,
+     "dur": 0.6,
+     "a": 1.0
     },
     {
      "type": "label",

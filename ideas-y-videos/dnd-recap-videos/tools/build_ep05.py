@@ -24,8 +24,11 @@ actors.append({"id": "kenku", "rig": "kenku", "variant": 0, "name": "Kenku", "ke
 actors.append({"id": "dei", "rig": "dei", "name": "Dei", "keys": [K(0, 150, 388, "stunned"), K(28.9, 150, 388, "idle")]})
 ICE = [140, 210, 255]
 actors.append({"id": "iguana", "rig": "iguana", "name": "Mr. Iguana", "keys": [
-    K(0, 120, 404, "cast", fxcol=ICE), K(5.0, 120, 404, "cast", fxcol=ICE, aura=0.7), K(28.9, 120, 404, "cast", fxcol=ICE, aura=1.4, float=410),
-    K(37.0, 120, 350, "cast", fxcol=ICE, aura=2.0, float=410), K(60.0, 120, 350, "cast", fxcol=ICE, aura=1.2, float=410)]})
+    K(0, 120, 404, "cast", fxcol=ICE), K(5.0, 120, 404, "cast", fxcol=ICE, aura=0.7),
+    # desde la escarcha (8.1): carga el Rayo de Hielo, enojado, y vuelve a elevarse poco a poco
+    K(8.1, 120, 404, "charge", fxcol=ICE, aura=0.7, charge=0.1), K(14.0, 120, 404, "charge", fxcol=ICE, aura=1.0, charge=0.45, float=410),
+    K(20.0, 120, 388, "charge", fxcol=ICE, aura=1.3, charge=0.7, float=410), K(28.9, 120, 366, "charge", fxcol=ICE, aura=1.6, charge=0.9, float=410),
+    K(36.45, 120, 352, "cast", fxcol=ICE, aura=2.0, charge=1.0, float=410), K(60.0, 120, 352, "cast", fxcol=ICE, aura=1.2, float=410)]})
 DX, DY = 215, 322
 actors.append({"id": "dragon", "rig": "dragon", "name": "Dragón", "keys": [
     K(0, DX, DY, "idle"), K(13.6, DX, DY, "breathe", opts={"dur": 0.9}, firedx=-0.15, firedy=1.55, firelen=60), K(15.0, DX, DY, "idle"),
